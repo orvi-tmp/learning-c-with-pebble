@@ -435,8 +435,6 @@ Expressions can get complex and type conversion does not always work in the obvi
 
 We could give many examples of convoluted C code.  However, there is an annual contest to determine the most obfuscated C code written; see the Web site at [ioccc.org](http://www.ioccc.org/index.html) for great example of obfuscated C code.
 
-**Exercises**
-
 **Project Exercises**
 
 In this section -- for this and future chapters -- we will use projects that are comprised of existing code on GitHub.  We will bring that code into the CloudPebble environment for examination and experimentation.
