@@ -213,7 +213,7 @@ This demonstrates a *boolean expression*, which is computed from boolean values.
 
 Let's assume that `age` equals 70 and `hours` equals 25.  We can then compute the expression as the figure below:
 
-![Figure 1: Computation Order for Boolean Expression Example](http://www.cs.hope.edu/~jipping/pebblebook/Figure3-1.png) 
+![Figure 3.1: Computation Order for Boolean Expression Example](http://www.cs.hope.edu/~jipping/pebblebook/Figure3-1.png) 
 
 We will build some definitions for boolean "data types" in C later in this chapter.
 
@@ -271,7 +271,7 @@ PRECEDENCE RULE TABLE
 
 This means the result of the expression above is actually `28`, evaluated in the order shown below:
 
-![Figure 1: Project 3.1 Running](http://www.cs.hope.edu/~jipping/pebblebook/Figure3-2.png)
+![Figure 3.2: Example Evaluation Order](http://www.cs.hope.edu/~jipping/pebblebook/Figure3-2.png)
 
 Let's consider a more complicated example.
 
@@ -339,7 +339,7 @@ Let's look at an example.
 
 What is the resulting value of `z`?  The computation goes as follows:
 
-![Figure 1: Project 3.1 Running](http://www.cs.hope.edu/~jipping/pebblebook/Figure3-3.png)
+![Figure 3.3: Shorthand Evaluation](http://www.cs.hope.edu/~jipping/pebblebook/Figure3-3.png)
 
 1. increment `x`, evaluate `x` to 11
 2. evaluate `x` to 11, increment `x` to 12
@@ -441,9 +441,9 @@ We could give many examples of convoluted C code.  However, there is an annual c
 
 In this section -- for this and future chapters -- we will use projects that are comprised of existing code on GitHub.  We will bring that code into the CloudPebble environment for examination and experimentation.
 
-Let's start with Project 3.1. Fork "Project 3.1" from the PebbleBook GitHub account following the instructions in Chapter 2.  Then bring the code for Project 3.1 into CloudPebble, also using the instructions from Chapter 2.  When you have successfully brought the project into your CloudPebble environment, you can run the code.  It implements a simple program with a ball bouncing up and down on the Pebble's display.  
+Let's start with Project 3.1. Fork "Project3.1" from the PebbleBook GitHub account following the instructions in Chapter 2.  Then bring the code for Project 3.1 into CloudPebble, also using the instructions from Chapter 2.  When you have successfully brought the project into your CloudPebble environment, you can run the code.  It implements a simple program with a ball bouncing up and down on the Pebble's display.  
 
-![Figure 1: Project 3.1 Running](http://www.cs.hope.edu/~jipping/pebblebook/figure3-4.png)
+![Figure 3.4: Project 3.1 Running](http://www.cs.hope.edu/~jipping/pebblebook/figure3-4.png)
 
 You can ignore a lot of the code in Project 3.1; much of it is required to make the program run on a Pebble watch.  Let's start with the declarations.  Consider the declarations for the X and Y positioning of the ball:
 
