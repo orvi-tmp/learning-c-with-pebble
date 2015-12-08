@@ -192,7 +192,7 @@ Let's assume that `age` equals 70 and `hours` equals 25.  We can then compute th
 
 <figure>
    <hr/>
-   <img src='http://www.cs.hope.edu/~jipping/pebblebook/Figure3-1.png'>
+   <img src='Figure3-1.png'>
    <figcaption>
       <b>Figure 3.1:</b> Computation Order for the Boolean Expression Example<br/>
    </figcaption>
@@ -369,7 +369,7 @@ This means the result of the expression above is actually `28`, evaluated in the
 
 <figure>
    <hr/>
-   <img src='http://www.cs.hope.edu/~jipping/pebblebook/Figure3-2.png'>
+   <img src='Figure3-2.png'>
    <figcaption>
       <b>Figure 3.2:</b> Order of Evaluation of Expression Example<br/>
    </figcaption>
@@ -440,7 +440,7 @@ What is the resulting value of `z`?  The computation goes as in Figure 3.3:
 
 <figure>
    <hr/>
-   <img src='http://www.cs.hope.edu/~jipping/pebblebook/Figure3-1.png'>
+   <img src='Figure3-1.png'>
    <figcaption>
       <b>Figure 3.3:</b> Computation Order for the Shortcut Example<br/>
    </figcaption>
@@ -602,7 +602,7 @@ Let's start with Project 3.1. Fork "Project 3.1" from the PebbleBook GitHub acco
 
 <figure>
    <hr/>
-   <img src='http://www.cs.hope.edu/~jipping/pebblebook/figure3-4.png'>
+   <img src='figure3-4.png'>
    <figcaption>
       <b>Figure 3.4:</b> Screenshot of Project 3.1 Running<br/>
    </figcaption>
