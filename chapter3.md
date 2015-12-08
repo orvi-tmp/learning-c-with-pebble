@@ -598,7 +598,7 @@ The second mechanism for documenting is a "/* ... */" sequence. Anything between
 
 In this section -- for this and future chapters -- we will use projects that are comprised of existing code on GitHub.  We will bring that code into the CloudPebble environment for examination and experimentation.  Instructions on how to do this were discussed in Chapter 2.
 
-Let's start with Project 3.1. Fork "Project 3.1" from the PebbleBook GitHub account.  Then bring the code for Project 3.1 into CloudPebble.  When you have successfully brought the project into your CloudPebble environment, you can run the code.  It implements a simple program with a ball bouncing up and down on the Pebble's display.  
+Let's start with Project 3.1. [You can access that project using this URL.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-1)  When you have successfully brought the project into your CloudPebble environment, you can run the code.  It implements a simple program with a ball bouncing up and down on the Pebble's display.  
 
 <figure>
    <hr/>
@@ -619,11 +619,11 @@ Now look at line 49.  These variables are used to draw the ball and used to dete
 
 Try these exercises using the code from Project 3.1.
 
-1. Change the declaration in the code to make the ball bigger.  Notice that the statement at line 49 uses the `ball_radius` variable to draw the ball.  Change this variable to make the ball bigger.
+1. Change the declaration in the code to make the ball bigger.  Notice that the statement at line 48 uses the `ball_radius` variable to draw the ball.  Change this variable to make the ball bigger.
 
-1. Now make the ball *faster*.  The two velocity variables -- `x_velocity` and `y_velocity` -- are initialized at line 16. At line 37, the velocity is used to move the ball in the Y position (up or down) by changing `position_y` variable.  Change the velocity to make the ball move faster. 
+1. Now make the ball *faster*.  The two velocity variables -- `x_velocity` and `y_velocity` -- are initialized at line 16. At line 36, the velocity is used to move the ball in the Y position (up or down) by changing `position_y` variable.  Change the velocity to make the ball move faster. 
 
-1. The ball only bounces up and down.  Now add a line under line 37 to also change the `position_x` variable to that the ball will also move in the X direction. 
+1. The ball only bounces up and down.  Now add a line under line 36 to also change the `position_x` variable to that the ball will also move in the X direction. 
 
 1. Look for the two functions listed below:
 
@@ -645,8 +645,11 @@ The code in these functions are run when the top and bottom buttons are pressed,
 
 2. Do the same thing for `down_click_handler`, except *slow* the ball down when you click the bottom button.
 
+1. Finally, add some comments to the file to claim the code as your own and to identify what you have done!
 
-Now let's start a new project.  Using the instructions from Chapter 2, pull Project 3.2 into CloudPebble and run it.  You should get a letter traveling around a circle on the Pebble's display.  
+[A completed project exercise for Project 3.1 can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-1-answer)
+
+Now let's start a new project.  [Using this link](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-2), import Project 3.2 into CloudPebble and run it.  You should get a letter traveling around a circle on the Pebble's display.  
 
 This code is a great example of expressions and of floating points vs integer computation.  The main code we want to pay attention to is in the function `move_letter()`:
 
@@ -665,13 +668,17 @@ So why are floating point computations so bad to do on the Pebble watch CPU?  Fl
 >
 Second, because floating point numbers have binary points and are stored with exponents, floating point computations can be very slow. Addition and subtraction have a long algorithm ([see here for an example](https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BinMath/addFloat.html)) and multiplication and division is even longer ([this YouTube video is good at showing the long algorithm](https://www.youtube.com/watch?v=DuOwT2hZOiw)). Most CPUs that can handle floating point operations use an additional floating point coprocessor. The Pebble watch CPU does not have that extra coprocessor, and in a CPU where we have to be very stingy about when to do floating-point operations, doing as much as possible with integers makes sense.  
 
-1. You will again find functions that implement the top and bottom buttons.  Put code in each to move to the next letter in the alphabet and the previous letter in the alphabet when the top or bottom buttons are pressed, respectively.  Do this using only implicit type conversion.
+1. You will again find functions that implement the top and bottom buttons.  Put code in each to move to the next letter in the alphabet and the previous letter in the alphabet when the top or bottom buttons are pressed, respectively.  
 
 1. Now add a line to the `up_click_handler` function that also makes the letter go faster when you click the top button.
 
-2. Do the same thing for `down_click_handler` as you did in the previous exercise, slowing the letter down when you click the bottom button.
+2. Do the same thing for `down_click_handler` as you did in the previous exercise, slowing the letter down when you click the bottom button.  What happens when you go too slow?
 
 1. Find the `select_click_handler` function.  The code defined in this function will execute when the *select* (middle) button is clicked/pressed.  Define a variable called `direction` (where would you declare this?) and initialize it to have the value `1`.  In the `select_click_handler` function, "toggle" this to negative or positive on each click of the select button.  Use this `direction` variable in the computation of the new `position_x` to change direction of rotation when the select button is clicked.
+
+1. Add comments to the code to claim the code and to explain what it does.
+
+[A completed project exercise for Project 3.2 can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-2-answer)
 
 
 
