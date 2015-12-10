@@ -32,15 +32,15 @@ First, note that there are rules for variable names.  Variables names must be co
 
 Second, note that C is case-sensitive when it comes to variable names.  This means that capital letters are considered different than lowercase letters.  `positionX` is not the same variable as `positionx`.   
 
-It is indeed possible to use a variable without first assigning it a value. However, remember that variables are simply abstractions for memory words.  The result of using a variable without initializing it is unpredictable; you get whatever was left over in memory when the program started executing. Most often, programmers just assume that variables are automatically initialized to zero when a program starts; it is actally best to assume that any left over data is just useless.
+It is indeed possible to use a variable without first assigning it a value. However, remember that variables are simply abstractions for memory words.  The result of using a variable without initializing is an unpredictable value; you get whatever was left over in memory from the last time the memory word was used.  Most often, programmers just assume that variables are automatically initialized to zero when a program starts; it is actually best to assume that any left over data is just useless.
 
 > **Different Compiler Behavior**
 > 
-Sometimes, C compilers behave differently with small details like using variables without initialization. There have been several attempts to standardize C and compilers -- particularly the variety of open source compilers -- don't all adhere to the same standard.  In addition, standards don't always address details like variable initialization.  This leaves compiler writers free to choose.  So, in regard to variable initialization, most compilers do not automatically initialize variables, but some do.  Make sure you check your compiler before you rely on this behavior.
+Sometimes, C compilers behave differently with small details like using variables without initialization. There have been several attempts to standardize C, but compilers -- particularly the variety of open source compilers -- don't all adhere to the same standard.  In addition, standards don't always address details like variable initialization.  This leaves compiler writers free to choose.  So, in regard to variable initialization, most compilers do not automatically initialize variables, but some do.  Make sure you check your compiler before you rely on this behavior.
 
 ### Data Types ###
 
-Variables have two important properties: what *values* they can take on and what *operations* can be done to them.  Together, these two properties are called a *data type*.  Every variable used in a C program must have a data type.
+Variables have two important properties: what *values* can be assigned to them and what *operations* can be done to them.  Together, these two properties are called a *data type*.  Every variable used in a C program must have a data type.
 
 Consider the example code below:
 
@@ -330,8 +330,6 @@ When we consider an expression, the *order of operations* is important.  It is t
 
 A left-to-right evaluation of the expression would yield a value of `22`.  However, C has a different order of evaluation.  The rules that specify the order of evaluation are called *precedence rules*.  A short set of precedence rules are given in the table below (a complete table is given in Appendix A).
 
-PRECEDENCE RULE TABLE
-
 <table>
 <TR>
 <TD><b>Precedence(s)</b></TD>
@@ -355,11 +353,16 @@ PRECEDENCE RULE TABLE
 
 <TR>
 <TD>4</TD>
-<TD>comparison operators</TD>
+<TD><code>+ -</code></TD>
 </TR>
 
 <TR>
 <TD>5</TD>
+<TD>comparison operators</TD>
+</TR>
+
+<TR>
+<TD>6</TD>
 <TD>assignment and shortcuts</TD>
 </TR>
 
@@ -475,7 +478,7 @@ The table below shows all the compound shortcuts in C.
 <TD>&=, |=, and ^=</TD><TD>Logical operators: and, or, and not</TD>
 </TR>
 <TR>
-<TD>>>= and <<=   </TD><TD>Shifting operators: right and left shifting</TD>
+<TD>>>= and &lt;&lt;=   </TD><TD>Shifting operators: right and left shifting</TD>
 </TR>
 </table>
 
@@ -528,11 +531,10 @@ Variables and other entities in C may be declared in many places.  Because C is 
 
 This is a bit contrived, but it makes a point.  There are two blocks here: an outer block where the declarations of `positionX` and `positionZ` happen and an inner block where the declarations of `positionY` and `porportion` happen. The curly brackets are block delimiters.  
 
-Here are two rules about accessibility of declared names in C:
+Here are two rules about accessibility -- or scope -- of declared names in C:
 
 1. You must declare names before you use them.
 2. Code can only access names declared at the current block level and outer block levels.
-
 
 These rules mean that names at inner block levels are inaccessible.  So in the above example, the declaration of `proportion` that uses the variable `positionZ` is actually illegal; the use of both `proportion` and `positionY` in the declaration of `positionZ` is also illegal.  The reference to `positionX` in the declaration of `positionY` is fine, because `positionX` is declared in the outer block.  
 
@@ -551,7 +553,7 @@ In the evaluation of the expression, the first reference to `x` gives 10, the fi
 
 ### Exploiting The Rules and Making Big Messes ###
 
-At this point in the chapter, we have seen some straightforward rules about C and expressions.  We have also seen some interesting and odd combinations of expression shortcuts, type conversions, and precedence rules.  If a programmer is not careful with the code she writes, she could be creating a big mess.  The syntax rules are given for flexibility, but they can be exploited with some strange results.
+At this point in the chapter, we have seen some straightforward rules about C and expressions.  We have also seen some interesting and odd combinations of expression shortcuts, type conversions, and precedence rules.  If programmers are not careful with the code they write, they could be creating a big mess.  The syntax rules are given for flexibility, but they can be exploited with some strange results.
 
 To make code as clear and straightforward as possible, consider these programming guidelines:
 
@@ -567,7 +569,7 @@ As with many C constructs, being allowed to use assignments in expressions does 
 1. **Avoid using shortcuts in expressions.**
 As with assignment statements, shortcuts are just too confusing to be used in expressions.  Used by themselves as statements, shortcuts can be convenient and expressive.  And even though shortcuts used to influence compilers when they generated instructions, few modern compilers pay attention to them anymore.
 
-1. **Limit all name access to the tightest possible scope.**
+1. **Limit all name access to the tightest possible block.**
 Variables should be declared as close to their use as possible.  Avoid global variables and stick with local declarations.
 
 1. **Use casting to make sure types are converted.**
