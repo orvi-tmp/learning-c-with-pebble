@@ -115,7 +115,7 @@ There are currently three different software platforms when one considers writin
 </figure>
 
 
-There are two types of applications that one can write for Pebble OS: watchfaces and watch apps.  The types are written in much the same way.  However, watchfaces focus on (naturally) displays that mark time, restricting code elements to input and display based on time and time components.  Watch apps expand the possibilities of an application, using the watch like a computer and controlling all elements of the interface. In a sense, watchfaces are watch apps, but there is a specific way of programming a watchface that makes it unique.  
+There are two types of applications that one can write for Pebble OS: watchfaces and watch apps.  Both types are written in much the same way.  However, watchfaces focus on (naturally) displays that mark time, restricting code elements to input and display based on time and time components.  Watch apps expand the possibilities of an application, using the watch like a computer and controlling all elements of the interface. In a sense, watchfaces are watch apps, but there is a specific way of programming a watchface that makes it unique; for example, watchfaces cannot receive input from the watch buttons.  
 
 > **The Watchface Generator**
 > 
