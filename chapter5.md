@@ -374,19 +374,39 @@ You can find the answers and implementations for the code [above at this link.](
 
 #### Project 5.2 ####
 
-Now let's look at Project 5.2.  Click here to get the code for the project.  This project gets an image from the Internet and displays that image on the Pebble screen.  Look at the code in the function `get_and_display_image` to see how that's done.
+Now let's look at Project 5.2.  [Click here to get the code for the project.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-2) This project displays that image on the Pebble screen.  Locate the function near the top of the file named `replace_colors`.  It is empty; there is no code between the curly braces. Your job is to use FOR loops to iterate through every pixel in the image, detect if the pixel matches the old color, and if it does, replace it with the new color.  
 
-For this project, We are going to change the color of the person's hair.  To do this, we will use a function called `color_distance` that will compute the distance between two colors.  When that distance is small, say 10 or less, we will say the two colors are the same.  
+This image holds correct changes.
 
-Look for the function `change_hair_color`.  It is empty; there is no code between the curly braces.  You are to add code that will use the `color_distance` function to check each pixel and change the hair color to `GColorRed`.  You will need two nested loops, one for a row of pixels and one for each pixel in a row.  
+<figure>
+   <hr/>
+   <img src='Figure5-1.png'>
+   <figcaption>
+      <b>Figure 5.1:</b> The image with color changes<br/>
+   </figcaption>
+   <hr/>
+</figure>
+ 
 
-Now, did other pixels change in addition to the hair?  This is probably because some parts of the image have the same color as the hair does.  We need to restrict the view to a box that examines a smaller region, just the area where the hair is.  Change the loops so that the area examined is closer to the box where the hair is.
+To do this, add code that uses the parameters sent to the function.  The first two, `pixel_height` and `pixel_width`, define an area to look at.  You need to example pixels from (0,0) to (`pixel_width`, `pixel_height`).  You can use the function `get_pixel_color(x,y)` like this:
 
-You can find an implementation for this project at this link.
+    GColor pixel_color = get_pixel_color(x,y);
+
+to assign the color of the pixel located at position (x, y) to `pixel_color`.  If that color matches the third parameter, `old_color`, you need to change that pixel to `new_color`, like this:
+
+    set_pixel_color(x, y, new_color);
+
+You can check to see if two colors are equal like this:
+
+    gcolor_equal(pixel_color, old_color)
+
+The key here is to use a nested for loop to examine all the pixels (in two dimensions).  
+
+You can find an implementation for this project [at this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-2-answer)
 
 #### Project 5.3 ####
 
-Let's do one more project.  Click here to get the starting code for Project 5.3.  This code displays a message at the top left of the Pebble screen.  There is a function called `fill_screen` that only displays a single message.
+Let's do one more project.  [Click here to get the starting code for Project 5.3.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-3)  This code displays a message at the top left of the Pebble screen.  There is a function called `fill_screen` that only displays a single message.
 
 You are to rewrite the `fill_screen` function so that it completely fills the Pebble screen with a message repeated over and over.  See the image below for an example.
 
@@ -398,4 +418,4 @@ You should be able to use two loops, one for the row and one for the column.  Ho
 
 Now that you have used two loops, can you rewrite the code using only one loop?
 
-You can find an implementation of the two loop solution here, and an implementation of the single loop solution here.
+[You can find an implementation of the two loop solution here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-3-answer), with an implementation of the single loop solution in comments.
