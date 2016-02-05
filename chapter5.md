@@ -410,8 +410,15 @@ Let's do one more project.  [Click here to get the starting code for Project 5.3
 
 You are to rewrite the `fill_screen` function so that it completely fills the Pebble screen with a message repeated over and over.  See the image below for an example.
 
-IMAGE
-
+<figure>
+   <hr/>
+   <img src='Figure5-2.png'>
+   <figcaption>
+      <b>Figure 5.2:</b>The final result for Project 5.3<br/>
+   </figcaption>
+   <hr/>
+</figure>
+ 
 Notice that the messages are placed neatly next to each other both horizontally and vertically.  
 
 You should be able to use two loops, one for the row and one for the column.  However, these loops will not likely be for loops, because the (x,y) coordinate of the beginning of the message will change based on message length and font size.  
