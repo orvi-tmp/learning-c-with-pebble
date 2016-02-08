@@ -6,5 +6,5 @@
 * [Chapter 3: Variables and Other Basics](chapter3.md)
 * [Chapter 4: Making Decisions and Conditional Execution](chapter4.md)
 * [Chapter 5: Loops and Iteration](chapter5.md)
-* Chapter 6: Working with Functions
+* [Chapter 6: Working with Functions](chapter.md)
 
