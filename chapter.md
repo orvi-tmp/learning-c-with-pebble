@@ -476,3 +476,14 @@ You can find an answer here.
 
 Consider the project code for Project 6.4, available here.  
 
+This program draws concentric circles on the Pebble screen (which looks hypnotizing on a Pebble Time Round).  Examine the code.  The function `draw_circles` draws the concentric circles by using a for loop.
+
+Your job is to remove the for loop, but draw the same screen by using recursion.  Think about these things:
+
+* Should your function start with the largest circle or the smallest?
+* When should you stop (that's the base case)?  
+* How should you structure your function's data, including parameters, to communicate when the function should stop?
+
+When you are done, claim the code by adding comments to identify you and the project.
+
+There is an answer to this problem at this link.
