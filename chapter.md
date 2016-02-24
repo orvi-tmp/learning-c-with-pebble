@@ -460,7 +460,7 @@ We started this chapter talking about changes to Project 4.1 from Chapter 4.  Fo
    <hr/>
    <img src='Figure6-3.png'>
    <figcaption>
-      <b>Figure 6.3:</b> Emulator running Project 6.3<br/>
+      <b>Figure 6.3:</b> Emulator running Project 6.2<br/>
    </figcaption>
    <hr/>
 </figure>
