@@ -8,5 +8,5 @@
 * [Chapter 5: Loops and Iteration](chapter5.md)
 * [Chapter 6: Working with Functions](chapter.md)
 * [Chapter 7: Arrays](chapter7.md)
-* Chapter 8: Pointers and Memory Allocation
+* [Chapter 8: Pointers and Memory Allocation](chapter8.md)
 
