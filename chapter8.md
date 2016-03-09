@@ -456,7 +456,6 @@ This is fine, but it makes the comparisons in the function code invalid.  If the
 	    	}
 		}
 	}
-
 >
 But this code defeats the purpose of using "void *".  It says that you can send any type to the sort code, but the code will compare them as integers.  And this means we need to be specific about the data type used as function parameters.
 
