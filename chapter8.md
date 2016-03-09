@@ -439,12 +439,11 @@ In addition to the above, can you make the sort work with *any* data type? (*The
 >**You Cannot Use "void *" Here**
 >
 At first glance, you might think you could make this work with any type by using "void *" to declare the parameters to the sorting functions, like this:
-
+>
     void bubble_sort(void *array)
-
 >
 This is fine, but it makes the comparisons in the function code invalid.  If the `array` can be of any type, then how do you know that the `<` operator works with the specific type that is used at runtime?  You could fix the code to use "int *" for comparison like this:
-
+>
 	void bubble_sort(void *array)
 	{	
 	 	for (int i=0; i < NUMBERS_MAX - 1; i++) {
