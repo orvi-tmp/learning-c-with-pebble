@@ -18,7 +18,7 @@ Figure 1.1 shows the Pebble Time and the Pebble Time Steel and Figure 1.2 show t
 
 <figure align>
    <hr/>
-   <img src='http://www2.pcmag.com/media/images/385110-pebble-time-steel.jpg'>
+   <img src='http://i.imgur.com/ZOT7Vbr.png'>
    <figcaption>
       <b>Figure 1.1:</b> The Pebble Time and Pebble Time Steel<br/>
    </figcaption>
@@ -90,13 +90,14 @@ Operating system software may provide access to hardware in increments.  Not all
 
 Another element that an operating system provides is a user interface.  In the case of a Pebble watch, the user interface is extremely important.  The only methods of user interaction are buttons and microphone (on the Pebble Time models), and the display and vibration make up the output to the wearer.  Button input is quite flexible; Pebble OS will distinguish between single, double, and long presses and can detect when multiple buttons are used together.   
 
-Since version 3.0, Pebble OS has built in a timeline interface in addition to watchfaces and watch apps.  The *timeline* is a user interface metaphor that presents time related information to the user through a timeline populated with time events.  This timeline can be accessed from the watchface display through use of the up and down buttons.  The timeline incorporates the use of *pins*, event and notification items that are tagged with time and displayed chronologically.  Figure 1.5 shows an example pin.
+Since version 3.0, Pebble OS has built in a timeline interface in addition to watchfaces and watch apps.  The *timeline* is a user interface metaphor that presents time related information to the user through a timeline populated with time events.  This timeline can be accessed from the watchface display through use of the up and down buttons.  The timeline incorporates the use of *pins*, event and notification items that are tagged with time and displayed chronologically.  Figure 1.5 shows an example of a timeline pin and the details from that pin.
 
 <figure>
    <hr/>
+   <img src='https://developer.pebble.com/assets/images/guides/timeline/calendar-pin~chalk.png'>
    <img src='https://developer.getpebble.com/assets/images/guides/timeline/calendar-layout~chalk.png'>
    <figcaption>
-      <b>Figure 1.5:</b> An example pin.<br/>
+      <b>Figure 1.5:</b> An example timeline pin and the details from it.<br/>
    </figcaption>
    <hr/>
 </figure>
@@ -115,11 +116,11 @@ There are currently three different software platforms when one considers writin
 </figure>
 
 
-There are two types of applications that one can write for Pebble OS: watchfaces and watch apps.  Both types are written in much the same way.  However, watchfaces focus on (naturally) displays that mark time, restricting code elements to input and display based on time and time components.  Watch apps expand the possibilities of an application, using the watch like a computer and controlling all elements of the interface. In a sense, watchfaces are watch apps, but there is a specific way of programming a watchface that makes it unique; for example, watchfaces cannot receive input from the watch buttons.  
+There are two types of applications that one can write for Pebble OS: watchfaces and watch apps.  Both types are written in much the same way.  However, watchfaces focus on (naturally) displays that mark time, restricting code elements to input and display based on time and time components.  Watch apps expand the possibilities of an application, using the watch like a computer and controlling all elements of the interface. In a sense, watchfaces are watch apps, but there is a specific way of programming a watchface that makes it unique; for example, watchfaces cannot receive input from the watch buttons.
 
 > **The Watchface Generator**
 > 
-A human can write watchface programs in many different styles.  However, watchface programs can also be derived from fixed templates so that they can be written by a computer.  The Watchface Generator Web site (at [http://www.watchface-generator.de](http://www.watchface-generator.de)) lets users design their own custom watchface, then write the code necessary to implement that watchface and generates the right software package ready for installation.  While you can still write your own watchface code that might be more flexible or have more capability, the Watchface Generator can produce attractive and interesting watchfaces with no user coding. 
+A human can write watchface programs in many different styles.  However, watchface programs can also be derived from fixed templates so that they can be written by a computer.  The Watchface Generator Web site (at [http://www.watchface-generator.de](http://www.watchface-generator.de)) lets users design their own custom watchface, then writes the code necessary to implement that watchface and generates the right software package ready for installation.  While you can still write your own watchface code that might be more flexible or have more capability, the Watchface Generator can produce attractive and interesting watchfaces with no user coding. 
 
 ### The Phone App ###
 
@@ -141,6 +142,8 @@ This book is designed to help you learn C programming by using the Pebble watch 
 * Finally, exercises can be run in CloudPebble through GitHub.
 
 This book should be accessible by beginners as well as those who know the C language but want to write Pebble applications.  If you are just starting in C programming, then you should start at chapter 2 and work through each chapter in sequence.  If you are already a C programmer, you should also read chapter 2, but then find those features that focus on Pebble watches, such as the user interface or sensor programming.  Seasoned C programmers could start at chapter 15.
+
+Finally, note that this is a BIP: a Book In Progress.  The contents will change over time.  Errors will be corrected, content added, and exercises will be modified or added.  This is one of the reasons the book is published on gitbook.com, so that we can make this a better and more effective learning tool.
 
 
 
