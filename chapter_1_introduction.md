@@ -94,7 +94,7 @@ Since version 3.0, Pebble OS has built in a timeline interface in addition to wa
 
 <figure>
    <hr/>
-   <img src='https://developer.pebble.com/assets/images/guides/timeline/calendar-pin~chalk.png'>
+   <img src='Figure1-5a.png'>
    <img src='https://developer.getpebble.com/assets/images/guides/timeline/calendar-layout~chalk.png'>
    <figcaption>
       <b>Figure 1.5:</b> An example timeline pin and the details from it.<br/>
