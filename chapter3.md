@@ -638,21 +638,24 @@ Try these exercises using the code from Project 3.1.
 >    static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
 >    
 >    }
+>
 >    static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
 >    
 >    }
-> 
-> The code in these functions are run when the top and bottom buttons are pressed, respectively.  Add some code to the `up_click_handler` function -- between the curly braces (`{}`) that will make the ball bigger when the button is pressed.  You can do it in one line.  Use the shorthand notation for incrementing a variable.
 
-5. If you simply try to increment `ball_radius`, you will have a compilation error.  Why?  Change the declaration of `ball_radius` to implement the up button click correctly.
+The code in these functions are run when the top and bottom buttons are pressed, respectively.  Add some code to the `up_click_handler` function -- between the curly braces (`{}`) that will make the ball bigger when the button is pressed.  You can do it in one line.  Use the shorthand notation for incrementing a variable.
 
-1. Do the same thing for `down_click_handler`, except make the ball smaller when you click the bottom button.  Use the shorthand code for decrement.  
+<ol start=5>
+<li> If you simply try to increment `ball_radius`, you will have a compilation error.  Why?  Change the declaration of `ball_radius` to implement the up button click correctly.
+
+<li> Do the same thing for `down_click_handler`, except make the ball smaller when you click the bottom button.  Use the shorthand code for decrement.  
 
 1. Now add a line to the `up_click_handler` function that also makes the ball go faster when you click the top button.
 
 2. Do the same thing for `down_click_handler`, except *slow* the ball down when you click the bottom button.
 
 1. Finally, add some comments to the file to claim the code as your own and to identify what you have done!
+</ol>
 
 [A completed project exercise for Project 3.1 can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-1-answer)
 
