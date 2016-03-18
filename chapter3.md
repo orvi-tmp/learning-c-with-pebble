@@ -634,10 +634,7 @@ Try these exercises using the code from Project 3.1.
 1. The ball only bounces up and down.  Now add a line under line 36 to also change the `position_x` variable to that the ball will also move in the X direction. 
 
 1. Look for the two functions listed below:
-
-> 
     static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
-
 	}
 
 	static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
