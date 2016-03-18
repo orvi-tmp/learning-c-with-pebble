@@ -643,7 +643,7 @@ Try these exercises using the code from Project 3.1.
         
     }
 
-<p style="margin-left:5em;">
+<p style="margin-left:2em;">
 The code in these functions are run when the top and bottom buttons are pressed, respectively.  Add some code to the `up_click_handler` function -- between the curly braces (`{}`) that will make the ball bigger when the button is pressed.  You can do it in one line.  Use the shorthand notation for incrementing a variable.
 </p>
 
