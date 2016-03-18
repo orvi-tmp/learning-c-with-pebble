@@ -74,7 +74,7 @@ As we have seen, literals have a data type.  The absence of a decimal point in a
 
 However, there are ways of designating numbers that get around these assumptions.  This typically means that you put a letter at the end of the number.  For example, `23` is an integer, but `23L` is a long integer and `23F` is a floating point number.  
 
-The table below shows letter designations for data types and gives some examples.
+The table below shows letter designations for data types and gives some examples.  
 
 <table>
 <TR><TD><b>Literal</b></TD><TD><b>Declaring Keyword</b></TD><TD><B>Description</B></TD><TD>Example</TD><TD>Illegal Example</TD></TR>
@@ -104,7 +104,7 @@ The table below shows letter designations for data types and gives some examples
 <TD><code>char</code></TD>
 <TD>A representation of letters and other character data.  Pebble watches use the Unicode representation for character data, allowing over 65,000 different characters.</TD>
 <TD>'A'<br/>'5'<br/>'#'</TD>
-<TD></TD>
+<TD>"A"<br/>"string"</TD>
 </TR>
 
 <TR>
@@ -119,7 +119,11 @@ The table below shows letter designations for data types and gives some examples
 
 ### Other Basic Data Types ###
 
-The table in the previous sections adds two data types to ones we have discussed.  *Character* data types are declared with the `char` keyword and hold single characters/symbols as their value.  On a Pebble watch, these values come from the [Unicode](http://www.unicode.org/charts) character set.  Unicode contains a Western style alphabet in the first 128 characters and a large collection of the other alphabets in the rest of the set.  Note that character data types include numbers as characters, so that `'5'` is not the same as `5`.  Character literals are represented using single quotes.
+The table in the previous sections adds two data types to ones we have discussed.  *Character* data types are declared with the `char` keyword and hold single characters/symbols as their value.  On a Pebble watch, these values come from the [Unicode](http://www.unicode.org/charts) character set.  Unicode contains a Western style alphabet in the first 128 characters and a large collection of the other alphabets in the rest of the set.  Note that character data types include numbers as characters, so that `'5'` is not the same as `5`.  Character literals are represented using single quotes.  
+
+> **Characters are not Strings**
+> 
+It is useful to emphasize that `char` data types only hold a single character, *not* a string of characters.  Strings are not built into C as they are in some other languages.  Strings are represented by arrays of characters -- sequences -- and will be discussed at length in Chapter 9.
 
 Sometimes character data cannot be represented very easily.  For example, how does C represent a TAB character?  A TAB is not visible, yet is useful in programs.  For these issues, C uses *escape sequences*.  An escape sequence begins with an *escape character* and include either a letter or a number sequence to reference the characters Unicode value.  The number sequence is useful to reference characters that do not have a symbol with which to refer to them.  
 
@@ -443,7 +447,7 @@ What is the resulting value of `z`?  The computation goes as in Figure 3.3:
 
 <figure>
    <hr/>
-   <img src='Figure3-1.png'>
+   <img src='Figure3-3.png'>
    <figcaption>
       <b>Figure 3.3:</b> Computation Order for the Shortcut Example<br/>
    </figcaption>
@@ -466,7 +470,7 @@ The table below shows all the compound shortcuts in C.
 <TD><b>Operators<b></TD><TD><b>Description</b></TD>
 </TR>
 <TR>
-<TD>+= and -=</TD><TD>Increment and decrement operators</TD>
+<TD>+= and -=</TD><TD>Addition and subtraction operators</TD>
 </TR>
 <TR>
 <TD>*= and /=</TD><TD>Multiplication and division operators</TD>
@@ -506,7 +510,7 @@ and this is a statement
         circumference = 2 * pi * radius;
     }
 
-The last form of a statement will be very useful as we consider more complex statements like conditional or looping statement.
+The last form, that is, a compound statement counting as a statement, will be very useful as we consider more complex statements like conditional or looping statements.
 
 A statement is actually an expression.  This idea can lead to confusing C statements.  As we will note later in this chapter, an assignment operator can indeed be an expression, so using an assignment operation as a statement makes sense.  However, we could also just have expressions, as below:
 
@@ -520,7 +524,7 @@ The control in a C program is *sequential*.  That is, unless otherwise directed 
 
 ### Accessibility Rules ###
 
-Variables and other entities in C may be declared in many places.  Because C is *block structured*, can define names in many different blocks.  For example, consider this:
+Variables and other entities in C may be declared in many places.  Because C is *block structured*, we can define names in many different blocks.  For example, consider this:
 
     int positionX = 10;
     { 
@@ -600,7 +604,9 @@ The second mechanism for documenting is a "/* ... */" sequence. Anything between
 
 In this section -- for this and future chapters -- we will use projects that are comprised of existing code on GitHub.  We will bring that code into the CloudPebble environment for examination and experimentation.  Instructions on how to do this were discussed in Chapter 2.
 
-Let's start with Project 3.1. [You can access that project using this URL.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-1)  When you have successfully brought the project into your CloudPebble environment, you can run the code.  It implements a simple program with a ball bouncing up and down on the Pebble's display.  
+#### Project 3.1 ####
+
+[You can access the starting code for Project 3.1 using this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-1)  When you have successfully brought the project into your CloudPebble environment, you can run the code.  It implements a simple program with a ball bouncing up and down on the Pebble's display.  
 
 <figure>
    <hr/>
@@ -621,7 +627,7 @@ Now look at line 49.  These variables are used to draw the ball and used to dete
 
 Try these exercises using the code from Project 3.1.
 
-1. Change the declaration in the code to make the ball bigger.  Notice that the statement at line 48 uses the `ball_radius` variable to draw the ball.  Change this variable to make the ball bigger.
+1. Change the declaration in the code to make the ball bigger.  Notice that the statement at line 48 uses the `ball_radius` variable to draw the ball.  Change this variable to make the ball bigger.  (Keep it less than 30 or the ball won't bounce.  Can you figure out why?)
 
 1. Now make the ball *faster*.  The two velocity variables -- `x_velocity` and `y_velocity` -- are initialized at line 16. At line 36, the velocity is used to move the ball in the Y position (up or down) by changing `position_y` variable.  Change the velocity to make the ball move faster. 
 
@@ -629,8 +635,9 @@ Try these exercises using the code from Project 3.1.
 
 1. Look for the two functions listed below:
 
+> 
     static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
-  
+
 	}
 
 	static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
