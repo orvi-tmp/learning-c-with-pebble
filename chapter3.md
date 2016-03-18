@@ -635,17 +635,17 @@ Try these exercises using the code from Project 3.1.
 
 1. Look for the two functions listed below:
 
->    static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
->    
->    }
->
->    static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
->    
->    }
+    static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
+     
+    }
 
-<blockquote>
+    static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
+        
+    }
+
+<p style="margin-left:5em;">
 The code in these functions are run when the top and bottom buttons are pressed, respectively.  Add some code to the `up_click_handler` function -- between the curly braces (`{}`) that will make the ball bigger when the button is pressed.  You can do it in one line.  Use the shorthand notation for incrementing a variable.
-</blockquote>
+</p>
 
 <ol start=5>
 <li> If you simply try to increment `ball_radius`, you will have a compilation error.  Why?  Change the declaration of `ball_radius` to implement the up button click correctly.<br/>
