@@ -1,6 +1,6 @@
 Chapter 2: First Things First: Developing Apps for Pebble Watches
 =======
-A professional craftsman is nothing with a toolbox. Tool sets are often unique to the person using them; certain tools are effective for certain people and not for others.  However, most professionals in a trade will all work specific kinds tools, but the specific choices vary widely. 
+A professional craftsman is nothing without a toolbox. Tool sets are often unique to the person using them; certain tools are effective for certain people and not for others.  However, most professionals in a trade will all work certain kinds of tools, but the specific choices vary widely. 
 
 So it is with programmers.  Each programmer, for example, needs to use a *text editor*. This tool allows its user to enter text into a file.  But if you want to touch off an argument in a group -- online or offline -- of programmers, ask a question about the best text editor.  And stand back!  If you want to get a list of text editors to try out, [search for "best text editors" on Reddit](https://www.reddit.com/r/pebble/search?q=best+text+editors).  
 
@@ -44,11 +44,11 @@ First, you have to get an idea for a watch face or a watch app.  This idea-gathe
 
 Expressing this idea as an algorithm is the second step, and is also outside the scope of this book.  There are many methods to devising an algorithm from a set of ideas.  
 
-The third step is to express your algorithm as a C or JavaScript program.  These are the two languages that can be used to write watch faces or apps for the Pebble.  You are reading this book because you want to the C approach and that's what we'll assume from here on.  C programs are written in text on a computer running Windows, MacOS, or Linux.  
+The third step is to express your algorithm as a C or JavaScript program.  These are the two languages that can be used to write watch faces or apps for the Pebble.  You are reading this book because you want to the C approach and that's what we'll assume from here on.  C programs are written in text on a computer running MacOS, or Linux.  
 
 Once you have a C program in a text file, the next step is to convert that C code to ARM machine language.  As we stated in the previous section, you do this with a compiler.  The Pebble software development kit supports developers by supplying compilers for MacOS or Linux.  These compilers will take a C program, verify its syntax and semantics, and generate a program in machine language in a format that can be installed on a Pebble watch.  This file is in PBW format: a collection of files that gives the machine language for a program, a set of checksums for security, and a file of maintenance information about the program (e.g., size, time it was created, etc).  
 
-The PBW file must now be installed on a watch.  There are several tools that can do this, and each one do it through the phone app.  You can even transfer a PBW file to your phone and open it, at which point the phone app will take over and install the file.  
+The PBW file must now be installed on a watch.  There are several tools that can do this, and each one does it through the phone app.  You can even transfer a PBW file to your phone and open it, at which point the phone app will take over and install the file.  
 
 ### Developing Our First Program ###
 
