@@ -661,6 +661,8 @@ The code in these functions are run when the top and bottom buttons are pressed,
 
 [A completed project exercise for Project 3.1 can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-1-answer)
 
+#### Project 3.2 ####
+
 Now let's start a new project.  [Using this link](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-2), import Project 3.2 into CloudPebble and run it.  You should get a letter traveling around a circle on the Pebble's display.  
 
 This code is a great example of expressions and of floating points vs integer computation.  The main code we want to pay attention to is in the function `move_letter()`:
