@@ -312,7 +312,7 @@ Consider this example.
         return a / b;
     }
 
-We can draw our blocks in this code, according to the curly brackets, like in Figure 6-1.
+We can draw our blocks in this code, according to the curly brackets, like in Figure 6.1.
 
 <figure>
    <hr/>
@@ -342,7 +342,7 @@ We need to define how function names and parameters fit into this block structur
         return a / b;
     }
 
-Now the block structure looks like it does in Figure 6-2. 
+Now the block structure looks like it does in Figure 6.2. 
 
 <figure>
    <hr/>
