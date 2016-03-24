@@ -43,7 +43,7 @@ The biggest danger with arrays is that an array reference might select an item f
 
 > **Complications With Out of Bounds References**
 > 
-You might expect that when an error occurs when running a program, the runtime system would likely stop with an error message.  However, even though it's an error to reference arrays outside their boundaries, C will often allow this *without* an error message.  
+You might expect that when an error occurs when running a program, the runtime system would likely stop with an error message.  However, even though it's an error to reference arrays outside their boundaries, C will always allow this *without* an error message.  
 > 
 Technically, the standard for the C language specifies out of bounds references as "undefined behavior," which means compilers can handle these any way they want.  The reality is that an out of bounds reference will access memory outside of the memory allocated for the array.  It will either access other variables in the program or it will access memory from protected areas, like memory dedicated to other running programs.  In the former case, such a reference constitutes a bug, changing memory in unintended ways.  In the latter case, the program will likely crash. 
 >
@@ -59,15 +59,15 @@ Let's look at an array example that's a little more complex.
 
      for (i=0; i<19; i++)	
         for (j=0; j<19; j++) {
-            if (numbers[i] > numbers[i+1]) {
-                temp = numbers[i];
-                numbers[i] = numbers[i+1];
-                numbers[i+1] = numbers[i];
+            if (numbers[j] > numbers[j+1]) {
+                temp = numbers[j];
+                numbers[j] = numbers[j+1];
+                numbers[j+1] = temp;
             }
         }
     }
 
-Here, we have an array of 20 floating point numbers, initialized with a for loop to have random numbers as their values.  Then we use a Bubble Sort algorithm to sort the items in the array in ascending order.  A Bubble Sort is really an inefficient algorithm, but it is a very nice example of array manipulation.  We repeatedly go through the array, swapping adjacent array elements that are out of order. 
+Here, we have an array of 20 integer numbers, initialized with a for loop to have random numbers as their values.  Then we use a Bubble Sort algorithm to sort the items in the array in ascending order.  A Bubble Sort is really an inefficient algorithm, but it is a very nice example of array manipulation.  We repeatedly go through the array, swapping adjacent array elements that are out of order. 
 
 As an algorithm, the Bubble Sort is not very good in terms of performance.  However, the example above is an especially bad version of the Bubble Sort.  Exercise 7.1 will ask you to make it perform better.
 
@@ -195,6 +195,10 @@ Once an array's length is set in a declaration, you cannot extend that length.  
 
 You cannot perform operations that might seem logical to perform on an entire array.  Operations like filling an array with values (after initialization), reversing the contents, copying the contents, sorting the array, or searching for a value all require code that uses loops to access each array element individually.  These operations cannot be performed on the entire array in one operation.
 
+> **Deriving Array Length**
+>
+Deriving an array's length can be a useful operation.  It can help a program make decisions about arrays and can help a program to keep references inside the array's boundaries.  It is true that you cannot derive the number of array elements that hold initialized values.  However, you *can* derive the total allocated length of an array by computing `sizeof(array) / sizeof(data_type)`: the total allocated memory space divided by the size of the data type of each array element.
+
 ### Arrays as Function Parameters ###
 
 Arrays can be passed as parameters to functions.  There are three ways to declare an array as a formal parameter in a function.
@@ -209,7 +213,7 @@ The second way to declare an array as a function parameter is *as an unsized arr
 
     int func(int param[]) {...}
 
-This method will allow any array declared to have integer elements.  
+This method will allow any array declared to have any number of integer elements.  
 
 Let's consider a bigger example.  Let's assume we have a main function that looks like this:
 
@@ -270,7 +274,7 @@ Be sure to comment your code and leave your name on it.
 
 #### Project 7.2 ####  
 
-This exercise revisits Project 6.2.  That project, [whose answer can be found here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-7-1-answer), takes a sequence of characters in a string and considers them in groups of three, drawing 5 rows of three squares.  
+This exercise revisits Project 6.2.  That project, [whose answer can be found here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-2-answer), takes a sequence of characters in a string and considers them in groups of three, drawing 5 rows of three squares.  
 
 Starting with the result of Project 6.2, change the code to draw four numbers instead of one.  
 
