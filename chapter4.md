@@ -389,6 +389,10 @@ For this code, the first case (`x_coord == 10`) merges with the second case (`x_
     else
         x_color = GColorWhite; 
 
+Along the same lines, also note that the last "break" is technically not needed.  The execution will fall through, but there is no other statement, so the case statement ends. Developing a habit of adding a break is good, however, so adding a break here works as well.
+
+Finally, there are valid reasons to leave out "break" statements.  In the example above, when `x_coord` has the value 10, there might be two valid operations to handle (other than changing colors twice).  Leaving out the "break" statement then, is a great way to add functionality withot needlessly duplicating code.
+
 > **Syntactic Sugar**
 > 
 The switch statement -- and some other statements in C and other programming languages -- have been called "syntactic sugar".  It is a more convenient -- and perhaps aesthetic -- way of expressing the same semantics as a series of if statements.  For some, "convenient" and/or "aesthetic" are not good enough reasons to choose one code structure over another.
@@ -472,10 +476,12 @@ Here are some guidelines to follow to avoid messy conditional code.
 
 ### Project Exercises ###
 
-The exercises for this chapter have you working with projects that implement clock-like features.  
+The exercises for this chapter have you working with projects that implement clock-like features. They all deal with watchface applications.  So this means there will be some code that you are expected to understand yet.  However, the ability to deal with complexity while not completely understanding is a very good skill to develop.  It will help working with code you did not write.
 
-Let's begin with Project 4.1. [Click here to get started.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-4-1)
-  This application implements a second hand that sweeps in a circle and displays the numbers on a clock at 5 second intervals.  Run the application, then work through the following questions and challenges.
+#### Project 4.1 #### 
+
+[Click here to get started with Project 4.1.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-4-1)
+This application implements a second hand that sweeps in a circle and displays the numbers on a clock at 5 second intervals.  Run the application, then work through the following questions and challenges.
 
 1. Add comments that explain the use of `second % 5 == 0` in the if statement in the `mark_the_second` function. 
 
@@ -493,6 +499,8 @@ Let's begin with Project 4.1. [Click here to get started.](https://cloudpebble.n
 1. Finally, claim the code by putting your name and the date in the header comments.  
 
 You can find the answers and implementations for the assignments [above at this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-4-1-answer)
+
+#### Project 4.2 ####
 
 Now let's examine Project 4.2; [click here to import the project from Github into CloudPebble](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-4-2).
 
