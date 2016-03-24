@@ -2,13 +2,13 @@ Chapter 8: Pointers and Memory Allocation
 =======
 We have discussed many abstractions that are built into the C programming language.  Most of these abstractions intentionally obscure something central to storage: the address in memory where something is stored.  Pointers are a way to get closer to memory and to manipulate the addresses of memory.  
 
-In this chapter, we will discuss pointers and how pointers are used to work with memory.  We will also discuss how memory can be dynamically allocated and manipulated using pointers.  
+In this chapter, we will discuss pointers and how pointers are used to work with memory.  We will discuss how memory can be dynamically allocated and manipulated using pointers.  And we will see that arrays and pointer are very closely connected.
 
 ### Pointer Basics ###
 
-In C, we know variables as abstractions of memory, holding a value.  That value is *typed*, defined by a data type definition in the variable declaration.  
+We know variables in C are abstractions of memory, holding a value.  That value is *typed*, defined by a data type definition in the variable declaration.  
 
-A pointer is no different.  A pointer is a variable whose value is an address, typed by its declaration.  Pointers "point to" a variable with a typed value by referencing that variable, not by name, but by address.  
+A pointer is no different.  A pointer is a variable whose value is an address, typed by its declaration.  Pointers "point to" a variable (memory) with a typed value by referencing that variable, not by name, but by address.  
 
 #### Declarations ####
 
@@ -26,11 +26,11 @@ Here are some examples:
 
 These declare `ptr1` to hold the address of an integer, `ptr2` to hold the address of a floating point number, and `ptr3` to hold the address of a character.  
 
-Like all variables, *pointers do not have a value simply by being declared*.  That fact might seem intuitive for other data types, but it's hard to remember for pointers.  In the above examples, the variables are meant to contain the address of other variables, but they have not been initialized yet.
+Like all variables, *pointer variables do not have a value simply by being declared*.  That fact might seem intuitive for other data types, but it's hard to remember for pointers.  In the above examples, the variables are meant to contain the address of other variables, but they have not been initialized yet.
 
 > **Declaration Notation**
 > 
-At first glance, the notation used to declare pointers might seem a little wrong.  Since the variable points to a variable of the declared data type, you might expect the declaration to look like this:
+At first glance, the notation used to declare pointers might seem wrong.  Since a pointer variable points to another variable of the declared data type, you might expect the declaration to look like this:
 >
     int* ptr1;
 >
@@ -42,19 +42,19 @@ Note that not everything in the list is a pointer.  This is possible only if we 
 
 #### Variables and Addresses ####
 
-If pointers contain addresses, there should be a way to give them a value.  All variables have an address, a designation of where they are stored in memory.  We can derive the address of a variable by placing a "&" symbol in front of the variable name.  Here is an example:
+If pointers contain addresses, there should be a way to give them an address as a value.  All variables have an address, a designation of where they are stored in memory.  We can derive the address of a variable by placing a "&" symbol in front of the variable name.  Here is an example:
 
-    int miles = 10;
-    int *ptri = &miles;
+    int distance = 10;
+    int *ptri = &distance;
     printf("%u\n", ptri);
 
 The variable `ptri` is assigned the address of the variable `miles` as its value.  The value of `miles` is not changed.
 
-Now if we were to print the value of `ptri`, we would get a large number that really makes no sense *to us*, but makes sense to the runtime system. The `printf` function call above might print this as its value:
+Now if we were to print the value of `ptri`, we would get a large number that really makes no sense *to us*, but makes sense to the computer runtime system. The `printf` function call above might print this as its value:
 
     3216074448
 
-That value makes sense to the runtime system, but it is of no use to programmers.  Knowing the address does not help us work with the pointer or what it points to.  
+That value makes sense to the computer, but it is of no use to programmers.  Knowing the address does not help us work with the pointer or what it points to.  
 
 #### Dereferencing a Pointer ####
 
@@ -67,7 +67,7 @@ Dereferencing a pointer uses the same asterisk notation that we used to declare 
 
     *p = 15;
 
-This code starts by assigning the value `10` to the variable `payment`.  Then the pointer `p` takes the address of `payment` as its value.  The third statement changes `payment` to `15` by assigning the variable that `p` points to to the value `15`.  The `*p` in the statement is a derefence.  
+This code starts by assigning the value `10` to the variable `payment`.  Then the pointer `p` takes the address of `payment` as its value.  The third statement changes `payment` to `15` by actually assigning the value 15 to the variable to which `p` points.  The `*p` in the statement is a dereference.  
 
 Using the same syntax to declare pointers and to dereference pointers can be a bit confusing, especially if the declaration is used with an initial value, like in the above example.  Unfortunately, you just have to remember the difference between declaration and dereferencing.  
 
@@ -84,7 +84,7 @@ Let's look at one more example of dereferencing.
     economy1 = distance / fuel;
     *(&economy2) = economy1;
 
-In this example, the variable `distance` is set to `250` and incremented by `10` by dereferencing the pointer `pd`.  Likewise, the variable `fuel` is set to `10`, then incremented by `5` by dereferencing the pointer `pf`.  The last statement is there to show that you can even dereference an address operator.  By dereferencing what the address of `economy2` points to we just reference the variable `economy2`.    
+In this example, the variable `distance` is set to `250` and incremented by `10` by dereferencing the pointer `pd`.  Likewise, the variable `fuel` is set to `10`, then incremented by `5` by dereferencing the pointer `pf`.  The last statement is there to show that you can even dereference an address operator.  By dereferencing what the address of `economy2` points to, we just reference the variable `economy2`.    
 
 ### Allocating Memory ###
 
@@ -96,7 +96,7 @@ The `sizeof` function will return the number of bytes its type parameter uses.  
 
     sizeof(int)
 
-should return the value `4`: a variable declared to be of type `int` will take up 4 bytes in memory.  In fact, variables of the float and char data types will also take up 4 bytes.  
+should return the value `4`: a variable declared to be of type `int` will take up 4 bytes in memory.    
 
 Once we know the number of bytes we want to allocate, calling `malloc` with the right size will create a space in memory of that size and will return the address of that space.  So, consider this example:
 
@@ -118,7 +118,7 @@ Pointers are *typed* in C.  When a pointer is declared, the data type it points 
 
 We have said that a pointer contains an address into memory.  If addresses are just numbers, then we can do computations with them.  Indeed, we can do pointer arithmetic in an intuitive fashion.  
 
-As you might think, pointer arithmetic uses operators `+` and `-` to increment or decrement addresses.  However, to increment a pointer means to add enough to its value to move to the next element of the data type it points to.  For example, if a pointer contains the address of an integer, then adding one to that pointer means skipping 4 bytes to point to the next integer.  If the data type is larger, the increment will increase the pointer the correct amount of bytes.  Decrement works in an analogous way.  
+As you might think, pointer arithmetic uses operators `+` and `-` to increment or decrement addresses.  However, to increment a pointer means to add enough to its value to move to the next element of the data type to which it points.  For example, if a pointer contains the address of an integer, then adding one to that pointer means skipping 4 bytes to point to the next integer.  If the data type is larger, the increment will increase the pointer the correct amount of bytes.  Decrement works in an analogous way.  
 
 This is especially useful when a pointer points to the beginning of an allocated area in memory.  Let's say that we have code that just allocated space in memory for 20 integers:
 
@@ -196,7 +196,7 @@ This illustrates our point: pointers are arrays and arrays are pointers.
 
 #### Pointer Arithmetic and Array Indicies ####
 
-As we saw in the previous section, pointer arithmetic and using indicies and array notation are interchangeable.  We have also seen how to pointer arithmetic to move pointers through allocated memory space.  
+As we saw in the previous section, pointer arithmetic and using indicies and array notation are interchangeable.  We have also seen how to use pointer arithmetic to move pointers through allocated memory space.  
 
 As declared and initialized to a memory space, pointers point to the base, the first element, of that space.  This is item number 0 in array notation.  Whenever we add 1 to a pointer, the system computes the size, in bytes, of the data type that the pointer points to and increments that pointer the number of bytes that make up that data type.  Thus, an increment for the pointer is the same as a increment in array notation.  
 
@@ -223,7 +223,7 @@ Now, `ps` points into the array and not at the beginning.
 
 #### Pointers and Multidimensional Arrays ####
 
-Now let's consider how pointers interact with multidimensional arrays.  The syntax starts to get a bit clumsy, but if we remember how pointers work with memory, it gets a bit better.
+Now let's consider how pointers interact with multidimensional arrays.  The syntax starts to get a bit clumsy, but if we remember how pointers work with memory, the syntax is easier to understand.
 
 Let's start with two dimensions: rows and columns.  Remember that a two-dimensional array is really just a big memory space, *organized* as rows and columns.  If that's true, then a pointer into that space could actually just work as we have described it so far.  Here's an example:
 
@@ -264,7 +264,7 @@ we cannot mix pointers to floats and integers in the same situations we can't mi
 
 The last line is an error, because it mixes a floating point number and an integer, producing a floating point number, and tries to assign it to an integer.
 
-There are situations where untyped pointers are appropriate.  Untyped pointers are declared to point to "void" type and may point to values of *any* type.  However, since they have no data type themselves, in order to dereference such a pointer, we must tell the compiler what it points to.  Consider this example.
+There are situations where untyped pointers are appropriate.  Untyped pointers are declared to point to a "void" type and may point to values of *any* type.  However, since they have no data type themselves, in order to dereference such a pointer, we must tell the compiler what it points to.  Consider this example.
 
     void main() {
         int numbers[6] = {10, 20, 1, 5, 19, 50};
@@ -279,7 +279,7 @@ There are situations where untyped pointers are appropriate.  Untyped pointers a
         printf("Average of these values is %f\n", *(float*)p);
     }
 
-In this code, assume that `computeAverage` computes the average of the integers in the array and returns that value as a float (we saw this example in Chapter 7).  First, note that the pointer `p` takes an address of an integer variable, then takes the address of a float variable, and that a compiler would think this is correct.  Second, in the call to printf, we had to inform the compiler that `p` was currently pointing to a float variable, and then we could dereference it.  
+In this code, assume that `computeAverage` computes the average of the integers in the array and returns that value as a float (we saw this example in Chapter 7).  First, note that the pointer `p` takes an address of an integer variable, then takes the address of a float variable, and that a compiler would think this is correct.  Second, in the call to `printf`, we had to inform the compiler that `p` was currently pointing to a float variable, and then we could dereference it.  
 
 Untyped pointers are also useful as formal parameters to functions.  Using a void type for a pointer in a function specification allows flexibility in the actual parameter.  We will discuss this further in the next section.
 
@@ -289,7 +289,7 @@ Pointers are the only way parameters can be changed in functions in a way that t
 
 We have said in Chapter 6 that functions use pass-by-value for function parameters.  In other words, values are copied from actual parameters to formal parameters when the call is made, but not copied back when the function returns.  This implies that it is impossible to send changed values back to a function caller.
 
-However, using pointers as parameters to function makes this type of change possible.  If we send the pointer to memory to a function, any changes to the pointer itself will be ignored, but the function can dereference the pointer and make changes to memory that the pointer references.  Those changes are not part of the parameter list of the function and they will be reflected back to the caller. 
+However, using pointers as parameters to functions makes this type of change possible.  If we send a pointer to memory to a function, any changes to the pointer itself will be ignored, but the function can dereference the pointer and make changes to memory that the pointer references.  That memory is not part of the parameter list of the function and those changes will be reflected back to the caller. 
 
 Let's consider the following example.
 
@@ -303,7 +303,6 @@ Let's consider the following example.
 Now, because C uses pass-by-value, calling this code like this will not swap anything:
 
     int x = 10, y = 20;
-  
     swap_integers(x, y);
 
 The variables `x` and `y` will retain the same values after the function call.
@@ -322,7 +321,6 @@ Because the parameters are now pointers, we have to dereference them to get at t
 We would call this function this way:
 
     int x = 10, y = 20;
-  
     swap_integers(&x, &y);
 
 And the values are actually swapped. 
@@ -331,7 +329,7 @@ And the values are actually swapped.
 > 
 If we can use typed pointers in a `swap_integers` function, could we use untyped pointers in a generic `swap` function?  That is, by using "void" pointers, could we swap values of *any* type?
 >
-The answer, unfortunately, is "NO".  While we can certainly specify parameters that are `void *` parameters, we cannot dereference a void pointer without knowing the type to which it points.  In addition, because we assign a value to `temp` in the above code, we must know what data types `first` and `second` point to, so the compiler knows how to make the assignment.   
+The answer, unfortunately, is "NO".  While we can certainly specify parameters that are `void *` parameters, we cannot dereference a void pointer without knowing the data type to which it points.  In addition, because we assign a value to `temp` in the above code, we must know what data types `first` and `second` point to, so the compiler knows how to make the assignment.   
 
 ### NULL Pointers ###
 
@@ -343,7 +341,7 @@ Null pointers typically signify the end of data or an error condition.  Derefere
 
 ### Freeing up Memory ###
 
-Dynamically creating memory with `malloc` is a great way to only take up the memory that your program needs.  Memory on the Pebble watch is limited, and using pointers in this way is frugal.
+Dynamically creating memory with `malloc` is a great way to only take up the memory that your program needs.  Memory on a Pebble watch is limited, and using pointers in this way is frugal.
 
 To continue this frugality, memory space that is allocated by your program must also be deallocated by your program.  To deallocate memory that was allocated with `malloc`, use the `free` function call.  Here's an example of allocating and immediately freeing up memory:
 
@@ -400,7 +398,7 @@ Here a few tips to remember to avoid confusion with pointers.
 1. Never forget to initialize pointers.  This is a simple rule, but it is very confusing when a pointer uses old values.
 2. Using array syntax with pointers can be a lot clearer than pointer syntax.  This is especially true of multidimensional arrays and array spaces. 
 3. Be painfully clear when using pointer arithmetic.  Using shortcut arithmetic with dereferencing can be very confusing, as we see in the examples above.
-4. When using memory allocation, always use the most flexible and meaningful expressions. Calling `malloc(8)` is not very expressive, but using `malloc( 4 * sizeof(int) )` is much more informative.  
+4. When using memory allocation, always use the most flexible and meaningful expressions. Calling `malloc(16)` is not very expressive, but using `malloc( 4 * sizeof(int) )` is much more informative.  
 
 > **Pointer Jokes**
 >
@@ -432,18 +430,17 @@ We have said that pointers are arrays and arrays are pointers.  In this project 
 
 Don't forget the parameters to the sorting functions and the assignment of the `number_sorted` array from the `number` array in the `handle_init` function. 
 
-In addition to the above, can you make the sort work with *any* data type? (*The answer is NO: but can you figure out why?*)
-
 [You can find a solution here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-1-answer)
 
 >**You Cannot Use "void *" Here**
 >
 At first glance, you might think you could make this work with any type by using "void *" to declare the parameters to the sorting functions, like this:
->
+
     void bubble_sort(void *array)
+
 >
 This is fine, but it makes the comparisons in the function code invalid.  If the `array` can be of any type, then how do you know that the `<` operator works with the specific type that is used at runtime?  You could fix the code to use "int *" for comparison like this:
->
+
 	void bubble_sort(void *array)
 	{	
 	 	for (int i=0; i < NUMBERS_MAX - 1; i++) {
@@ -456,13 +453,41 @@ This is fine, but it makes the comparisons in the function code invalid.  If the
 	    	}
 		}
 	}
+
 >
 But this code defeats the purpose of using "void *".  It says that you can send any type to the sort code, but the code will compare them as integers.  And this means we need to be specific about the data type used as function parameters.
 
 #### Project 8.2 ####
 
-This exercise revisits Project 6.2 again (like we did for Project 7.2).  That project, whose answer can be found here, takes a sequence of characters in a string and considers them in groups of three, drawing 5 rows of three squares.  POINTER VERSION OF 7.2....MORE DETAILS AFTER I SEE 7.2 ANSWER
+This exercise revisits Project 6.2 again (like we did for Project 7.2).  That project, [whose answer can be found here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-7-2-answer), creates an array of strings, which are simply a sequence of characters.  These characters are in groups of three, drawing 5 rows of three squares.  Note the declaration of the `digit_array` strings:
 
+     char *digit_array[10] = {
+              "111101101101111", 
+              "001001001001001",
+              "111001111100111",
+              "111001111001111",
+              "101101111001001",
+              "111100111001111",
+              "111100111101111",
+              "111001001001001",
+              "111101111101111",
+              "111101111001111"};
+
+So, this collection is a set of 10 pointers to character sequences/arrays. The reference `*digit_array[0]` will get the first character in the first array, a value of `'1'`.  
+
+In the function `draw_digit` in the code for Project 7.2, the function receives a sequence of characters in an array.  It selects the proper character and renders a square if that character has the value "1".
+
+You are make some changes to `draw_digit`:
+1. Change the parameter `digit` to a `int` data type.  You will send the function the actual digit to render.
+2. Use a `char *` variable to be assigned an array from the `digit_array` selection.  Use array notation, since it will be simpler.
+3. Now use pointer arithmetic to get to the right character inside the nested for loops.  
+4. Dereference that pointer in the if statement that tests if the choice has the value "1".
+4. Finally, change the call to `draw_digit` to use the `choice` variable to send the actual digit chosen by the random selection.
+
+[You can find an answer to these changes here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-2-answer)
+
+**Extra Challenge**: For an extra challenge, write `draw_digit` with *no array references at all*.  The easiest way is to replace the `digit_array` reference with a reference that selects the character sequence via pointer arithmetic.  Nothing else changes!  [You can find the answer to this challenge at this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-2-challenge1-answer)
+  
 #### Project 8.3 ####
 
 Remember Project 5.2?  This project asked you to change the colors of pixels by examining each one in a loop and changing the ones that matched a certain color. The main code for this project was a function called `replace_colors`, whose code is below:
@@ -487,14 +512,26 @@ In this code, there was a bitmap that was allocated using a pointer, but referen
 		bitmap_data[y*bytes_per_row + x] = color.argb;
 	}
 
-You are to rewrite this code to use pointers to access the bitmap data.  To do this you must (1) remove the function `set_pixel_color` and (2) you must rewrite the nested loops in `replace_color` to use a single loop and to reference the pixel colors with a pointer.   
+You are to rewrite this code to use pointers to access the bitmap data.  To do this you must (1) remove the functions `get_pixel_color` and `set_pixel_color` and (2) you must rewrite the nested loops in `replace_color` to use a single loop and to reference the pixel colors with a pointer.   
+
+[You can find an answer here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-3-answer)
+
+> **An Easier Way to Change the Colors in an Image**
+> 
+This exercise makes an example of converting array notation into pointer arithmetic.  And it show how to directly manipulate image pixel data.  However, there is a different, perhaps easier, way to change the image's colors.
+>
+>
+Instead of changing, say `bitmap_data[0]` to `GColorBlue`, we can change the *color palette* of the image.  Image data does not actually reference a *color*; each pixel references a palette position, which has a color.  If we leave the position reference of the image alone, but change the color at a position in the color, it's faster and simpler.
+>
+>
+[Here is a link to this exercise implemented by changing the color pallete and not the image.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-3-palette)
 
 #### Project 8.4 ####
 
-For Project 8.4, you can get a started with a basic project here.
+[For Project 8.4, you can get a started with a basic project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-4)
 
-If you run the initial code, you will see that it's a simple image that bounces around the screen, reminiscent of the bouncing ball from Chapter 3.  There are two functions, `compute_x` and `compute_y`, that compute the next compute the next position for the image's X and Y coordinates, respectively.  These functions take reference parameters, that are the previous X or Y and the next X or Y.  Based on the previous X or Y, the new value is computed.
+If you run the initial code, you will see that it's a simple rectangle that bounces around the screen, reminiscent of the bouncing ball from Chapter 3.  There is a function, `update_block`, that computes the  position for the image's X and Y coordinates.  This function take reference parameters, that are the previous X or Y and the amount to adjust these coodinates.  Based on the previous X or Y, the new value is computed.
 
-Currently, the code for these two functions is minimal.  We want a program that makes the image move randomly when the up button is pressed and in a bouncing manner when the bottom button is pressed.  You will need to add code in `up_click_handler` and `down_click_handler` to change between the two modes and you will need to add code to the `compute_x` and `compute_y` functions to handle new coordinates.  Remember to keep the reference parameters.
+We want a program that makes the image move randomly when the up button is pressed and in a bouncing manner when the bottom button is pressed.  You will need to add code in `up_click_handler` and `down_click_handler` to change between the two modes and you will need to add a function, similar to `update_block`, that randomly assigns new coordinates.  Remember to keep the reference parameters.  You can check Project 8.2 for how to generate random coordinates.
 
-A completed project can be found here.
+[A completed project can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-4-answer)
