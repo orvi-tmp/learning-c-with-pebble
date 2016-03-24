@@ -13,7 +13,7 @@ These project exercises can be effective in a number of ways.  They are a great 
 
 There are a lot of people involved with this book to whom I am very grateful. The first is to my wife, Peg, who puts up with my many obsessions, including Pebble watches and writing this document.
 
-There are several people at Pebble who had crucial roles with getting this book published.  Cat Haines and Jon Orviwan were instrumental in making these chapters a reality.  They worked with day-to-day  updates and were my direct line to Pebble.  Thomas Sarlandie and Kevin Conley fielded my first ideas and saw some worth in them, connecting me with Cat and Jon.  
+There are several people at Pebble who had crucial roles with getting this book published.  Cat Haines and Jon Barlow were instrumental in making these chapters a reality.  They worked with day-to-day  updates and were my direct line to Pebble.  Thomas Sarlandie and Kevin Conley fielded my first ideas and saw some worth in them, connecting me with Cat and Jon.  
 
 Finally, some really smart people from the Pebble community proofread the chapters and helped make the Project Exercises a reality.  They worked on the code, made their own suggestions, and produced some very effective learning tools.  Here's a list:
 * Allan Findlay (@allan175)
