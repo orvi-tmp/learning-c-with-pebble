@@ -214,9 +214,9 @@ An infinite loop is a loop whose termination condition is *never* true.  Most of
 
 Consider this example: 
 
-    for (int x=100; x<50; x++) {...}
+    for (int x=100; x!=50; x++) {...}
 
-this code would be an infinite loop because `x` will never be less than 50. 
+this code would be an infinite loop because `x` will never be equal to 50. 
 
 Most of the time, infinite loops are not so obvious.  Try this one:
 
@@ -419,6 +419,7 @@ You are to rewrite the `fill_screen` function so that it completely fills the Pe
    <hr/>
 </figure>
  
+
 Notice that the messages are placed neatly next to each other both horizontally and vertically.  
 
 You should be able to use two loops, one for the row and one for the column.  However, these loops will not likely be for loops, because the (x,y) coordinate of the beginning of the message will change based on message length and font size.  
