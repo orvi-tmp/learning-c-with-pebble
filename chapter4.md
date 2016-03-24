@@ -444,6 +444,12 @@ or worse without parentheses:
 
 Here, precedence rules matter a great deal.  The assignment happens first, producing a value that is then used in the evaluation of the `==` comparison.
 
+In fact, precedence rules can fool you.  Consider this statement:
+
+    if (2 + 5 > 6 ? 1 : 0 > 0) return true; else return false;
+
+It's hard to figure out which part gets evaluated first.  Breaking this out into if statements helps and, as pointed out before, using parentheses helps.  Here, the `2 + 5` part is evaluated before the comparisons.
+
 Using integers as booleans can be messy.  For example,
 
     if ( x-4 || y+2 ) {...}
