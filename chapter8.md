@@ -1,6 +1,6 @@
 Chapter 8: Pointers and Memory Allocation
 =======
-We have discussed many abstractions that are built into the C programming language.  Most of these abstractions intentionally obscure something central to storage: the address in memory where something is stored.  Pointers are a way to get closer to memory and to manipulate the addresses of memory.  
+We have discussed many abstractions that are built into the C programming language.  Most of these abstractions intentionally obscure something central to storage: the address in memory where something is stored.  Pointers are a way to get closer to memory and to manipulate the contents of memory directly.  
 
 In this chapter, we will discuss pointers and how pointers are used to work with memory.  We will discuss how memory can be dynamically allocated and manipulated using pointers.  And we will see that arrays and pointer are very closely connected.
 
@@ -530,7 +530,7 @@ Instead of changing, say `bitmap_data[0]` to `GColorBlue`, we can change the *co
 
 [For Project 8.4, you can get a started with a basic project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-4)
 
-If you run the initial code, you will see that it's a simple rectangle that bounces around the screen, reminiscent of the bouncing ball from Chapter 3.  There is a function, `update_block`, that computes the  position for the image's X and Y coordinates.  This function take reference parameters, that are the previous X or Y and the amount to adjust these coodinates.  Based on the previous X or Y, the new value is computed.
+If you run the initial code, you will see that it's a simple rectangle that bounces around the screen, reminiscent of the bouncing ball from Chapter 3.  There is a function, `update_block`, that computes the position for the image's X and Y coordinates.  This function take reference parameters, that are the previous X or Y and the amount to adjust these coodinates.  Based on the previous X or Y, the new value is computed.
 
 We want a program that makes the image move randomly when the up button is pressed and in a bouncing manner when the bottom button is pressed.  You will need to add code in `up_click_handler` and `down_click_handler` to change between the two modes and you will need to add a function, similar to `update_block`, that randomly assigns new coordinates.  Remember to keep the reference parameters.  You can check Project 8.2 for how to generate random coordinates.
 
