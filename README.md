@@ -24,7 +24,7 @@ Finally, some really smart people from the Pebble community proofread the chapte
 
 So, enjoy the book.  Some very intelligent people -- and myself -- have worked hard to produce something that is readable and packed with examples and code and projects.  We all hope you find this a great way to learn the C programming language on Pebble watches.
 
-<img src='mike.png' width="75%" height="75%">
+<img src='mike.png'>
 
 Mike Jipping<br/>
 Hope College<br/>
