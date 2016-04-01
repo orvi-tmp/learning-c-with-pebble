@@ -27,7 +27,7 @@ Figure 1.1 shows the Pebble Time and the Pebble Time Steel and Figure 1.2 show t
 
 <figure>
    <hr/>
-   <img src='http://cdn0.soyacincau.com/wp-content/uploads/2015/09/150924-pebble-time-round-official-01.jpg'>
+   <img src='Figure1-2.png'>
    <figcaption>
       <b>Figure 1.2:</b> The Pebble Time Round<br/>
    </figcaption>
