@@ -7,9 +7,9 @@ This book is a lot different then most books you will encounter.  The first diff
 * It means you can have your own copy for free.  You can read the book right here or you can download it in PDF or several eBook formats.
 * It means you can get a source copy and add your own content.  The source of the book is in Markdown formatting, which is a text-based format with formatting directives in the text.  It's easy to work with and easy to extend.
 
-This book is also different because of the Project Exercises at the end of every chapter.  Many books on C programming will include questions or short exercises with each chapter.  For this book, we have produced "project" exercises.  These are complete Pebble watch applications that start you off with something to work on and ask you to make changes.  The "answers" are also produced and available for you to view.  And the work is specified in the context of the CloudPebble online IDE.  You can work with each project in an online emulator or directly on a real Pebble smartwatch.
+This book is also different because of the Project Exercises at the end of every chapter.  Many books on C programming will include questions or short exercises with each chapter.  For this book, we have produced "project" exercises.  These are complete Pebble smartwatch applications that start you off with something to work on and ask you to make changes.  The "answers" are also produced and available for you to view.  And the work is specified in the context of the CloudPebble online IDE.  You can work with each project in an online emulator or directly on a real Pebble smartwatch.
 
-These project exercises can be effective in a number of ways.  They are a great way to highlight the topics of each chapter.  They are also a great way to learn how to build C programs that work on a Pebble watch.  They give you many examples from which you can derive your own apps.  And they can teach you to be more comfortable with code that is unfamiliar.  This helps you build applications from a foundation of other example code.
+These project exercises can be effective in a number of ways.  They are a great way to highlight the topics of each chapter.  They are also a great way to learn how to build C programs that work on a Pebble smartwatch.  They give you many examples from which you can derive your own apps.  And they can teach you to be more comfortable with code that is unfamiliar.  This helps you build applications from a foundation of other example code.
 
 There are a lot of people involved with this book to whom I am very grateful. The first is to my wife, Peg, who puts up with my many obsessions, including Pebble smartwatches and writing this document.
 
@@ -24,7 +24,7 @@ Finally, some really smart people from the Pebble community proofread the chapte
 
 Finally, a special thanks to Juan Sanchez (@juansanchez) for his beautiful artwork.
 
-So, enjoy the book.  Some very intelligent people -- and myself -- have worked hard to produce something that is readable and packed with examples and code and projects.  We all hope you find this a great way to learn the C programming language on Pebble watches.
+So, enjoy the book.  Some very intelligent people -- and myself -- have worked hard to produce something that is readable and packed with examples and code and projects.  We all hope you find this a great way to learn the C programming language on Pebble smartwatches.
 
 <img src='mike.png'>
 
