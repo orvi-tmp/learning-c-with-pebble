@@ -130,7 +130,7 @@ If two-dimensional arrays are possible, one would think that more dimensions are
 
 declares 10 tables, each having 20 rows and 30 columns.  And we could go to four and five dimensions if we wanted to.  However, as the dimensions go higher, the usefulness of the array decreases dramatically.   
 
-A final note should be made on the memory requirements of multidimensional arrays.  To estimate the amount of memory used by an array, multiply the indicies together.  A 10 by 20 integer array holding 10 rows of 20 columns is using 200 integers.  A table that size might be usable, but beware of creating tables of large arbitrary size just because you "might" need the space.  A 200 by 200 floating point table contains 40,000 floats, which will likely overflow the memory allocated to a program on a Pebble watch.  Only use arrays as sparingly and tightly controlled as possible and keep the amount of memory used to a minimum. 
+A final note should be made on the memory requirements of multidimensional arrays.  To estimate the amount of memory used by an array, multiply the indicies together.  A 10 by 20 integer array holding 10 rows of 20 columns is using 200 integers.  A table that size might be usable, but beware of creating tables of large arbitrary size just because you "might" need the space.  A 200 by 200 floating point table contains 40,000 floats, which will likely overflow the memory allocated to a program on a Pebble smartwatch.  Only use arrays as sparingly and tightly controlled as possible and keep the amount of memory used to a minimum. 
 
 ### Common Array Operations ###
 
