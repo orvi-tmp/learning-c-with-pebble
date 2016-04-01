@@ -48,7 +48,7 @@ Compile time errors are static errors.  Static errors are those that are in the 
 >
 Run time errors are often dynamic errors.  They present themselves only when the conditions are right.  When run time conditions force the code with errors to be executed, the errors surface.
 >
-Static errors are much easier to find than dynamic errors.  You can find static errors when you review code with a sharp eye.  Dynamic errors often are not caught until you run code with certain input.  On a Pebble watch, dynamic errors might come to light only at certain times of the day. 
+Static errors are much easier to find than dynamic errors.  You can find static errors when you review code with a sharp eye.  Dynamic errors often are not caught until you run code with certain input.  On a Pebble smartwatch, dynamic errors might come to light only at certain times of the day. 
 
 ### Function Headers ### 
 
