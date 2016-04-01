@@ -20,7 +20,7 @@ Finally, some really smart people from the [Pebble community on Slack](http://sl
 * [Paul Niven](https://twitter.com/NiVZ)
 * [Mathew Reiss](https://twitter.com/Idiot_Economist)
 * [David Rodriguez Rincon](https://twitter.com/dabdemon)
-* [Rob Spiess](https://github.com/robisodd)
+* [Rob Spiess](https://twitter.com/rob_spiess)
 
 Finally, a special thanks to [Juan Sanchez](https://twitter.com/juansanchez) for his beautiful artwork.
 
