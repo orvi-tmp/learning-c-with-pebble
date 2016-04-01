@@ -52,7 +52,7 @@ Each Pebble model has the same methods of interaction.  The watches do not have 
 
 <figure>
    <hr/>
-   <img src='http://i.imgur.com/4i9NeDU.jpg'>
+   <img src='Figure1-3.png'>
    <figcaption>
       <b>Figure 1.3:</b> The button on a Pebble smartwatch</b>
    </figcaption>
