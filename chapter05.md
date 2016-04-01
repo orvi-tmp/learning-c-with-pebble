@@ -352,7 +352,7 @@ Here are some guidelines about looping code.
 
 ### Project Exercises ###
 
-For a chapter on loops, we need exercises that demonstrate how loop might be used on a Pebble watch.
+For a chapter on loops, we need exercises that demonstrate how loop might be used on a Pebble smartwatch.
 
 #### Project 5.1 ####
 
