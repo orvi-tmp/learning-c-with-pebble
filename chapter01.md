@@ -12,7 +12,7 @@ In 2008, Eric Migicovsky was an engineering student at the University of Waterlo
 
 Having gone through this first experience with inPulse, Migicovsky came up a new project: a watch called “Pebble.”  This time, the watch project was funded by backers through Kickstarter, a Web site for crowdfunding projects.  On April 11, 2012, the Pebble project launched with a goal of raising $100,000.  That goal was reached within 2 hours.  Within 28 hours, $1 million was raised.  By the end of the 30 day funding period, more than $10 million was raised from over 68,000 backers, breaking Kickstarter records (at the time).  These original Pebble smartwatches began shipping in January 2013.
 
-Since the original Pebble, several other Pebble models have been released.  As of this writing, there are 5 models in the Pebble family.  The original Pebble watch and its steel sibling -- the Pebble Steel -- continue to have a wide user base.  These are watches with a monochrome display and a battery life of up to 7 days.  The current line of watches -- the Pebble Time, Pebble Time Steel, and Pebble Time Round -- have color displays and and battery lives that range from 10 days for the Pebble Time Steel, to 2 days for the Pebble Time Round.
+Since the original Pebble, several other Pebble models have been released.  As of this writing, there are 5 models in the Pebble family.  The original Pebble smartwatch and its steel sibling -- the Pebble Steel -- continue to have a wide user base.  These are watches with a monochrome display and a battery life of up to 7 days.  The current line of watches -- the Pebble Time, Pebble Time Steel, and Pebble Time Round -- have color displays and and battery lives that range from 10 days for the Pebble Time Steel, to 2 days for the Pebble Time Round.
 
 Figure 1.1 shows the Pebble Time and the Pebble Time Steel and Figure 1.2 show the Pebble Time Round. 
 
@@ -34,13 +34,13 @@ Figure 1.1 shows the Pebble Time and the Pebble Time Steel and Figure 1.2 show t
    <hr/>
 </figure>
 
-Several features of Pebble smartwatches have proven to be attractive.  The extended battery life is a distinct advantage, especially when compared to other smartwatches.  The color displays can be viewed from many angles and outside in direct sunlight.  The watches are light and easily worn.  One the best features, however, is the easy way the watch can be programmed.  One can write applications that create new watch faces as well as applications that use all features of the watch: the display, the sensors, and the button inputs. All Pebble watches have the same programming system: apps are written in C, turned into CPU instructions, uploaded to the watch through the Pebble app on a smartphone. 
+Several features of Pebble smartwatches have proven to be attractive.  The extended battery life is a distinct advantage, especially when compared to other smartwatches.  The color displays can be viewed from many angles and outside in direct sunlight.  The watches are light and easily worn.  One the best features, however, is the easy way the watch can be programmed.  One can write applications that create new watch faces as well as applications that use all features of the watch: the display, the sensors, and the button inputs. All Pebble smartwatches have the same programming system: apps are written in C, turned into CPU instructions, uploaded to the watch through the Pebble app on a smartphone. 
 
 This mean that, to take advantage of the easy programming features and write apps for the watch, one should learn the C programming language.  And that is what this book will help you to do.
 
 ### The Pebble Hardware ###
 
-Pebble watches have different configurations, but have several common elements.  
+Pebble smartwatches have different configurations, but have several common elements.  
 
 Inside a Pebble smartwatch is a display that can stay on without using a lot of battery power.  Called "e-paper", the display is a reflective LCD display.  The current displays are capable of displaying 64 colors.  The Pebble Time and Pebble Time Steel smartwatches have a resolution of 144 by 168 pixels; the Pebble Time Round has a resolution of 180 by 180 pixels.  Each display has a refresh rate of 30 frames per second, which enables rapid animations that look smooth and render with excellent image integrity.  
 
@@ -54,7 +54,7 @@ Each Pebble model has the same methods of interaction.  The watches do not have 
    <hr/>
    <img src='http://i.imgur.com/4i9NeDU.jpg'>
    <figcaption>
-      <b>Figure 1.3:</b> The button on a Pebble watch</b>
+      <b>Figure 1.3:</b> The button on a Pebble smartwatch</b>
    </figcaption>
    <hr/>
 </figure>
@@ -88,7 +88,7 @@ Perhaps the most basic of software on each Pebble smartwatch is the Pebble opera
 
 Operating system software may provide access to hardware in increments.  Not all hardware will be accessible to software developers.  For example, the Pebble Steel model included an LED light on the face that could display light in various colors.   While it was perhaps the intention of operating system developers to provide access to this light, it never made it into the software interface provided by the operating system.  The system's magnetometer sensor, on the other hand, was built into the very first Pebble, but was only made available to software developers in Pebble OS version 2.  Metaphors and appropriate, consistent software access take time to design properly.  
 
-Another element that an operating system provides is a user interface.  In the case of a Pebble watch, the user interface is extremely important.  The only methods of user interaction are buttons and microphone (on the Pebble Time models), and the display and vibration make up the output to the wearer.  Button input is quite flexible; Pebble OS will distinguish between single, double, and long presses and can detect when multiple buttons are used together.   
+Another element that an operating system provides is a user interface.  In the case of a Pebble smartwatch, the user interface is extremely important.  The only methods of user interaction are buttons and microphone (on the Pebble Time models), and the display and vibration make up the output to the wearer.  Button input is quite flexible; Pebble OS will distinguish between single, double, and long presses and can detect when multiple buttons are used together.   
 
 Since version 3.0, Pebble OS has built in a timeline interface in addition to watchfaces and watch apps.  The *timeline* is a user interface metaphor that presents time related information to the user through a timeline populated with time events.  This timeline can be accessed from the watchface display through use of the up and down buttons.  The timeline incorporates the use of *pins*, event and notification items that are tagged with time and displayed chronologically.  Figure 1.5 shows an example of a timeline pin and the details from that pin.
 
@@ -124,13 +124,13 @@ A human can write watchface programs in many different styles.  However, watchfa
 
 ### The Phone App ###
 
-Pebble watches are made to work with mobile phones.  When a watch is turned on for the first time, it looks for a phone to help download operating system firmware.  The Pebble phone app is key to the operation of watches.
+Pebble smartwatches are made to work with mobile phones.  When a watch is turned on for the first time, it looks for a phone to help download operating system firmware.  The Pebble phone app is key to the operation of watches.
 
 The phone app works on iOS or Android devices.   It delivers messages and notifications to the watch.  It acts as a transfer agent between network services and the watch.  Since the release of Pebble Time models, the app has had a locker that holds watch faces and watch apps.  The app represents a storage extension for the watch; when watch faces or watch apps are needed but not present on the watch, they are retrieved from the phone app.  
 
-Pebble watches access local and network resources through the phone app. Software written for each watch model can access network resources, but only through the watch app.  Any access to URLs or network based functionality must go through the phone app.  
+Pebble smartwatches access local and network resources through the phone app. Software written for each watch model can access network resources, but only through the watch app.  Any access to URLs or network based functionality must go through the phone app.  
 
-So it is safe to say that the Pebble platform depends on the phone app for functionality.  This is mostly an advantage for Pebble watches, because it allows the watch to be thinner (hardware like WiFi chips can be left off) and it allows the phone to share processing with the watch.
+So it is safe to say that the Pebble platform depends on the phone app for functionality.  This is mostly an advantage for Pebble smartwatches, because it allows the watch to be thinner (hardware like WiFi chips can be left off) and it allows the phone to share processing with the watch.
 
 ### How to Use This Book ###
 
@@ -141,7 +141,7 @@ This book is designed to help you learn C programming by using the Pebble smartw
 * This book is on the Gitbook Web site.  This means you can fork the book, add your own content and submit it to us as pull requests.
 * Finally, exercises can be run in CloudPebble through GitHub.
 
-This book should be accessible by beginners as well as those who know the C language but want to write Pebble applications.  If you are just starting in C programming, then you should start at chapter 2 and work through each chapter in sequence.  If you are already a C programmer, you should also read chapter 2, but then find those features that focus on Pebble watches, such as the user interface or sensor programming.  Seasoned C programmers could start at chapter 15.
+This book should be accessible by beginners as well as those who know the C language but want to write Pebble applications.  If you are just starting in C programming, then you should start at chapter 2 and work through each chapter in sequence.  If you are already a C programmer, you should also read chapter 2, but then find those features that focus on Pebble smartwatches, such as the user interface or sensor programming.  Seasoned C programmers could start at chapter 15.
 
 Finally, note that this is a BIP: a Book In Progress.  The contents will change over time.  Errors will be corrected, content added, and exercises will be modified or added.  This is one of the reasons the book is published on gitbook.com, so that we can make this a better and more effective learning tool.
 
