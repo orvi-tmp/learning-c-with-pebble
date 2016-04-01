@@ -1,13 +1,13 @@
-Chapter 2: First Things First: Developing Apps for Pebble Watches
+Chapter 2: First Things First: Developing Apps for Pebble smartwatches
 =======
 A professional craftsman is nothing without a toolbox. Tool sets are often unique to the person using them; certain tools are effective for certain people and not for others.  However, most professionals in a trade will all work certain kinds of tools, but the specific choices vary widely. 
 
 So it is with programmers.  Each programmer, for example, needs to use a *text editor*. This tool allows its user to enter text into a file.  But if you want to touch off an argument in a group -- online or offline -- of programmers, ask a question about the best text editor.  And stand back!  If you want to get a list of text editors to try out, [search for "best text editors" on Reddit](https://www.reddit.com/r/pebble/search?q=best+text+editors).  
 
-Developing applications for Pebble watches requires a set of tools and a sequence of steps. This chapter will explain and explore the process of developing, compiling, and running code for Pebble watches.  We will look at programming environments and what it takes to properly debug a program that is not working correctly.  We will developing an example application that will run on a Pebble watch.
+Developing applications for Pebble smartwatches requires a set of tools and a sequence of steps. This chapter will explain and explore the process of developing, compiling, and running code for Pebble smartwatches.  We will look at programming environments and what it takes to properly debug a program that is not working correctly.  We will developing an example application that will run on a Pebble smartwatch.
 
 ### The Development Cycle ###
-Developing an application for a Pebble watch -- or any computer -- starts with an algorithm expressed in a programming language.  
+Developing an application for a Pebble smartwatch -- or any computer -- starts with an algorithm expressed in a programming language.  
 
 An algorithm is a collection of instructions.  Algorithms have different names in different contexts.  When you are cooking food, an algorithm is a *recipe* -- a collection of ingredients and instructions that, when followed, produces culinary delights.  When you are putting together things you bought in the store, an algorithm is usually printed for you and called an *instruction manual*.  On a computer, an algorithm is called a *program*.
 
@@ -27,9 +27,9 @@ Notice that the B language was designed as a way influence how machine instructi
 >
 We will point out such elements as we describe the C programming language.
 
-### Compiling and Running Programs for a Pebble Watch ###
+### Compiling and Running Programs for a Pebble Smartwatch ###
 
-As we saw in Chapter 1, Pebble watches are built with a version of an ARM processor. Any program written for a Pebble watch must be comprised of machine instructions for an ARM. There are number of steps from an application idea to an installed Pebble app, as pictured in Figure 2.1.
+As we saw in Chapter 1, Pebble smartwatches are built with a version of an ARM processor. Any program written for a Pebble smartwatch must be comprised of machine instructions for an ARM. There are number of steps from an application idea to an installed Pebble app, as pictured in Figure 2.1.
 
 <figure>
    <hr/>
@@ -100,7 +100,7 @@ An interactive development environment, or IDE, focuses on the process of softwa
 
 In addition to streamlining the development process, IDEs offer enhanced coding tools.  There can be tools that analyze code; there can be editors that error-check your code as you write it. 
 
-[CloudPebble](http://cloudpebble.net) is an online IDE that is specifically targeted to the Pebble watch platform.  It has the following elements:
+[CloudPebble](http://cloudpebble.net) is an online IDE that is specifically targeted to the Pebble smartwatch platform.  It has the following elements:
 * A code-completing editor with syntax checking
 * A file server that will store your program files for you
 * A compiler that will work from the files stored on the file server
@@ -129,7 +129,7 @@ These methods work when the IDE can directly execute the code and can directly a
 
 ### Using GitHub and CloudPebble for Projects in this Book ###
 
-This book uses a *project exercises* at the end of each chapter.  A project exercise is a complete watch app that will run on a Pebble watch.  You are asked to read the code, then change the code.  You can check your work against an "answer" project that is also provided.  
+This book uses a *project exercises* at the end of each chapter.  A project exercise is a complete watch app that will run on a Pebble smartwatch.  You are asked to read the code, then change the code.  You can check your work against an "answer" project that is also provided.  
 
 You will be working with project exercises through the CloudPebble IDE.  The code you will start from is stored on GitHub, a Web site that uses a *version control system* called "git".  You will be given a URL with each project that will get you to the CloudPebble IDE and automatically import the project code into CloudPebble.
 
