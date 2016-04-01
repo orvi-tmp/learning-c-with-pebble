@@ -71,7 +71,7 @@ Smartstraps were introduced with the Pebble Time.  A smartstrap is a watch strap
 
 <figure>
    <hr/>
-   <img src='http://developer.getpebble.com/assets/images/more/strap-components.png'>
+   <img src='Figure1-4.png'>
    <figcaption>
       <b>Figure 1.4:</b> Pebble Time's Smartstrap connectors</b>
    </figcaption>
