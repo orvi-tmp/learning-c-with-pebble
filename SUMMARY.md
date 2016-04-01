@@ -2,6 +2,11 @@
 
 * [Preface](README.md)
 * [Chapter 1: Introduction](chapter01.md)
+  * [The Pebble Smartwatch](chapter01.md#the-pebble-smartwatch)
+  * [The Pebble Hardware](chapter01.md#the-pebble-hardware)
+  * [The Pebble Software](chapter01.md#the-pebble-software)
+  * [The Phone App](chapter01.md#the-phone-app)
+  * [How To Use This Book](chapter01.md#how-to-use-this-book)
 * [Chapter 2: First Things First](chapter02.md)
 * [Chapter 3: Variables and Other Basics](chapter03.md)
 * [Chapter 4: Making Decisions and Conditional Execution](chapter04.md)
