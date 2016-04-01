@@ -6,7 +6,7 @@ Since that first gifting, the wrist watch has gone through many stages of evolut
 
 Watches have become popular because they are a source of valuable information, strapped to a very convenient and accessible location.  One’s wrist as a source for information is easily accessible and very visible.  It makes sense, then, that a watch on the wrist is used for more than just time.   
 
-### The Pebble Smartwatch ###
+### The Pebble Smartwatch {#the-pebble-smartwatch}
 
 In 2008, Eric Migicovsky was an engineering student at the University of Waterloo.  He wanted to build a device that allowed him to use his phone while riding a bicycle.  His solution was to combine a cell phone (a Nokia 3310 at the time) with an Arduino processor to produce a prototype for a "watch computer" that could obtain data from a phone.  For Migicovsky, this mashup of phone and computer was a student project, but it worked well enough to inspire him.  Migicovsky called this project the inPulse.  By 2010, with some ingenuity that stuffed electronics inside a 3D printed casing, the first prototype of the inPulse was created.  It was the start of what a smartwatch could do and it allowed people to imagine having a computer on their wrist.
 
@@ -38,7 +38,7 @@ Several features of Pebble smartwatches have proven to be attractive.  The exten
 
 This mean that, to take advantage of the easy programming features and write apps for the watch, one should learn the C programming language.  And that is what this book will help you to do.
 
-### The Pebble Hardware ###
+### The Pebble Hardware {#the-pebble-hardware}
 
 Pebble smartwatches have different configurations, but have several common elements.  
 
@@ -80,7 +80,7 @@ Smartstraps were introduced with the Pebble Time.  A smartstrap is a watch strap
 
 There are currently [several projects described](http://makezine.com/2015/09/25/hacking-on-the-pebble-smartstrap/) online that take advantage of this smartstrap technology.
 
-### The Pebble Software ###
+### The Pebble Software {#the-pebble-software}
 
 While hardware forms the foundation of the Pebble smartwatch models,  it is the software that makes the watch come alive to the user.  As with most computing devices, the hardware is usually taken for granted and the software becomes the focus of use.  So with the Pebble: while the Cortex-M3 vs the Cortex-M4 forms a major upgrade between the Pebble Classic and the Pebble Time, the color display and what you can do with it is the most accessible and most exciting upgrade.  
 
@@ -121,7 +121,7 @@ There are two types of applications that one can write for Pebble OS: watchfaces
 > 
 A human can write watchface programs in many different styles.  However, watchface programs can also be derived from fixed templates so that they can be written by a computer.  The Watchface Generator Web site (at [http://www.watchface-generator.de](http://www.watchface-generator.de)) lets users design their own custom watchface, then writes the code necessary to implement that watchface and generates the right software package ready for installation.  While you can still write your own watchface code that might be more flexible or have more capability, the Watchface Generator can produce attractive and interesting watchfaces with no user coding. 
 
-### The Phone App ###
+### The Phone App {#the-phone-app}
 
 Pebble smartwatches are made to work with mobile phones.  When a watch is turned on for the first time, it looks for a phone to help download operating system firmware.  The Pebble phone app is key to the operation of watches.
 
@@ -131,7 +131,7 @@ Pebble smartwatches access local and network resources through the phone app. So
 
 So it is safe to say that the Pebble platform depends on the phone app for functionality.  This is mostly an advantage for Pebble smartwatches, because it allows the watch to be thinner (hardware like WiFi chips can be left off) and it allows the phone to share processing with the watch.
 
-### How to Use This Book ###
+### How to Use This Book {#how-to-use-this-book}
 
 This book is designed to help you learn C programming by using the Pebble smartwatch platform to demonstrate and execute programs.  The book is online for several reasons.
 
