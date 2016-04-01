@@ -22,7 +22,7 @@ Finally, some really smart people from the Pebble community proofread the chapte
 * David Rodriguez Rincon (@drrincon)
 * Rob Spiess (@robisodd)
 
-Finally a special thanks to Juan Sanchez (@juansanchez) for his beautiful artwork.
+Finally, a special thanks to Juan Sanchez (@juansanchez) for his beautiful artwork.
 
 So, enjoy the book.  Some very intelligent people -- and myself -- have worked hard to produce something that is readable and packed with examples and code and projects.  We all hope you find this a great way to learn the C programming language on Pebble watches.
 
