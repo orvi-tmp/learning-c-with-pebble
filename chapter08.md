@@ -341,7 +341,7 @@ Null pointers typically signify the end of data or an error condition.  Derefere
 
 ### Freeing up Memory ###
 
-Dynamically creating memory with `malloc` is a great way to only take up the memory that your program needs.  Memory on a Pebble watch is limited, and using pointers in this way is frugal.
+Dynamically creating memory with `malloc` is a great way to only take up the memory that your program needs.  Memory on a Pebble smartwatch is limited, and using pointers in this way is frugal.
 
 To continue this frugality, memory space that is allocated by your program must also be deallocated by your program.  To deallocate memory that was allocated with `malloc`, use the `free` function call.  Here's an example of allocating and immediately freeing up memory:
 
@@ -406,7 +406,7 @@ Pointers can be messy and useful.  They can also be funny.  [This link is an xkc
 
 ### Pointers and Pebble Programming ###
 
-Pointers feature prominently in software written for Pebble watches.  You have seen this in the many project exercises that have been given in past chapters.  For example, every Pebble program needs a window on the screen so that it can interact with the user.  This window is declared like this:
+Pointers feature prominently in software written for Pebble smartwatches.  You have seen this in the many project exercises that have been given in past chapters.  For example, every Pebble program needs a window on the screen so that it can interact with the user.  This window is declared like this:
 
     static Window *window;
 
