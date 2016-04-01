@@ -4,7 +4,7 @@ As we use high level programming languages to write our programs, we learn that 
 
 We start looking at the C programming language by working with abstractions of computer memory.  *Variables* are abstractions of memory words; when we work with variables, we are really working with memory.  But the gory details of *how* we are working with memory are hidden and we are left with the niceties that we get in C.  
 
-We will start out by defining variables and how we work them.  We will also need to define *data types*, as they are central to how we work with variables.  We will also look at the unique ways C lets us manipulate memory through variables, and we will look at how this all works in a Pebble watch.
+We will start out by defining variables and how we work them.  We will also need to define *data types*, as they are central to how we work with variables.  We will also look at the unique ways C lets us manipulate memory through variables, and we will look at how this all works in a Pebble smartwatch.
 
 ### Defining Variables ###
 
@@ -102,7 +102,7 @@ The table below shows letter designations for data types and gives some examples
 <TR>
 <TD>Character</TD>
 <TD><code>char</code></TD>
-<TD>A representation of letters and other character data.  Pebble watches use the Unicode representation for character data, allowing over 65,000 different characters.</TD>
+<TD>A representation of letters and other character data.  Pebble smartwatches use the Unicode representation for character data, allowing over 65,000 different characters.</TD>
 <TD>'A'<br/>'5'<br/>'#'</TD>
 <TD>"A"<br/>"string"</TD>
 </TR>
@@ -119,7 +119,7 @@ The table below shows letter designations for data types and gives some examples
 
 ### Other Basic Data Types ###
 
-The table in the previous sections adds two data types to ones we have discussed.  *Character* data types are declared with the `char` keyword and hold single characters/symbols as their value.  On a Pebble watch, these values come from the [Unicode](http://www.unicode.org/charts) character set.  Unicode contains a Western style alphabet in the first 128 characters and a large collection of the other alphabets in the rest of the set.  Note that character data types include numbers as characters, so that `'5'` is not the same as `5`.  Character literals are represented using single quotes.  
+The table in the previous sections adds two data types to ones we have discussed.  *Character* data types are declared with the `char` keyword and hold single characters/symbols as their value.  On a Pebble smartwatch, these values come from the [Unicode](http://www.unicode.org/charts) character set.  Unicode contains a Western style alphabet in the first 128 characters and a large collection of the other alphabets in the rest of the set.  Note that character data types include numbers as characters, so that `'5'` is not the same as `5`.  Character literals are represented using single quotes.  
 
 > **Characters are not Strings**
 > 
@@ -224,7 +224,7 @@ The point here is that conversions are necessary to follow the typing rules of C
 >
 There are other data type rules.  The opposite of static typing is *dynamic typing*.  In dynamic typing, variables change their data type depending on the values assigned to them.  Variables need no declaration because they have no initial data type.  If the example above were dynamically typed, the last line does not convert the result to double before assignment, the variable takes on a float data type to match the right hand expression's data type.  
 >
-Javascript, another language that can be used to program Pebble watches, is an example of a dynamically typed language. In Javascript, variables are declared, but they are simply called "var" to indicate they are variables.  The data type of a variable is assigned when a value is assigned.
+Javascript, another language that can be used to program Pebble smartwatches, is an example of a dynamically typed language. In Javascript, variables are declared, but they are simply called "var" to indicate they are variables.  The data type of a variable is assigned when a value is assigned.
 
 In C, variables are also *strongly typed*.  This means that once variables are bound to a data type, they stay bound to that type.  Which means that they cannot not change types, but require other types to be converted to their data type before they are assigned.    
 
@@ -678,9 +678,9 @@ The computations of `position_x` and `position_y` need some explanation.  When w
 
 >**Why Are Floating Point Computations So Bad?**
 >
-So why are floating point computations so bad to do on the Pebble watch CPU?  Floating point operations can be up to 3 times slower.  First, floating point numbers are stored in an encoded form called [IEEE 754 format](https://en.wikipedia.org/wiki/Single-precision_floating-point_format "IEEE 754 format"). Every use of a floating point number means unpacking and repacking the values for computation.
+So why are floating point computations so bad to do on the Pebble smartwatch CPU?  Floating point operations can be up to 3 times slower.  First, floating point numbers are stored in an encoded form called [IEEE 754 format](https://en.wikipedia.org/wiki/Single-precision_floating-point_format "IEEE 754 format"). Every use of a floating point number means unpacking and repacking the values for computation.
 >
-Second, because floating point numbers have binary points and are stored with exponents, floating point computations can be very slow. Addition and subtraction have a long algorithm ([see here for an example](https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BinMath/addFloat.html)) and multiplication and division is even longer ([this YouTube video is good at showing the long algorithm](https://www.youtube.com/watch?v=DuOwT2hZOiw)). Most CPUs that can handle floating point operations use an additional floating point coprocessor. The Pebble watch CPU does not have that extra coprocessor, and in a CPU where we have to be very stingy about when to do floating-point operations, doing as much as possible with integers makes sense.  
+Second, because floating point numbers have binary points and are stored with exponents, floating point computations can be very slow. Addition and subtraction have a long algorithm ([see here for an example](https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BinMath/addFloat.html)) and multiplication and division is even longer ([this YouTube video is good at showing the long algorithm](https://www.youtube.com/watch?v=DuOwT2hZOiw)). Most CPUs that can handle floating point operations use an additional floating point coprocessor. The Pebble smartwatch CPU does not have that extra coprocessor, and in a CPU where we have to be very stingy about when to do floating-point operations, doing as much as possible with integers makes sense.  
 
 1. You will again find functions that implement the top and bottom buttons.  Put code in each to move to the next letter in the alphabet and the previous letter in the alphabet when the top or bottom buttons are pressed, respectively.  
 
