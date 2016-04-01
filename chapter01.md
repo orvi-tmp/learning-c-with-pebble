@@ -108,9 +108,9 @@ There are currently three different software platforms when one considers writin
 
 <figure>
    <hr/>
-   <img src='http://i.kinja-img.com/gawker-media/image/upload/s---4ch4uje--/c_scale,fl_progressive,q_80,w_800/1443394463249423430.jpg'>
+   <img src='Figure1-6.png'>
    <figcaption>
-      <b>Figure 1.6:</b> Basalt and Chalk software platforms.<br/>
+      <b>Figure 1.6:</b> Aplite, Basalt, and Chalk software platforms.<br/>
    </figcaption>
    <hr/>
 </figure>
