@@ -2,7 +2,7 @@ Preface
 =======
 Welcome to Learning C with Pebble.  I'm glad you are (at least considering) spending some time with this book.
 
-This book is a lot different then most books you will encounter.  The first difference you will see is how you got here: it's published online in open source format.  Publishing on gitbook.com means a couple of things that makes this different:
+This book is a lot different than most books you will encounter.  The first difference you will see is how you got here: it's published online in open source format.  Publishing on gitbook.com means a couple of things that makes this different:
 * It means that this book represents a work in progress.  It will be released incrementally, sections at a time.  It will be updated regularly: errors will be fixed and new content will be added.  Instead of issuing "editions", we will work on one continual edition, in versions.
 * It means you can have your own copy for free.  You can read the book right here or you can download it in PDF or several eBook formats.
 * It means you can get a source copy and add your own content.  The source of the book is in Markdown formatting, which is a text-based format with formatting directives in the text.  It's easy to work with and easy to extend.
