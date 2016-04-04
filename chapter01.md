@@ -6,7 +6,7 @@ Since that first gifting, the wrist watch has gone through many stages of evolut
 
 Watches have become popular because they are a source of valuable information, strapped to a very convenient and accessible location.  One’s wrist as a source for information is easily accessible and very visible.  It makes sense, then, that a watch on the wrist is used for more than just time.   
 
-### The Pebble Smartwatch ###
+### The Pebble Smartwatch <a name="the-pebble-smartwatch"></a>
 
 In 2008, Eric Migicovsky was an engineering student at the University of Waterloo.  He wanted to build a device that allowed him to use his phone while riding a bicycle.  His solution was to combine a cell phone (a Nokia 3310 at the time) with an Arduino processor to produce a prototype for a "watch computer" that could obtain data from a phone.  For Migicovsky, this mashup of phone and computer was a student project, but it worked well enough to inspire him.  Migicovsky called this project the inPulse.  By 2010, with some ingenuity that stuffed electronics inside a 3D printed casing, the first prototype of the inPulse was created.  It was the start of what a smartwatch could do and it allowed people to imagine having a computer on their wrist.
 
