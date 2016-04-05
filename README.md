@@ -32,4 +32,4 @@ Mike Jipping<br/>
 Hope College<br/>
 Holland, Michigan USA<br/>
 jipping@hope.edu<br/>
-@frethop
+[frethop](http://www.twitter.com/frethop)
