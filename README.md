@@ -24,7 +24,7 @@ Finally, some really smart people from the [Pebble community on Slack](http://sl
 
 Finally, a special thanks to [Juan Sanchez](https://twitter.com/juansanchez) for his beautiful artwork.
 
-So, enjoy the book.  Some very intelligent people -- and myself -- have worked hard to produce something that is readable and packed with examples and code and projects.  We all hope you find this a great way to learn the C programming language on Pebble smartwatches.
+So, enjoy the book.  Some very intelligent people have worked hard to produce something that is readable and packed with examples and code and projects.  We all hope you find this a great way to learn the C programming language on Pebble smartwatches.
 
 <img src='mike.png'>
 
