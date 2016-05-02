@@ -87,7 +87,7 @@ In fact, we can leave all parts empty:
 
     for (;;) { ... }
 
-This would be an infinite loop we would have to break out of from in the loop body.
+This would be an infinite loop that we would have to break out of from in the loop body.
 
 We mentioned that for loops are just while loops.  We can rewrite our first simple example to be represented as a while loop like this:
 
@@ -168,9 +168,9 @@ Let's take another look at the factorial example.  We can write for do/while loo
         number--;
     } while (number > 0);
 
-This computes a factorial just like the original example, except for the case when `number` is equal to 0.  Then this will give a result that is in error (`factorial` will be equal to 0; we know that 0! = 1).  So, the factorial example is a good example of an algorithm that needs the condition checked before loop execution, when it's possible that no loop execution will happen.
+This computes a factorial just like the original example, except for the case when `number` is equal to 0.  Then this will give a result that is an error (`factorial` will be equal to 0; we know that 0! = 1).  So, the factorial example is a good example of an algorithm that needs the condition checked before loop execution, when it's possible that no loop execution will happen.
 
-Let's look at another example.  Let's write some code that will compute the first *n* numbers in a Fibonnaci sequence, where each term is equal to the sum of the two previous terms.  Note that this assumes that *n* is greater than 0, which means that at least 1 term will be generated, which means we will execute loop code at least once, which means we can use a do/while.
+Let's look at another example.  Let's write some code that will compute the first *n* numbers in a Fibonnaci sequence, where each term is equal to the sum of the two previous terms.  Note that this assumes that *n* is greater than 0, which means that at least 1 term will be generated, which means we will execute loop code at least once, which means we should use a do/while.
 
      int first=0, second=1, next;
      do {
@@ -208,6 +208,8 @@ The continue statement simply terminates the current execution of loop code and 
 
 This code skips the summation for every time `i` is not even.  Of course, by using `i += 2` instead of `i++` in the for loop set up specification would mean we don't need the continue line.  But it's a good example.
 
+Because these statements allow us to prematurely terminate a loop, they should be used with caution.  When they are used at the beginning of loop code, they can act as additional checks to make sure conditions are right to execute the loop body.  This is particularly useful with for loops and do/while loops, where checks at the start of a loop body are appropriate.  When used in the middle of a loop body, however, these statements can act as kind of structured goto statements (see below for an explanation of gotos), aborting the flow of an algorithm to restart or terminate a loop.  In these cases, it is often better to test whether the remainder of loop code should execute rather than to test whether the remainder of the code should be aborted.  
+
 ### Infinite Loops ###
 
 An infinite loop is a loop whose termination condition is *never* true.  Most often, infinite loops are an error by a programmer who actually meant something different.
@@ -235,7 +237,7 @@ Here's another common error:
 
 In this example, the semicolon after the while specification will cause the while loop to run an empty statement infinitely.  
 
-Most infinite loops happen because of errors in your code. Perhaps, like above, an assignment is used instead of an equality.  Or, perhaps, the condition used in a while loop is always true because of code somewhere else.  Infinite loops can be hard track down.  The key is to work with the variables in the loop conditional parts and make sure you know their values.  
+Most infinite loops happen because of errors in your code. Perhaps, like above, an assignment is used instead of an equality.  Or, perhaps, the condition used in a while loop is always true because of code somewhere else.  Infinite loops can be hard to track down.  The key is to work with the variables in the loop conditional parts and make sure you know their values.  
 
 Occasionally, however, an infinite loop can be useful, especially when combined with a break statement. There are situations where the decision to terminate a loop must occur in the middle of the loop body, not at the beginning or the end.  In these cases, a break statement is needed -- with an if statement attached -- to terminate the loop.  
 
@@ -279,7 +281,7 @@ In fact, we can use a goto statement to rewrite many code structures.  We can im
 
 which is semantically equivalent.  However, this code also points out problems with the goto statement.  The biggest problem is that code can look chaotic with goto statements.  Compare the two examples above.  The while loop is much more expressive about the algorithm being described than the goto implementation.  In fact, if we eliminated the goto entirely, it would be much more elegant and expressive:
  
-    int x=10;
+    int x=10;how loop
     while (x < 20) {
         x++;
         if (x != 15) {
@@ -289,7 +291,7 @@ which is semantically equivalent.  However, this code also points out problems w
 
 The problem with the goto statement is that it encourages very bad code.  As threads of execution start to wind around blocks of code, a program can be very hard to follow.  *Structured programming constructs*, like while loops and for loops, were invented to eliminate the goto statement with statements that directly addressed the logic that the goto was implementing.  
 
-In addition to code that is hard to understand, the goto statement poses some very difficult problems when it interacts to more structure program components.  For example, consider this code:
+In addition to code that is hard to understand, the goto statement poses some very difficult problems when it interacts with more structured program components.  For example, consider this code:
 
     int x=10;
     LOOP: while (x < 20) {
@@ -352,7 +354,7 @@ Here are some guidelines about looping code.
 
 ### Project Exercises ###
 
-For a chapter on loops, we need exercises that demonstrate how loop might be used on a Pebble smartwatch.
+For a chapter on loops, we need exercises that demonstrate how loops might be used on a Pebble smartwatch.
 
 #### Project 5.1 ####
 
@@ -362,7 +364,7 @@ Instead of zeroes, display the random decimal number in binary.  To do this, we 
 
 1. AND the random number with 1.
 2. Display the result.
-3. Shift the number right.
+3. Shift the random number right by 1.
 
 We will have to do this until the decimal number equals 0.  Note that you are to display each binary digit as you figure it out, not save up the whole number and somehow display the whole thing at once.  This will mean you have to compute the (x,y) position of each digit as you display them. 
 
@@ -388,7 +390,7 @@ This image holds correct changes.
 </figure>
  
 
-To do this, add code that uses the parameters sent to the function.  The first two, `pixel_height` and `pixel_width`, define an area to look at.  You need to example pixels from (0,0) to (`pixel_width`, `pixel_height`).  You can use the function `get_pixel_color(x,y)` like this:
+To do this, add code that uses the parameters sent to the function.  The first two, `pixel_height` and `pixel_width`, define an area to look at.  You need to examine pixels from (0,0) to (`pixel_width`, `pixel_height`).  You can use the function `get_pixel_color(x,y)` like this:
 
     GColor pixel_color = get_pixel_color(x,y);
 
@@ -420,10 +422,10 @@ You are to rewrite the `fill_screen` function so that it completely fills the Pe
 </figure>
  
 
-Notice that the messages are placed neatly next to each other both horizontally and vertically.  
+Notice that the messages are placed neatly next to each other both horizontally and vertically.  There are `screen_height` and a `screen_width` variables that are available to you that have the value of the screen height and screen width (respectively) in pixels.
 
 You should be able to use two loops, one for the row and one for the column.  However, these loops will not likely be for loops, because the (x,y) coordinate of the beginning of the message will change based on message length and font size.  
 
 Now that you have used two loops, can you rewrite the code using only one loop?
 
-[You can find an implementation of the two loop solution here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-3-answer), with an implementation of the single loop solution in comments.
+[You can find an implementation of the one loop solution here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-3-answer).
