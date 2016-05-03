@@ -340,21 +340,27 @@ This project ask you to do three things.  These things are connected to the butt
 
 1. **Draw the maze on the Pebble screen.**  The bottom button is connected to the code that (a) clears any solution that has been generated, (b) clears the maze on the screen, and (c) generates a new maze.    Then it flags the maze and solution layers as "dirty", that is, in need of update.  This means that the function `maze_layer_update` will be called.  Find this function and add code to replace the comment:
 
-    // [Put your maze drawing code here]
+     ```
+     // [Put your maze drawing code here]
+     ```
 
-That code should check each row and column, from `(0,0)` to `(MAZE_WIDTH, MAZE_HEIGHT)`, and draw a rectangle in each spot.  The code below should be useful:
+   That code should check each row and column, from `(0,0)` to `(MAZE_WIDTH, MAZE_HEIGHT)`, and draw a rectangle in each spot.  The code below should be useful:
 
-      graphics_context_set_fill_color(ctx, maze[x][y] ? GColorWhite : GColorBlack);
-      cell = GRect((x * CELL_SIZE), (y * CELL_SIZE), CELL_SIZE, CELL_SIZE);
-      graphics_fill_rect(ctx, cell, 0, GCornerNone);
+     ```
+     graphics_context_set_fill_color(ctx, maze[x][y] ? GColorWhite : GColorBlack);
+     cell = GRect((x * CELL_SIZE), (y * CELL_SIZE), CELL_SIZE, CELL_SIZE);
+     graphics_fill_rect(ctx, cell, 0, GCornerNone);
+     ```
 
-This code puts a white or black rectangle at the coordinate (x,y), depending on the boolean value in `maze[x][y]`.
+   This code puts a white or black rectangle at the coordinate (x,y), depending on the boolean value in `maze[x][y]`.
 
 2. **Solve the maze.**  The select (middle) button is connected to code that generates a solution to the currently generated maze and draws the solution.  Find the function `solve_maze`.  Generate a solution to the current maze by adding code to replace the comment
+  
+     ```
+     // [Put your maze solving code here]
+     ```
 
-    // [Put your maze solving code here]
-
-To help you think about how to design a way to solve the maze, look at the the `generate_maze` function.  This function sets up the `maze` array in a recursive manner, using the `can_go` function to determine if a move is possible in a certain direction.  Your solution should be patterned like this, but now you will be changing the array called `solved_maze`.  A true value in an array variable means a solved position along the solution path and a false value means an open position.  
+   To help you think about how to design a way to solve the maze, look at the the `generate_maze` function.  This function sets up the `maze` array in a recursive manner, using the `can_go` function to determine if a move is possible in a certain direction.  Your solution should be patterned like this, but now you will be changing the array called `solved_maze`.  A true value in an array variable means a solved position along the solution path and a false value means an open position.  
 
 3. **Draw the solution on the Pebble screen.**  The solution is drawn in the code by calling the function named `solution_layer_update`. Fill in this code to draw the solution contained in the `solved_maze` array. Like with the `maze_layer_update` function, your code should go through the array's values, but now only draw a red rectangle if the corresponding square in your solution is `true`. Pattern your drawing using the code above and the color `GColorRed`.   
 
