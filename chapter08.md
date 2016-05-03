@@ -194,11 +194,21 @@ The first two elements of the array `space1` have been initialized to `10` and `
 
 This illustrates our point: pointers are arrays and arrays are pointers. 
 
+> **Are Pointers and Arrays Really the Same Thing?**
+> 
+If pointers are arrays and arrays are pointer, then why are they two different concepts?
+>
+Pointers and array are not the same thing and are really not treated the same by a C compiler.  The point we are making here is that *array notation and pointer notation are interchangeable.*  
+>
+There are indeed differences between the two structures.  The `sizeof` function will return different values for a pointer (which is a variable that fits into a memory word) and an array (which is a *collection* of data).  A C compiler will treat storage of dynamically allocated memory different than an array initialized as a string.   They have similar uses, but also different uses.  
+>
+So, while it helps to be able to use notation that works for both, arrays and pointers are really different types of data with a variety of uses.   
+
 #### Pointer Arithmetic and Array Indicies ####
 
 As we saw in the previous section, pointer arithmetic and using indicies and array notation are interchangeable.  We have also seen how to use pointer arithmetic to move pointers through allocated memory space.  
 
-As declared and initialized to a memory space, pointers point to the base, the first element, of that space.  This is item number 0 in array notation.  Whenever we add 1 to a pointer, the system computes the size, in bytes, of the data type that the pointer points to and increments that pointer the number of bytes that make up that data type.  Thus, an increment for the pointer is the same as a increment in array notation.  
+As declared and initialized to a memory space, pointers point to the base, the first element, of that space.  This is item number 0 in array notation.  Whenever we add 1 to a pointer, the system computes the size, in bytes, of the data type that the pointer points to and increments that pointer the number of bytes that make up that data type.  Thus, an increment for the pointer is the same as an increment in array notation.  
 
 For example, consider this code:
 
@@ -353,7 +363,7 @@ It's as easy as that.  It should be done in your program as soon as memory space
 
 When freeing memory space, you need to be aware of certain rules:
 
-* You cannot free memory that was not allocated by `malloc`.  For example, if you assign a pointer the address of a declared variable, freeing that pointer's memory will cause an error.  Declared variables are allocated differently than dynamically allocation memory space.
+* You cannot free memory that was not allocated by `malloc`.  For example, if you assign a pointer the address of a declared variable, freeing that pointer's memory will cause an error.  Declared variables are allocated differently than dynamically allocated memory space.
 * You cannot free a null pointer.  Null pointers are pointers with "no address" values and freeing them will cause an error.
 * You cannot free uninitialized pointers.  These pointers do not point to anything and trying to free them will cause a program error.  
 
@@ -367,7 +377,7 @@ Pointers are notorious for creating messy, confusing code.  Here are some exampl
     *(intar+i);
     *(i+intar);
 
-These are all equivalent references; they can be used with either `int intar[10]` or `int intar = malloc(10*sizeof(int));` declarations.  Here's another example:
+These are all equivalent references; they can be used with either `int intar[10]` or `int *intar = malloc(10*sizeof(int));` declarations.  Here's another example:
 
     char *c = "Hello World";
     while (*c) printf("%c", *c++);
@@ -490,7 +500,9 @@ You are make some changes to `draw_digit`:
   
 #### Project 8.3 ####
 
-Remember Project 5.2?  This project asked you to change the colors of pixels by examining each one in a loop and changing the ones that matched a certain color. The main code for this project was a function called `replace_colors`, whose code is below:
+Remember Project 5.2?  [You can find the answer to that project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-2-answer)
+
+This project asked you to change the colors of pixels by examining each one in a loop and changing the ones that matched a certain color. The main code for this project was a function called `replace_colors`, whose code is below:
 
 	void replace_colors(int pixel_width, int pixel_height, GColor old_color, GColor new_color){
 		int max_y = pixel_height; 
