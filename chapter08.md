@@ -48,7 +48,7 @@ If pointers contain addresses, there should be a way to give them an address as 
     int *ptri = &distance;
     printf("%u\n", ptri);
 
-The variable `ptri` is assigned the address of the variable `miles` as its value.  The value of `miles` is not changed.
+The variable `ptri` is assigned the address of the variable `distance` as its value.  The value of `distance` is not changed.
 
 Now if we were to print the value of `ptri`, we would get a large number that really makes no sense *to us*, but makes sense to the computer runtime system. The `printf` function call above might print this as its value:
 
