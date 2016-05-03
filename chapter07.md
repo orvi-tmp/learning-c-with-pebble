@@ -354,7 +354,7 @@ This code puts a white or black rectangle at the coordinate (x,y), depending on 
 
     // [Put your maze solving code here]
 
-Pattern your solution after the `generate_maze` function, but now you will be changing the array called `solved_maze`.  In addition, a true value in an array variable means a solved position along the solution path and a false value means an open position.  
+To help you think about how to design a way to solve the maze, look at the the `generate_maze` function.  This function sets up the `maze` array in a recursive manner, using the `can_go` function to determine if a move is possible in a certain direction.  Your solution should be patterned like this, but now you will be changing the array called `solved_maze`.  A true value in an array variable means a solved position along the solution path and a false value means an open position.  
 
 3. **Draw the solution on the Pebble screen.**  The solution is drawn in the code by calling the function named `solution_layer_update`. Fill in this code to draw the solution contained in the `solved_maze` array. Like with the `maze_layer_update` function, your code should go through the array's values, but now only draw a red rectangle if the corresponding square in your solution is `true`. Pattern your drawing using the code above and the color `GColorRed`.   
 
