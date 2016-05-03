@@ -606,7 +606,7 @@ In this section -- for this and future chapters -- we will use projects that are
 
 #### Project 3.1 ####
 
-[You can access the starting code for Project 3.1 using this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-1)  When you have successfully brought the project into your CloudPebble environment, you can run the code.  It implements a simple program with a ball bouncing up and down on the Pebble's display.  
+[You can access the starting code for Project 3.1 using this link.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-3-1)  When you have successfully brought the project into your CloudPebble environment, you can run the code.  It implements a simple program with a ball bouncing up and down on the Pebble's display.  
 
 <figure>
    <hr/>
@@ -659,11 +659,11 @@ The code in these functions are run when the top and bottom buttons are pressed,
 <li> Finally, add some comments to the file to claim the code as your own and to identify what you have done!
 </ol>
 
-[A completed project exercise for Project 3.1 can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-1-answer)
+[A completed project exercise for Project 3.1 can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-3-1-answer)
 
 #### Project 3.2 ####
 
-Now let's start a new project.  [Using this link](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-2), import Project 3.2 into CloudPebble and run it.  You should get a letter traveling around a circle on the Pebble's display.  
+Now let's start a new project.  [Using this link](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-3-2), import Project 3.2 into CloudPebble and run it.  You should get a letter traveling around a circle on the Pebble's display.  
 
 This code is a great example of expressions and of floating points vs integer computation.  The main code we want to pay attention to is in the function `move_letter()`:
 
@@ -692,7 +692,4 @@ Second, because floating point numbers have binary points and are stored with ex
 
 1. Add comments to the code to claim the code and to explain what it does.
 
-[A completed project exercise for Project 3.2 can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-3-2-answer)
-
-
-
+[A completed project exercise for Project 3.2 can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-3-2-answer)
