@@ -282,7 +282,7 @@ Starting with the result of Project 6.2, change the code to draw four numbers in
 
 <table>
 <tr><td><b>Digit</b></td><td><b>Representation</b></td><td><b>Image</b></td></tr>
-<tr><td>0</td><td>111101101101111</td><td><img src='p72digit0.png' width="75%" height="75%"></img></td></tr> 
+<tr><td>0</td><td>111101101101111</td><td><img src='p72digit0.png'></img></td></tr> 
 <tr><td>1</td><td>001001001001001</td></tr> 
 <tr><td>2</td><td>111001111100111</td></tr> 
 <tr><td>3</td><td>111001111001111</td></tr> 
