@@ -22,7 +22,7 @@ Finally, some really smart people from the [Pebble community on Slack](http://sl
 * [David Rodriguez Rincon](https://twitter.com/dabdemon)
 * [Rob Spiess](https://twitter.com/rob_spiess)
 
-Finally, a special thanks to [Juan Sanchez](https://twitter.com/juansanchez) for his beautiful artwork.
+Finally, a special thanks to [Juan Sanchez](https://twitter.com/juansanchez) for his beautiful artwork and to [Ryan Perry-Nguyen](http://twitter.com/rperryng) for his meticulous attention to editing.
 
 So, enjoy the book.  Some very intelligent people have worked hard to produce something that is readable and packed with examples and code and projects.  We all hope you find this a great way to learn the C programming language on Pebble smartwatches.
 
