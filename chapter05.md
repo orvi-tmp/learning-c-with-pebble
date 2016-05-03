@@ -358,7 +358,7 @@ For a chapter on loops, we need exercises that demonstrate how loops might be us
 
 #### Project 5.1 ####
 
-Let's start with Project 5.1.  [Click here to get the project into your CloudPebble editor.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-1) Run the project and see what it displays on the Pebble.  It generates a random decimal number and displays that number.  There's a second number that displays, but it's just a set of zeroes.
+Let's start with Project 5.1.  [Click here to get the project into your CloudPebble editor.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-5-1) Run the project and see what it displays on the Pebble.  It generates a random decimal number and displays that number.  There's a second number that displays, but it's just a set of zeroes.
 
 Instead of zeroes, display the random decimal number in binary.  To do this, we will need a loop that will iterate over the following steps:
 
@@ -372,11 +372,11 @@ In the `rand2bin.c` file, locate the `update_display` function.  There is a decl
 
 Make sure you add comments to your code and add your name.
 
-You can find the answers and implementations for the code [above at this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-1-answer)
+You can find the answers and implementations for the code [above at this link.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-5-1-answer)
 
 #### Project 5.2 ####
 
-Now let's look at Project 5.2.  [Click here to get the code for the project.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-2) This project displays that image on the Pebble screen.  Locate the function near the top of the file named `replace_colors`.  It is empty; there is no code between the curly braces. Your job is to use FOR loops to iterate through every pixel in the image, detect if the pixel matches the old color, and if it does, replace it with the new color.  
+Now let's look at Project 5.2.  [Click here to get the code for the project.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-5-2) This project displays that image on the Pebble screen.  Locate the function near the top of the file named `replace_colors`.  It is empty; there is no code between the curly braces. Your job is to use FOR loops to iterate through every pixel in the image, detect if the pixel matches the old color, and if it does, replace it with the new color.  
 
 This image holds correct changes.
 
@@ -404,11 +404,11 @@ You can check to see if two colors are equal like this:
 
 The key here is to use a nested for loop to examine all the pixels (in two dimensions).  
 
-You can find an implementation for this project [at this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-2-answer)
+You can find an implementation for this project [at this link.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-5-2-answer)
 
 #### Project 5.3 ####
 
-Let's do one more project.  [Click here to get the starting code for Project 5.3.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-3)  This code displays a message at the top left of the Pebble screen.  There is a function called `fill_screen` that only displays a single message.
+Let's do one more project.  [Click here to get the starting code for Project 5.3.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-5-3)  This code displays a message at the top left of the Pebble screen.  There is a function called `fill_screen` that only displays a single message.
 
 You are to rewrite the `fill_screen` function so that it completely fills the Pebble screen with a message repeated over and over.  See the image below for an example.
 
@@ -428,4 +428,4 @@ You should be able to use two loops, one for the row and one for the column.  Ho
 
 Now that you have used two loops, can you rewrite the code using only one loop?
 
-[You can find an implementation of the one loop solution here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-3-answer).
+[You can find an implementation of the one loop solution here](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-5-3-answer).
