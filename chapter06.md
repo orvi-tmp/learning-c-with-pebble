@@ -14,7 +14,7 @@ Let's consider a function reference we have seen and walk through how it works. 
 
     strftime(time_string, sizeof(time_string), "%T", tick_time);
 
-There are two function references in this statement: `sizeof(time_string)`, which gives the size, in bytes, of the string held in `time_string`, and the entire `strftime` reference, which will take the time variable `tick_time` and create a string in `time_string` that describes the time.  
+There are two function references in this statement: `sizeof(time_string)`, which gives the size, in bytes, of the string held in `time_string`, and the entire `strftime` reference, which will take the time variable `tick_time` and create a string that describes the time and assigns it to `time_string`.  
 
 Even though we depend on abstraction here, there is a C code definition somewhere for both of these functions (we will describe where these definitions can be found in a later chapter).  When we reference a function by name, say, by using `sizeof(time_string)`, the execution of the current code stops and execution is transferred to the definition of the function `sizeof`.  This is referred to as *calling* a function.  When the function's code has been executed, execution is transferred back to the code that called the function.  This is referred to as *returning to the caller*.  
 
@@ -108,7 +108,7 @@ Let's say we want to make two functions: one to compute the X position and one t
 3. **Parameter list:** The computations above use several pieces of information.  The X computation uses the variables `center_point_x`, `radius`, `direction`, and `second`, all of which are integers.  The Y computation uses `center_point_y`, `radius` and `second`, which are also all integers.  Note that we do not need to use the same names for parameters that we did when they were variables, but we should still use descriptive names.
 4. **Function body code:** We can write these functions as below:
 
-        int secondhand_x (int center, int rad, int dir, int sec)
+        int secondhand_x(int center, int rad, int dir, int sec)
         {
             int dangle = TRIG_MAX_ANGLE * sec /  60;
             int pos = center + (rad*dir*sin_lookup(dangle)/TRIG_MAX_RATIO);
@@ -116,7 +116,7 @@ Let's say we want to make two functions: one to compute the X position and one t
             return pos;
         }
 
-        int secondhand_y (int center, int rad, int sec)
+        int secondhand_y(int center, int rad, int sec)
         {
             int dangle = TRIG_MAX_ANGLE * sec /  60;
             int pos = center + (-rad*cos_lookup(dangle)/TRIG_MAX_RATIO);
@@ -161,7 +161,7 @@ In the previous section, we discussed parameter passing like it was assignment o
 
 If you think of passing parameters as an assignment operation, then pass by value makes sense.  But this parameter passing mode restricts assignment to one way: from the actual to the formal parameters.  Consider this example:
 
-    float sum2 (int a, float b) {
+    float sum2(int a, float b) {
         a++;
         return a + b;
     }
@@ -197,15 +197,15 @@ return </i>expression</i>;
 
 When the return statement is executed, the expression is computed, execution of the function stops, and execution resumes at the point after where the function was called, with the computed expression value substituting for the calling statement.  
 
-The data type that results from computing the expression in the return statement must be compatible with the data type given in the function header. If the data type in the function header is given as "void", then the expression for the return statement should be omitted.
+The data type that results from computing the expression in the return statement must be compatible with the data type given in the function header. If the data type in the function header is given as "void", then the expression for the return statement should be omitted.  Note that the return statement should still be there, directing the function to return control to its caller, but the expression should be removed because the function does not return a value.
 
 As an example, consider this function header:
 
-    double max (double num1, double num2) 
+    double max(double num1, double num2) 
 
 This function will return the maximum of the two parameters it is sent.  The return statements used must have an expression that results in something that is of data type "double".  Let's finish the function:
 
-    double max (double num1, double num2) { 
+    double max(double num1, double num2) { 
         if (param1 > param2) { 
            return param1;   
         } else { 
@@ -215,7 +215,7 @@ This function will return the maximum of the two parameters it is sent.  The ret
 
 It's quite simple to verify that each return statement is returning a "double".  Note that any valid C expression will suffice for a return statement.  We could easily have written this function as this:
 
-    double max (double num1, double num2) { 
+    double max(double num1, double num2) { 
         return param1>param2 ? param1 : param2; 
      }
  
@@ -229,7 +229,7 @@ No returned value is needed because the function is performing an action, not a 
 
 There is a common error in function returns that we should note.  It is easy to build a function with unreachable statements.  For example, consider this function:
 
-    int absolute (int value) {
+    int absolute(int value) {
         if (value < 0) 
             return -1*value;
         return value;
@@ -237,7 +237,7 @@ There is a common error in function returns that we should note.  It is easy to 
 
 This is a correct way to return the absolute value of an integer parameter.  So let's say that, upon reflection, the programmer decides to write an else part to the if statement, which he feels would be better programming.  The function now looks like this:
 
-    int absolute (int value) {
+    int absolute(int value) {
         if (value < 0) 
             return -1*value;
         else
@@ -353,7 +353,7 @@ Now the block structure looks like it does in Figure 6.2.
    <hr/>
 </figure>
 
-Note here that function names belong to the outer block and function parameters belong to the inner block.  When we define out functions like this, the computations now use the parameters instead of the outer block variable names.  In fact, this version of the `divide` function is in error!  The declaration of `a` as a local variable is in error because there is already a name of `a` defined in the current block as a parameter.   
+Note here that function names belong to the outer block and function parameters belong to the inner block.  When we define our functions like this, the computations now use the parameters instead of the outer block variable names.  In fact, this version of the `divide` function is in error!  The declaration of `a` as a local variable is in error because there is already a name of `a` defined in the current block as a parameter.   
 
 ### Data Typing Issues ###
 
@@ -376,7 +376,7 @@ Consider this:
         return (float)a*(float)b;
     }
 
-Now if we call this with float data types or assign the value to a float variable, we will get errors.  Each of these calls will cause an error:
+Now if we call this with float data types or assign the value to an int variable, we will get errors.  Each of the following calls will cause an error:
 
     int x = floatmult(10,20);
     float f = floatmult(10.0, 20.0);
@@ -402,7 +402,7 @@ We can also define a recursive version, remembering that *n! = n \* (n-1)!*
             return n * fact(n-1);
     }
 
-For recursion to work correctly, the problem being solved must have have two properties: a *base case* that defines where the recursion stops and a *next case* that defines how the next step is computed, given the current step have a value.  In the factorial example, the *base case* is *n = 1*, where we simply define that *1! = 1*.  The *next case* is the step where, given we have the value `n`, we generate a factorial as `n * fact(n-1)`.  
+For recursion to work correctly, the problem being solved must have have two properties: a *base case* that defines where the recursion stops and a *next case* that defines how the next step is computed, given the current step has a value.  In the factorial example, the *base case* is *n = 1*, where we simply define that *1! = 1*.  The *next case* is the step where, given we have the value `n`, we generate a factorial as `n * fact(n-1)`.  
 
 Another classic example of recursion is the computation of Fibonacci sequences.  In Chapter 5, we gave the an example of this computation using a do/while loop:
 
@@ -415,7 +415,7 @@ Another classic example of recursion is the computation of Fibonacci sequences. 
          number --;
      } while (number > 1);
 
-In the code above, we can see two base cases.  The first number is a sequence is 0 and second is 1.  The remaining terms are equal to the sum of the two previous terms.  That's the next case.  We can write this as follows:
+In the code above, we can see two base cases.  The first number in the sequence is 0 and second is 1.  The remaining terms are equal to the sum of the two previous terms.  That's the next case.  We can write this as follows:
 
     int fibonacci(int n)  {
         if(n == 0)
@@ -438,7 +438,7 @@ If you are considering using recursion, you should consider the following issues
 
 Functions are very useful tools for a number of reasons.  As a C programmer, you should develop habits that include using functions wherever you can.
 
-First, functions can reflect the development steps one goes through to develop a program.  By exploiting abstraction, functions can be used where steps appear in an algorithm, allowing the programmer to ignore implementation while the algorithm is being built.  Functions without implementation become placeholders; function with implementations reflect the algorithm design and help document it. 
+First, functions can reflect the development steps one goes through to develop a program.  By exploiting abstraction, functions can be used where steps appear in an algorithm, allowing the programmer to ignore implementation while the algorithm is being built.  Functions without implementation become placeholders; functions with implementation reflect the algorithm design and help document it. 
 
 A second reason to use functions is that their code can be reused.  They are particularly handy when the same steps are used in several places in a program.  Instead of copying statements, a function can be called.  In addition, function code can be reused in other programs.  Spending lots of time crafting an incredibly useful function that will send email, for example, can pay off many times over when you include it other programs.  
 
@@ -470,7 +470,7 @@ Make the following changes to the code:
 1. Move the nested for loop to a function, with this header: `void draw_digit(GContext *ctx, char * digit)`.  Call that function from the `canvas_update_proc`.  
 2. Add code and additional parameters to the function to draw the pattern at any (x,y) coordinate.  You will have to use these new parameters in the function definition.
 3. Now use the function in `canvas_update_proc` to fill the screen with the pattern.  You might think about these questions:  How do you know how many patterns fit onto the screen?  How do you call `draw_digit` with the appropriate parameters?  Add a variable that stores the size of the individual tiles used to draw the digit to make the calculations easier.  As an experiment, see what happens to your display if you change the size stored in the tile size variable.
-4. Now, draw four digits grouped together in the center using similar calculations in the loop.   We will revisit this method in the next chapter as a watchface.  This can also be influenced by changing the size of the tile size variable.
+4. Now, draw four digits grouped together in the center using similar calculations in the loop.   We will revisit this method in upcoming chapters as a watchface.  This can also be influenced by changing the size of the tile size variable.  (Note that you can find the center of the screen from the variable `s_main_window_center`.  You can reference the X and Y coordinates as `s_main_window_center.x` and `s_main_window_center.y` respectively.  We'll discuss this way of using structs soon.)
 
 Finish this project by placing comments at the beginning of the code that identifies the code by project and adds your name.
 
@@ -480,9 +480,9 @@ Finish this project by placing comments at the beginning of the code that identi
 
 [You can find starting code for Project 6.3 here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-3)  This project asks you to work with drawing text.
 
-Examine the starting code for this project.  In its current state, the code will not run, because `graphics_layer_update_callback` calls a function that you have define that is not in the code.  The initial code calls this function `fill_the_rectangle` and sends it two parameters: width and height.
+Examine the starting code for this project.  In its current state, the code will not run, because `graphics_layer_update_callback` calls a function that you must define that is currently not in the code.  The initial code calls this function `fill_the_rectangle` and sends it two parameters: width and height.
 
-Add this function to the code.  This function should draw a rectangle of a given size (width and height) with as much of text as possible with a font specification sent as a parameter.  You will need to design the name of the function, the parameters, and the code.  Repeat the text several times if necessary.
+Add this function to the code.  This function should draw a rectangle of a given size (width and height) with as much text as possible using the font specification sent as a parameter.  You will need to design the name of the function, the parameters, and the code.  Repeat the text several times if necessary.
 
 In order to draw the text, you will need to use several functions. First, you will likely need the size on the screen that the text will take up.  You can get this as:
 
