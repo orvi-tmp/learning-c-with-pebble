@@ -130,7 +130,7 @@ If two-dimensional arrays are possible, one would think that more dimensions are
 
 declares 10 tables, each having 20 rows and 30 columns.  And we could go to four and five dimensions if we wanted to.  However, as the dimensions go higher, the usefulness of the array decreases dramatically.   
 
-A final note should be made on the memory requirements of multidimensional arrays.  To estimate the amount of memory used by an array, multiply the indicies together.  A 10 by 20 integer array holding 10 rows of 20 columns is using 200 integers.  A table that size might be usable, but beware of creating tables of large arbitrary size just because you "might" need the space.  A 200 by 200 floating point table contains 40,000 floats, which will likely overflow the memory allocated to a program on a Pebble smartwatch.  Only use arrays as sparingly and tightly controlled as possible and keep the amount of memory used to a minimum. 
+A final note should be made on the memory requirements of multidimensional arrays.  To estimate the amount of memory used by an array, multiply the indicies together.  A 10 by 20 integer array holding 10 rows of 20 columns is using 200 integers.  A table that size might be usable, but beware of creating tables of large arbitrary size just because you "might" need the space.  A 200 by 200 floating point table contains 40,000 floats, which will likely overflow the memory allocated to a program on a Pebble watch.  Only use arrays as sparingly and tightly controlled as possible and keep the amount of memory used to a minimum. 
 
 ### Common Array Operations ###
 
@@ -226,7 +226,7 @@ Let's consider a bigger example.  Let's assume we have a main function that look
         printf("Average of these values is %f\n", average);
     }
 
-This code assumes that a function called `computeAverage` exists and takes an array with an array size as parameters. Note we have to send the size along with array because, as we stated previously, we cannot derive the size of an array from the array itself. We can define the function using either method above.  Here it is with a sized array as a parameter:
+This code assumes that a function called `computeAverage` exists and takes an array with an array size as parameters. Note we have to send the number of valid elements (`asize`) along with array because, as we stated previously, we cannot derive that number from the array itself. We can define the function using either method above.  Here it is with a sized array as a parameter:
 
     float computeAverage(int nums[6], int asize) {
         float sum = 0.0;
@@ -260,10 +260,12 @@ As we will deal with this in the next chapter, we won't say any more about this 
 
 Consider the Bubble Sort example from the beginning of this chapter. [Get the example code into CloudPebble by clicking this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-7-1) 
 
+We mentioned how the Bubble Sort works, but here's a reminder.  The algorithm examines each element in an array and compares that element to the next one.  If the elements are out of order, that is, the first is greater than the second, the algorithm swaps the two array elements. The basic version of the algorithm makes a pass over the entire array for every element in the array.  This can be extremely inefficient, because so many passes are often not necessary.  For example, if the array was sorted to begin with, each element would be examined, but no swapping would take place.
+
 There are at least three ways to make the algorithm perform better.
 
-* One way still uses two for loops, but assumes the first part of the array is sorted and adjusts the index of the second loop accordingly.
-* A second way uses a while loop as the outside loop, looping until a boolean variable (`sorted`) becomes true.
+* One way still uses two for loops, but assumes the first part of the array is sorted and adjusts the index of the second loop accordingly for every pass through the first loop.
+* A second way uses a while loop as the outside loop, looping until a boolean variable (`sorted`) is `true`.  In this method, the variable set to `true` at the beginning of every pass and set to `false` whenever a swap happens.
 * A third way combines these two.
 
 Rewrite the example code to demonstrate each of these methods. Add new functions and call those function instead of `bubble_sort`.
@@ -276,14 +278,30 @@ Be sure to comment your code and leave your name on it.
 
 This exercise revisits Project 6.2.  That project, [whose answer can be found here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-2-answer), takes a sequence of characters in a string and considers them in groups of three, drawing 5 rows of three squares.  
 
-Starting with the result of Project 6.2, change the code to draw four numbers instead of one.  
+Starting with the result of Project 6.2, change the code to draw four numbers instead of one.  The digits can be represented using these 10 string (digits 0 through 9):
 
-1. Change the single digit `char *digit = '111101111101111'` string from Project 6.2 to a 10 element array called `digit_array` that describes in 1's and 0's how to draw all the digits from 0 to 9. Because a string is just an array of characters, you can refer to each character from the string with an array reference.  Therefore, changing the one string into an array of strings will actually change the structure to a two-dimensional array of characters.
+<table>
+<tr><td><b>Digit</b></td><td><b>Representation</b></td></tr>
+<tr><td>0</td><td>111101101101111</td><td><img><src="p72digit0.png"></img></td></tr> 
+<tr><td>1</td><td>001001001001001</td></tr> 
+<tr><td>2</td><td>111001111100111</td></tr> 
+<tr><td>3</td><td>111001111001111</td></tr> 
+<tr><td>4</td><td>101101111001001</td></tr> 
+<tr><td>5</td><td>111100111001111</td></tr> 
+<tr><td>6</td><td>111100111101111</td></tr> 
+<tr><td>7</td><td>111001001001001</td></tr> 
+<tr><td>8</td><td>111101111101111</td></tr> 
+<tr><td>9</td><td>111101111001111</td></tr> 
+</table>
+
+1. Change the single digit `char *digit = '111101111101111'` string from Project 6.2 to a 10 element array called `digit_array` that describes in 1's and 0's how to draw all the digits from 0 to 9. Because a string is just an array of characters, you can refer to each character from the string with an array reference.  Therefore, changing the one string into an array of strings will actually change the structure to a two-dimensional array of characters.  Set this array to be initialized with the strings above when it is declared.
 2. In `canvas_update_proc`, add code to draw four random digits.  Generate a random number between 0 and 9 (inclusive) by this statement:
 
     choice = rand()%10;
 
-To use the random number generator, you will have to add the statement `srand(time(NULL));` to the `init` function. Call the  `draw_digit` function four times to draw rand numbers at top left, top right, bottom left and bottom right corners of the screen.  Note that you can compute where the X coordinate of the top left using this:
+To use the random number generator, you will have to add the statement `srand(time(NULL));` to the `init` function.  This starts the random number generator algorithm and gives it a unique number (the current time in milliseconds) as a starting point for computing random numbers.
+
+Call the  `draw_digit` function four times to draw rand numbers at top left, top right, bottom left and bottom right corners of the screen.  Note that you can compute where the X coordinate of the top left using this:
 
     s_main_window_center.x-digit_width-(tile_size/2)
 
