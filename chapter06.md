@@ -448,13 +448,13 @@ Finally, using functions makes your program more modular.  Modularity is a prope
 
 #### Project 6.1 ####
 
-We started this chapter talking about changes to Project 4.1 from Chapter 4.  For this project exercise, actually make those changes and get the resulting code to run.  [You can start with project 4.1 here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-4-1-answer)  Given the walk through in that "Basics" section, you should be able to create something with functions easily.
+We started this chapter talking about changes to Project 4.1 from Chapter 4.  For this project exercise, actually make those changes and get the resulting code to run.  [You can start with project 4.1 here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-4-1-answer)  Given the walk through in that "Basics" section, you should be able to create something with functions easily.
 
-[An answer can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-1-answer)
+[An answer can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-6-1-answer)
 
 #### Project 6.2 ####
 
-[Consider the code in Project 6.2, available here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-2)  This code will display a pattern, as depicted by bits in a string.  In this starting code for Project 6.2, the string "111101111101111" can be broken into 5 rows of 3 bits each, which can be displayed like this:
+[Consider the code in Project 6.2, available here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-6-2)  This code will display a pattern, as depicted by bits in a string.  In this starting code for Project 6.2, the string "111101111101111" can be broken into 5 rows of 3 bits each, which can be displayed like this:
 
 <figure>
    <hr/>
@@ -474,11 +474,11 @@ Make the following changes to the code:
 
 Finish this project by placing comments at the beginning of the code that identifies the code by project and adds your name.
 
-[You can find an answer here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-2-answer)
+[You can find an answer here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-6-2-answer)
 
 #### Project 6.3 ####
 
-[You can find starting code for Project 6.3 here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-3)  This project asks you to work with drawing text.
+[You can find starting code for Project 6.3 here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-6-3)  This project asks you to work with drawing text.
 
 Examine the starting code for this project.  In its current state, the code will not run, because `graphics_layer_update_callback` calls a function that you must define that is currently not in the code.  The initial code calls this function `fill_the_rectangle` and sends it two parameters: width and height.
 
@@ -500,11 +500,11 @@ The `GSize` data type is a struct (we will see these in Chapter 10); you can acc
 
 Add comments at the beginning of the code that identifies the code by project and adds your name.
 
-[You can find an answer here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-3-answer)
+[You can find an answer here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-6-3-answer)
 
 #### Project 6.4 ####
 
-[Consider the project code for Project 6.4, available here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-4) 
+[Consider the project code for Project 6.4, available here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-6-4) 
 
 This program draws concentric circles on the Pebble screen (which looks hypnotizing on a Pebble Time Round).  Examine the code.  The function `draw_circles` draws the concentric circles by using a for loop.
 
@@ -516,4 +516,4 @@ Your job is to remove the for loop, but draw the same screen by using recursion.
 
 When you are done, claim the code by adding comments to identify you and the project.
 
-[There is an answer to this problem at this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-4-answer)
+[There is an answer to this problem at this link.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-6-4-answer)
