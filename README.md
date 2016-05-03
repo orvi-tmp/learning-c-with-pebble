@@ -31,4 +31,4 @@ So, enjoy the book.  Some very intelligent people have worked hard to produce so
 Mike Jipping<br/>
 Hope College<br/>
 Holland, Michigan USA<br/>
-jipping@hope.edu<br/>
+[jipping@hope.edu](mailto:jipping@hope.edu)<br/>
