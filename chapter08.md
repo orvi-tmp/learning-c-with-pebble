@@ -196,11 +196,11 @@ This illustrates our point: pointers are arrays and arrays are pointers.
 
 > **Are Pointers and Arrays Really the Same Thing?**
 > 
-If pointers are arrays and arrays are pointer, then why are they two different concepts?
+If pointers are arrays and arrays are pointer, then why are there two different concepts?
 >
 Pointers and array are not the same thing and are really not treated the same by a C compiler.  The point we are making here is that *array notation and pointer notation are interchangeable.*  
 >
-There are indeed differences between the two structures.  The `sizeof` function will return different values for a pointer (which is a variable that fits into a memory word) and an array (which is a *collection* of data).  A C compiler will treat storage of dynamically allocated memory different than an array initialized as a string.   They have similar uses, but also different uses.  
+There are indeed differences between the two structures.  The `sizeof` function will return different values for a pointer (which is a variable that fits into a memory word) and an array (which is a *collection* of data).  A C compiler will treat storage of dynamically allocated memory differently than an array initialized as a string.   They have similar uses, but also different uses.  
 >
 So, while it helps to be able to use notation that works for both, arrays and pointers are really different types of data with a variety of uses.   
 
