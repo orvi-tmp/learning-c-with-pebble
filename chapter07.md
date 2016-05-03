@@ -258,7 +258,7 @@ As we will deal with this in the next chapter, we won't say any more about this 
 
 #### Project 7.1 ####
 
-Consider the Bubble Sort example from the beginning of this chapter. [Get the example code into CloudPebble by clicking this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-7-1) 
+Consider the Bubble Sort example from the beginning of this chapter. [Get the example code into CloudPebble by clicking this link.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-7-1) 
 
 We mentioned how the Bubble Sort works, but here's a reminder.  The algorithm examines each element in an array and compares that element to the next one.  If the elements are out of order, that is, the first is greater than the second, the algorithm swaps the two array elements. The basic version of the algorithm makes a pass over the entire array for every element in the array.  This can be extremely inefficient, because so many passes are often not necessary.  For example, if the array was sorted to begin with, each element would be examined, but no swapping would take place.
 
@@ -272,11 +272,11 @@ Rewrite the example code to demonstrate each of these methods. Add new functions
 
 Be sure to comment your code and leave your name on it.
 
-[A demonstration of these methods can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-7-1-answer)
+[A demonstration of these methods can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-7-1-answer)
 
 #### Project 7.2 ####  
 
-This exercise revisits Project 6.2.  That project, [whose answer can be found here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-6-2-answer), takes a sequence of characters in a string and considers them in groups of three, drawing 5 rows of three squares.  
+This exercise revisits Project 6.2.  That project, [whose answer can be found here](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-6-2-answer), takes a sequence of characters in a string and considers them in groups of three, drawing 5 rows of three squares.  
 
 Starting with the result of Project 6.2, change the code to draw four numbers instead of one.  The digits can be represented using these 10 string (digits 0 through 9):
 
@@ -317,11 +317,11 @@ We will get to strings in all their glory in Chapter 9.
 
 Comment your code and claim it.
 
-[You can find an answer here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-7-2-answer)
+[You can find an answer here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-7-2-answer)
 
 #### Project 7.3 ####
 
-[Take look at the starter code for Project 7.3.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-7-3)  This code generates a maze in the two-dimensional array called `maze`.  This array is an array of boolean values.  If a value in the (x,y) position in the array is `true`, then there is a wall at that (x,y) coordinate.  If the value is false, then the space at the (x,y) coordinate is open.  Consider this maze:  
+[Take look at the starter code for Project 7.3.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-7-3)  This code generates a maze in the two-dimensional array called `maze`.  This array is an array of boolean values.  If a value in the (x,y) position in the array is `true`, then there is a wall at that (x,y) coordinate.  If the value is false, then the space at the (x,y) coordinate is open.  Consider this maze:  
 
 <figure>
    <hr/>
@@ -366,5 +366,5 @@ This project ask you to do three things.  These things are connected to the butt
 
 Comment the code, especially the functions that implement the solution.
 
-[An answer can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-7-3-answer)
+[An answer can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-7-3-answer)
 
