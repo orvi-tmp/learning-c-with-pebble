@@ -283,15 +283,15 @@ Starting with the result of Project 6.2, change the code to draw four numbers in
 <table>
 <tr><td><b>Digit</b></td><td><b>Representation</b></td><td><b>Image</b></td></tr>
 <tr><td>0</td><td>111101101101111</td><td><img src='p72digit0.png'></img></td></tr> 
-<tr><td>1</td><td>001001001001001</td></tr> 
-<tr><td>2</td><td>111001111100111</td></tr> 
-<tr><td>3</td><td>111001111001111</td></tr> 
-<tr><td>4</td><td>101101111001001</td></tr> 
-<tr><td>5</td><td>111100111001111</td></tr> 
-<tr><td>6</td><td>111100111101111</td></tr> 
-<tr><td>7</td><td>111001001001001</td></tr> 
-<tr><td>8</td><td>111101111101111</td></tr> 
-<tr><td>9</td><td>111101111001111</td></tr> 
+<tr><td>1</td><td>001001001001001</td><td><img src='p72digit1.png'></img></td></tr> 
+<tr><td>2</td><td>111001111100111</td><td><img src='p72digit2.png'></img></td></tr> 
+<tr><td>3</td><td>111001111001111</td><td><img src='p72digit3.png'></img></td></tr> 
+<tr><td>4</td><td>101101111001001</td><td><img src='p72digit4.png'></img></td></tr> 
+<tr><td>5</td><td>111100111001111</td><td><img src='p72digit5.png'></img></td></tr> 
+<tr><td>6</td><td>111100111101111</td><td><img src='p72digit6.png'></img></td></tr> 
+<tr><td>7</td><td>111001001001001</td><td><img src='p72digit7.png'></img></td></tr> 
+<tr><td>8</td><td>111101111101111</td><td><img src='p72digit8.png'></img></td></tr> 
+<tr><td>9</td><td>111101111001111</td><td><img src='p72digit9.png'></img></td></tr> 
 </table>
 
 1. Change the single digit `char *digit = '111101111101111'` string from Project 6.2 to a 10 element array called `digit_array` that describes in 1's and 0's how to draw all the digits from 0 to 9. Because a string is just an array of characters, you can refer to each character from the string with an array reference.  Therefore, changing the one string into an array of strings will actually change the structure to a two-dimensional array of characters.  Set this array to be initialized with the strings above when it is declared.
