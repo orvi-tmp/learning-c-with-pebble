@@ -436,11 +436,11 @@ The pattern of allocation, use and deallocation is very common among all system 
 
 #### Project 8.1 ####
 
-We have said that pointers are arrays and arrays are pointers.  In this project exercise, you are asked to prove it!  Start with  the Bubble Sort in Project 7.1, [available at this link](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-7-1-answer), and (1) leave the array *declarations* alone, but (2) change all the array references to pointer references.  You may add any variables you need. 
+We have said that pointers are arrays and arrays are pointers.  In this project exercise, you are asked to prove it!  Start with  the Bubble Sort in Project 7.1, [available at this link](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-7-1-answer), and (1) leave the array *declarations* alone, but (2) change all the array references to pointer references.  You may add any variables you need. 
 
 Don't forget the parameters to the sorting functions and the assignment of the `number_sorted` array from the `number` array in the `handle_init` function. 
 
-[You can find a solution here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-1-answer)
+[You can find a solution here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-8-1-answer)
 
 >**You Cannot Use "void *" Here**
 >
@@ -469,7 +469,7 @@ But this code defeats the purpose of using "void *".  It says that you can send 
 
 #### Project 8.2 ####
 
-This exercise revisits Project 6.2 again (like we did for Project 7.2).  That project, [whose answer can be found here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-7-2-answer), creates an array of strings, which are simply a sequence of characters.  These characters are in groups of three, drawing 5 rows of three squares.  Note the declaration of the `digit_array` strings:
+This exercise revisits Project 6.2 again (like we did for Project 7.2).  That project, [whose answer can be found here](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-7-2-answer), creates an array of strings, which are simply a sequence of characters.  These characters are in groups of three, drawing 5 rows of three squares.  Note the declaration of the `digit_array` strings:
 
      char *digit_array[10] = {
               "111101101101111", 
@@ -494,13 +494,13 @@ You are make some changes to `draw_digit`:
 4. Dereference that pointer in the if statement that tests if the choice has the value "1".
 4. Finally, change the call to `draw_digit` to use the `choice` variable to send the actual digit chosen by the random selection.
 
-[You can find an answer to these changes here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-2-answer)
+[You can find an answer to these changes here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-8-2-answer)
 
-**Extra Challenge**: For an extra challenge, write `draw_digit` with *no array references at all*.  The easiest way is to replace the `digit_array` reference with a reference that selects the character sequence via pointer arithmetic.  Nothing else changes!  [You can find the answer to this challenge at this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-2-challenge1-answer)
+**Extra Challenge**: For an extra challenge, write `draw_digit` with *no array references at all*.  The easiest way is to replace the `digit_array` reference with a reference that selects the character sequence via pointer arithmetic.  Nothing else changes!  [You can find the answer to this challenge at this link.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-8-2-challenge1-answer)
   
 #### Project 8.3 ####
 
-Remember Project 5.2?  [You can find the answer to that project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-5-2-answer)
+Remember Project 5.2?  [You can find the answer to that project here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-5-2-answer)
 
 This project asked you to change the colors of pixels by examining each one in a loop and changing the ones that matched a certain color. The main code for this project was a function called `replace_colors`, whose code is below:
 
@@ -526,7 +526,7 @@ In this code, there was a bitmap that was allocated using a pointer, but referen
 
 You are to rewrite this code to use pointers to access the bitmap data.  To do this you must (1) remove the functions `get_pixel_color` and `set_pixel_color` and (2) you must rewrite the nested loops in `replace_color` to use a single loop and to reference the pixel colors with a pointer.   
 
-[You can find an answer here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-3-answer)
+[You can find an answer here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-8-3-answer)
 
 > **An Easier Way to Change the Colors in an Image**
 > 
@@ -536,14 +536,14 @@ This exercise makes an example of converting array notation into pointer arithme
 Instead of changing, say `bitmap_data[0]` to `GColorBlue`, we can change the *color palette* of the image.  Image data does not actually reference a *color*; each pixel references a palette position, which has a color.  If we leave the position reference of the image alone, but change the color at a position in the color, it's faster and simpler.
 >
 >
-[Here is a link to this exercise implemented by changing the color pallete and not the image.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-3-palette)
+[Here is a link to this exercise implemented by changing the color pallete and not the image.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-8-3-palette)
 
 #### Project 8.4 ####
 
-[For Project 8.4, you can get a started with a basic project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-4)
+[For Project 8.4, you can get a started with a basic project here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-8-4)
 
 If you run the initial code, you will see that it's a simple rectangle that bounces around the screen, reminiscent of the bouncing ball from Chapter 3.  There is a function, `update_block`, that computes the position for the image's X and Y coordinates.  This function take reference parameters, that are the previous X or Y and the amount to adjust these coodinates.  Based on the previous X or Y, the new value is computed.
 
 We want a program that makes the image move randomly when the up button is pressed and in a bouncing manner when the bottom button is pressed.  You will need to add code in `up_click_handler` and `down_click_handler` to change between the two modes and you will need to add a function, similar to `update_block`, that randomly assigns new coordinates.  Remember to keep the reference parameters.  You can check Project 8.2 for how to generate random coordinates.
 
-[A completed project can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-4-answer)
+[A completed project can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-8-4-answer)
