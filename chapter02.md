@@ -133,7 +133,7 @@ This book uses a *project exercises* at the end of each chapter.  A project exer
 
 You will be working with project exercises through the CloudPebble IDE.  The code you will start from is stored on GitHub, a Web site that uses a *version control system* called "git".  You will be given a URL with each project that will get you to the CloudPebble IDE and automatically import the project code into CloudPebble.
 
-As an example, [here is a link to the example "Hello" code we used previously in this chapter](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-2-1). Click on the link, and you will import the (simple) code from the above example into your CloudPebble account.  (Remember to set up a CloudPebble account before you click on the link.)
+As an example, [here is a link to the example "Hello" code we used previously in this chapter](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-2-1). Click on the link, and you will import the (simple) code from the above example into your CloudPebble account.  (Remember to set up a CloudPebble account before you click on the link.)
 
 ### Project Exercises ###
 
@@ -144,6 +144,6 @@ As an introduction to CloudPebble and the projects we will be doing in this book
 * At line 15, change `"Hello, Pebble!"` to `"Love ya, Pebble!"`.
 * Click on the white arrow in the green box at the top right.  The code should compile, the emulator should boot, and your code should run in the emulator.
 
-The way the final project should look is [here as an "answer" project](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-2-1-answer).
+The way the final project should look is [here as an "answer" project](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-2-1-answer).
 
 This will be the way we will do exercises at the end of each chapter.
