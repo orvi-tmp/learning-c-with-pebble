@@ -486,7 +486,7 @@ The exercises for this chapter have you working with projects that implement clo
 
 #### Project 4.1 #### 
 
-[Click here to get started with Project 4.1.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-4-1)
+[Click here to get started with Project 4.1.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-4-1)
 This application implements a second hand that sweeps in a circle and displays the numbers on a clock at 5 second intervals.  Run the application, then work through the following questions and challenges.
 
 1. Add comments that explain the use of `second % 5 == 0` in the if statement in the `mark_the_second` function. 
@@ -504,11 +504,11 @@ This application implements a second hand that sweeps in a circle and displays t
 
 1. Finally, claim the code by putting your name and the date in the header comments.  
 
-You can find the answers and implementations for the assignments [above at this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-4-1-answer)
+You can find the answers and implementations for the assignments [above at this link.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-4-1-answer)
 
 #### Project 4.2 ####
 
-Now let's examine Project 4.2; [click here to import the project from Github into CloudPebble](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-4-2).
+Now let's examine Project 4.2; [click here to import the project from Github into CloudPebble](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-4-2).
 
 This application puts time on the Pebble screen as text.  It's a simple program that updates once per second.  Most of the work is done in the `handle_tick` function, shown below:
 
@@ -544,4 +544,4 @@ We will make changes in this code by focusing on the `handle_tick` function.  Wo
 
 1. Finally, claim the code by putting your name and the date in the header comments.  
 
-You can find the implementations for the assignments [above at this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-4-2-answer)
+You can find the implementations for the assignments [above at this link.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-4-2-answer)
