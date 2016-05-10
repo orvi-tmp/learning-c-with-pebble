@@ -22,15 +22,16 @@ As we stated above, we can think of strings as arrays of characters.  In fact, t
 
     char title[40];
    
-This declares a string to contain 40 characters, while also declaring an array to hold 40 characters.
+This declares an array that contains 40 characters, which can also be treated as a string with 40 characters.
 
 Since strings are arrays, we can initialize strings the same way we initialize strings. For example,
 
     char title[40] = 
         { 'E', 'n', 'c', 'o', 'u', 'n', 't', 'e', 'r', ' ', 
           'a', 't', ' ', 'F', 'a', 'r', 'p', 'o', 'i', 'n', 't' };  
+    char registry[10] = { 'N', 'C', 'C', '-', '1', '7', '0', '1' };
 
-This will initialize the character array `title` to contain the string `Encounter at Farpoint`.  
+This will initialize the character array `title` to contain the string `Encounter at Farpoint` and the character array `registry` to contain the string `NCC-1701`.  Note that, in the last declaration, numbers can be characters (here, for example, the character '1' has the integer value `49`, not actually `1`).
 
 While this method of initializing works, it's pretty tedious.  C also allows a more convenient initialization of strings:
 
@@ -47,7 +48,7 @@ From Chapter 8, we know that array and pointer notation is are interchangeable. 
     *(select + 2) = '!';
     *(select + 3) = '\0';
 
-It should be clear that we can manipulate strings using array and pointer notation in ways we are, by now, accustomed to. Note as well the last line, which places a null character marker at the end of the copied string.  We will examine such terminators in the next section.
+It should be clear that we can manipulate strings using array and pointer notation in ways to which we are, by now, accustomed. Note as well the last line, which places a null character marker at the end of the copied string.  We will examine such terminators in the next section.
 
 One warning needs to be made about string assignment.  We can initialize strings, be we cannot assign strings through the assignment operator.  Consider this code:
 
@@ -67,7 +68,8 @@ This is a judicious choice for a termination character.  Consider how array init
 This choice for a termination character also makes certain computations about strings very easy.  Consider how we could compute the size of an array:
 
     int size = 0;
-    while (!title[size]) size += size + 1;
+    while (!title[size]) 
+        size = size + 1;
 
 Eventually, `title[size]` will have the value 0 when the computation is at the end of the string.  With pointers, we can abbreviate this code to 
 
@@ -95,7 +97,7 @@ C provides a number of functions that work with strings.  They are provided in a
 
 One of the most common functions is a string copy.  Let's say you have two strings, declared as below:
 
-    char quote1[80] = "I will take your word for it. This is very amusing.";
+    char quote1[60] = "I will take your word for it. This is very amusing.";
     char quote2[60];
 
 As we have noted before, simply assigning one array to the other will not copy one array to another.  The assignment will make both arrays work with the same data.  To make a copy work, we must move the data, character by character, from one array to the other.  Again, the choice of a 0 value was a judicious choice to terminate a string, because we can have code like this:
