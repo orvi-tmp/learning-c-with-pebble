@@ -168,7 +168,7 @@ Because strings are closely related to both arrays and pointers, we have to be c
 
        char data[40] = "The need for more research is clearly indicated.";
 
-   This reference will overflow the boundaries of the `data` array, because the string is longer than 40 characters.  However, because of the way C works with out-of-bounds references, it is not defined how this overflow will affect program code and/or other variables.
+   This reference will overflow the boundaries of the `data` array, because the string is longer than 40 characters.  However, because of the way C works with out-of-bounds references, it is not defined how this overflow will affect program code and/or other variables. NOte that this is also a great place to use unsized array declarations: declaring `char data[] ...` would permit us not to bother counting characters.
 * Avoid using `strncpy` to copy fixed numbers of characters.  If the destination string is not as long as the source string, this function will fill the destination, but will not terminate the string with the null character terminator.  
 * Be aware that calling string functions typically analyzes each string array for every call.  This means that code like this:
     int i;
