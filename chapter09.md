@@ -208,9 +208,9 @@ This project creates a "word calculator".  The starter code, [which can be found
 
 <figure>
    <hr/>
-   <img src='Figure8-1.png'>
+   <img src='Figure9-1.png'>
    <figcaption>
-      <b>Figure 8.1:</b> An example word calculator.<br/>
+      <b>Figure 9.1:</b> An example word calculator.<br/>
    </figcaption>
    <hr/>
 </figure>
