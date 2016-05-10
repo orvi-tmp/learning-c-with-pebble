@@ -204,9 +204,16 @@ An answer to this project can be found here.
 
 #### Project 9.2 ####
 
-This project creates a "word calculator".  The starter code, which can be found here, uses the buttons on a Pebble smartwatch to cycle numbers and operators.  The "select" button moves to the next position.  As the numbers in the calculation change, you are to display the words associated with all the numbers.  An example is given in figure below.
+This project creates a "word calculator".  The starter code, [which can be found here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-2), uses the buttons on a Pebble smartwatch to cycle numbers and operators.  The "select" button moves to the next position.  As the numbers in the calculation change, you are to display the words associated with all the numbers.  An example is given in figure below.
 
-IMAGE
+<figure>
+   <hr/>
+   <img src='Figure8-1.png'>
+   <figcaption>
+      <b>Figure 8.1:</b> An example word calculator.<br/>
+   </figcaption>
+   <hr/>
+</figure>
 
 You are to write a function `num2words` that will take an integer parameter and produce a string that expresses the value in words.  For example, if you call the function like this
 
