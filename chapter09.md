@@ -225,7 +225,7 @@ You are also to use this function to replace the numbers that a user puts on the
 
 You will have a few issues here to work out.  How will you wrap your "sentence" around the Pebble screen?  Which operators will you allow?  And what happens when the "sentence" is too long for the screen?
 
-You can find an answer here.
+[You can find an answer here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-2-answer)  Note that this answer uses `snprintf` statements to construct the string in `words2num`.  This is a template-driven solution rather than a copy-based solution, but it's just as valid and even a bit easier to understand.
 
 **Extra Challenge:** Extend your words substitution to operators.  Replace operators, like "+", with words on the screen (e.g., "plus").
 
