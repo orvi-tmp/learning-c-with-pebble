@@ -57,6 +57,12 @@ One warning needs to be made about string assignment.  We can initialize strings
 
 The first line works because it is an initialization within a declaration.  The second line is an error, because we cannot assign arrays to each other.  To make assignment of strings work, you must *copy* one string to another character-by-character.  There are functions that we can use for this; see a following section below for description of string copy functions.
 
+Finally, remember from Chapter 7 that we can use *unsized* arrays.  With strings, that makes sense because the compiler can figure out the size of the array from the initialization.  So, we can see this in this example:
+
+    char another[] = "Engage!";
+    
+Here, the `another` array would be implicitly declared to be 8 characters long (to include the terminator symbol, see the next section).
+
 ### Strings are Null Terminated ###
 
 If we are going to work with a string, we are going to have to know the length of a string.  In C, we can't actually encode the length of a string into the string itself, so we place a marker at the *end* of a string.  By knowing what the marker looks like, we can count the characters in a string and compute its length.
