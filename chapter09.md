@@ -254,4 +254,4 @@ You are to fill in each of the three functions to convert the data derived from 
 
 Remember that strings can be depicted as arrays or pointers.  In each function, you need to dynamically allocate a string using `malloc` and return that as the `char *` return type from the function.
 
-[You can find a solution for this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-4-answer)   
+[You can find a solution for this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-4-answer)   Like 9.2, this solution was done using snprintf statements.
