@@ -1,8 +1,8 @@
 Chapter 9: Strings
 =======
-Of all the structures in the Caribbean programming language, strings are perhaps the paradoxical.  They are extremely useful, yet their use can lead to of most convoluted code in C.  They are necessary for writing programs, but can be extremely annoying.  They are conceptually easy and practically difficult.
+Of all the structures in the C programming language, strings are perhaps the most paradoxical.  They are extremely useful, yet their use can lead to of most convoluted code in C.  They are necessary for writing programs, but using them can be extremely annoying.  They are conceptually easy and practically difficult.
 
-This chapter will work through the easiness and the difficulty that strings represent.  We will start off with the easy part: the idea and usefulness of strings.  And we will end with the difficulty: the messy code that using strings can generate.
+This chapter will work through the ease and the difficulty that strings represent.  We will start off with the easy part: the idea and usefulness of strings.  And we will end with the difficulty: the messy code that using strings can generate.
 
 ### The Basics of Strings ###
 
@@ -14,7 +14,7 @@ String literals are sequences of characters, surrounded by double quotes.  For e
     "Nice to see you."
     "Tea.  Earl Grey.  Hot!"
 
-These are all string literals.  In C, unlike some languages, the quotes are not interchangeable.  Single quotes surround single character literals, not strings.  Strings require double quotes.
+These are all string literals.  In C, unlike some languages, the quotes are not interchangeable.  Single quotes are used to depict single character literals, not strings.  Strings require double quotes.
 
 ### Strings are Arrays and Pointers ###
  
@@ -30,13 +30,13 @@ Since strings are arrays, we can initialize strings the same way we initialize s
         { 'E', 'n', 'c', 'o', 'u', 'n', 't', 'e', 'r', ' ', 
           'a', 't', ' ', 'F', 'a', 'r', 'p', 'o', 'i', 'n', 't' };  
 
-This will initialize the character array `title` to contain the string "Encounter at Farpoint".  
+This will initialize the character array `title` to contain the string `Encounter at Farpoint`.  
 
 While this method of initializing works, it's pretty tedious.  C also allows a more convenient initialization of strings:
 
     char title[40] = "Encounter at Farpoint";
 
-From Chapter 8, we know that pointers are arrays and arrays are pointers. So strings can also be manipulated by pointers as well as array notation.  We can do the following:
+From Chapter 8, we know that array and pointer notation is are interchangeable. So strings can also be manipulated by pointer notation as well as by array notation.  We can do the following:
 
     char quote[40] = "Make it ";
     char *select = quote;
@@ -45,19 +45,20 @@ From Chapter 8, we know that pointers are arrays and arrays are pointers. So str
     *select = 's';
     *(select + 1) = 'o';
     *(select + 2) = '!';
+    *(select + 3) = '\0';
 
-It should be clear that we can manipulate strings using array and pointer notation in ways we are, by now, accustomed to.
+It should be clear that we can manipulate strings using array and pointer notation in ways we are, by now, accustomed to. Note as well the last line, which places a null character marker at the end of the copied string.  We will examine such terminators in the next section.
 
 One warning needs to be made about string assignment.  We can initialize strings, be we cannot assign strings through the assignment operator.  Consider this code:
 
     char quote[40] = "Make it so";
     quote = "Engage!";
 
-The first line works because it is an initialization within a declaration.  The second line is an error, because you cannot assign arrays to each other.  To make assignment of strings work, you must *copy* one string to another character-by-character.  There are functions that we can use for this; see a following section below for description of string copy functions.
+The first line works because it is an initialization within a declaration.  The second line is an error, because we cannot assign arrays to each other.  To make assignment of strings work, you must *copy* one string to another character-by-character.  There are functions that we can use for this; see a following section below for description of string copy functions.
 
 ### Strings are Null Terminated ###
 
-If we are going to be able to work with a string, we are going to have to know the length of a string.  In C, we can't actually encode the length of a string with the string itself, so we place a marker at the *end* of a string.  By knowing what the marker looks like, we can count the characters in a string and compute its length.
+If we are going to work with a string, we are going to have to know the length of a string.  In C, we can't actually encode the length of a string into the string itself, so we place a marker at the *end* of a string.  By knowing what the marker looks like, we can count the characters in a string and compute its length.
 
 In C, strings are terminated by a character whose integer value is 0, called the "null" character.  
 
@@ -80,7 +81,7 @@ Using a null character for termination also means that we have to be careful whe
 
 Now the string contained in the array `title` has the value "Encounter" because it is terminated by a value of 0 in the character position after the "r".  There are actually 2 strings now in the `title` array, each terminated with a 0 value.  
 
-We also have to be careful about filling the array up to capacity; we have to remember that the last character must have the value 0.  
+We also have to be careful about filling the array up to capacity; we have to remember that the last character must have the value 0.  This mean, for example, that a string stored in an array of size 40 can only be maximally 39 characters long.  
 
 >** Strings are Not Objects **
 >
@@ -111,7 +112,7 @@ This is rather clunky, but it copies each character from `quote1` to `quote2` un
     while(*quote2++=*quote1++);
     quote2 = ptr;
 
-Here, we use pointer dereferencing  and pointer arithmetic to copy the strings. It's more cryptic than you might normally use, but it works.  
+Here, we use pointer dereferencing  and pointer arithmetic to copy the strings. It's more cryptic than you might normally use and it uses operations we have advised against before, but it works.  
 
 We could have just used the `strcpy` function.  The header for this function looks like:
 
@@ -126,37 +127,40 @@ That looks a little simpler to use.   Note that this works with string literals 
     strcpy(quote2, "Tell him he is a pretty cat.");
 
 There are several other common functions that are very useful.
-* `size_t strlen(char *string);`
+
+* `size_t strlen(char *string);` <br/>
 This function counts the number of characters in a string, without the terminator, thus returning its length.  `strlen(quote1)` returns 51.  Note that the "size_t" data type is equivalent to an unsigned integer data type (which, in this case, is more accurate, because lengths cannot be negative).
-* `char *strcat(char *string1, char *string2);`
+* `char *strcat(char *string1, char *string2);` <br/>
 This function concatenated `string2` to `string1` and returns the result.  Consider this example:
-    char day1[40] = "I would be chasing an untamed";
-    char day2[20] = "ornithoid without cause.";
-    char *days = strcat(day1, day2);
-Thus making `days` reference a string describing a wild goose chase.  
-* `int strcmp(char *string1, char *string2)`
+
+      char day1[40] = "I would be chasing an untamed";
+      char day2[20] = "ornithoid without cause.";
+      char *days = strcat(day1, day2);
+
+   Thus making `days` reference a string describing a wild goose chase.  
+* `int strcmp(char *string1, char *string2)` <br/>
 This function compares `string1` to `string2` lexicographically and returns an integer: -1 if `string1` is less than `string2`; 0 if `string1` is equal to `string2`; and 1 if `string1` is greater than `string2`.  
 
 There are "n" versions of these functions: `strncpy`, `strncat`, and `strncmp`.  These "n" versions take an extra integer as the last parameter and only work for the number of characters in the value of this parameter.   For example,
 
-    char reg1[10] = "1701 C";
-    char reg2[20] = "1701 E";
-    int cmp = strncmp(reg1, reg2, 4);
+      char reg1[10] = "1701 C";
+      char reg2[20] = "1701 E";
+      int cmp = strncmp(reg1, reg2, 4);
 
-In this code, `cmp` would have value 0, because the first 4 characters of each string are the same.    
+  In this code, `cmp` would have value 0, because the first 4 characters of each string are the same.    
 
 There are several other functions in the C string library that work with strings.  [Here is a good listing link to check them out.](http://www.cplusplus.com/reference/cstring/)  
 
 ### Common Pitfalls with Strings ###
 
-Because strings are closely related to arrays and pointers, we have to be careful when handling them.  There are many ways to fall down when using strings.  Here are a few bits to guide your string handling.
+Because strings are closely related to both arrays and pointers, we have to be careful when handling them.  There are many ways to fall down when using strings.  Here are a few bits to guide your string handling.
 
 * Beware accidentally handling the null character.  Placing a 0 value in the middle of a string will truncate it.  
 * Because strings are character arrays, you have to be careful with boundaries.  When you work with string values rather than individual characters and indexes, it's easy to make out of bounds references. For example: 
 
-    char data[40] = "The need for more research is clearly indicated.";
+       char data[40] = "The need for more research is clearly indicated.";
 
-This reference will overflow the boundaries of the `data` array, because the string is longer than 40 characters.  However, because of the way C works with out-of-bounds references, it is not defined how this overflow will affect program code and/or other variables.
+   This reference will overflow the boundaries of the `data` array, because the string is longer than 40 characters.  However, because of the way C works with out-of-bounds references, it is not defined how this overflow will affect program code and/or other variables.
 * Avoid using `strncpy` to copy fixed numbers of characters.  If the destination string is not as long as the source string, this function will fill the destination, but will not terminate the string with the null character terminator.  
 * Be aware that calling string functions typically analyzes each string array for every call.  This means that code like this:
     int i;
@@ -166,7 +170,7 @@ actually processes the entire `data` string once for every character reference. 
     for (i=0; i<len; i++) do_something_with(data[i]);
 analyzes the `data` string once, then processes each character of the string.  For long strings, the second version has significant performance improvements.  
 
-In addition to these tips, many programmers advise not using functions when the "n" variant is available.  There are several reasons for this, most of which note the "safety" of the "n" variants. For example, the `strcmp` function depends on the fact that both strings contain the null character terminator.  Using the `strncmp` variant on this function is safer because this version will compare two strings whether they are different lengths or whether one or both are missing their terminator.
+In addition to these tips, many programmers advise not using functions when the "n" variant is available.  There are several reasons for this, most of which note the "safety" of the "n" variants. For example, the `strcmp` function depends on the fact that both strings contain the null character terminator.  Using the `strcmp` variant on this function is safer because this version will compare two strings whether they are different lengths or whether one or both are missing their terminator.
 
 ### Avoid Messy Code with Strings ###
 
