@@ -204,7 +204,9 @@ An answer to this project can be found here.
 
 #### Project 9.2 ####
 
-This project creates a "word calculator".  The starter code, which can be found here, uses the buttons on a Pebble smartwatch to cycle numbers and operators.  The "select" button moves to the next position.  When the operator "=" is selected, and the "select" button is pressed, the app will display the value resulting from the computation displayed.
+This project creates a "word calculator".  The starter code, which can be found here, uses the buttons on a Pebble smartwatch to cycle numbers and operators.  The "select" button moves to the next position.  As the numbers in the calculation change, you are to display the words associated with all the numbers.  An example is given in figure below.
+
+IMAGE
 
 You are to write a function `num2words` that will take an integer parameter and produce a string that expresses the value in words.  For example, if you call the function like this
 
@@ -212,7 +214,7 @@ You are to write a function `num2words` that will take an integer parameter and 
 
 then `words` will point to the value "fifty two".  Set the maximum value sent to the function to 100.  
 
-You are also to use this function to replace the numbers that a user puts on the Pebble screen with words.  When the select button is pushed, erase the number that was just added and replace it with the words from the function.  Redisplay the current computation "sentence".  
+You are also to use this function to replace the numbers that a user puts on the Pebble screen with words.  As the calculated numbers change, erase the string that was just added and replace it with the words from the function.  Then redisplay the current computation "sentence".  
 
 You will have a few issues here to work out.  How will you wrap your "sentence" around the Pebble screen?  Which operators will you allow?  And what happens when the "sentence" is too long for the screen?
 
