@@ -204,7 +204,7 @@ An answer to this project can be found here.
 
 #### Project 9.2 ####
 
-This project creates a "word calculator".  The starter code, which can be found here, uses the buttons on a Pebble smartwatch to cycle numbers and operators.  The "select" button moves to the next position.  When the operator "=" is selected, and the "select" button is selected, the app will display the value resulting from the computation displayed.
+This project creates a "word calculator".  The starter code, which can be found here, uses the buttons on a Pebble smartwatch to cycle numbers and operators.  The "select" button moves to the next position.  When the operator "=" is selected, and the "select" button is pressed, the app will display the value resulting from the computation displayed.
 
 You are to write a function `num2words` that will take an integer parameter and produce a string that expresses the value in words.  For example, if you call the function like this
 
