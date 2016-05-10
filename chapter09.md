@@ -243,12 +243,15 @@ You can find an answer for this project here.
 
 #### Project 9.4 ####
 
-Get the starter code for this project here.   Read through the code, paying attention to the functions defined.
+[Get the starter code for this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-4)   Read through the code, paying attention to the functions defined.
 
-Among the functions in the starter code that run the watch app, there are three functions that tap into the sensors on the watch.  `get_compass` gets information from the compass sensor. `get_accelerometer` gets data from the accelerometer.   `get_light` gets light level data.   Each function has code to get the data from its respective sensor and each function returns a string that contains that information in a form that can be drawn on the watch screen.
+Among the functions in the starter code that run the watch app, there are three functions that tap into the sensors on the watch.  `get_compass` gets information from the compass sensor. `get_accelerometer` gets data from the accelerometer.   `get_light` gets light level data.   Each function returns a "buffer" that has been filled by a callback function, called when the respective sensor updates.  These callback functions hav code to get the data from its respective sensor.
 
-You are to fill in each of the three functions to convert the data derived from the sensor to a string that can be returned.
+You are to fill in each of the three functions to convert the data derived from the sensor to a string. 
+* `compass()` will put a string into `compass_buffer` from the struct `data`.  Use `data.true_heading` as the integer that gives the heading.
+* `accel()` will put a string into `accel_buffer` that will depict the accelleration in three directions.  Use the struct data in `data[0]`: `.x`, `.y`, and `.z`.  Form a string that can interpret these and can be displayed.
+*  `light()` will put a string into `light_buffer` based on the ambient light level.  Use values of `level` in an if/then/else or a case statement to set a string depicting the light level.
 
 Remember that strings can be depicted as arrays or pointers.  In each function, you need to dynamically allocate a string using `malloc` and return that as the `char *` return type from the function.
 
-You can find a solution for this project here.
+[You can find a solution for this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-4-answer)   
