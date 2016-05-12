@@ -18,9 +18,9 @@ There are several people at Pebble who had crucial roles with getting this book 
 Finally, some really smart people from the [Pebble community on Slack](http://slack.pbldev.io/) proofread the chapters and helped make the Project Exercises a reality.  They worked on the code, made their own suggestions, and produced some very effective learning tools.  Here's a list:
 * [Allan Findlay](https://twitter.com/allanf175)
 * [Paul Niven](https://twitter.com/NiVZ)
-* [Mathew Reiss](https://twitter.com/Idiot_Economist)
+* [Mathew Reiss](https://twitter.com/mydogsnowy)
 * [David Rodriguez Rincon](https://twitter.com/dabdemon)
-* [Rob Spiess](https://twitter.com/rob_spiess)
+* [Rob Spiess](https://twitter.com/robisodd)
 
 Finally, a special thanks to [Juan Sanchez](https://twitter.com/juansanchez) for his beautiful artwork and to [Ryan Perry-Nguyen](http://twitter.com/rperryng) for his meticulous attention to editing.
 
