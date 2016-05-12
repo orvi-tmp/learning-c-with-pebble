@@ -398,28 +398,44 @@ Now you have a working watchface.  [See the answer to this project here.](https:
 
 #### Project 10.2 ####
 
-Snake is a game where a snake moves around the screen, directed by user input.  It's a basic game most devices with good graphics will implement.  It's a sort of "Hello World" for user interaction.  
+Snake is a game where a snake moves around the screen, directed by user input. The user moves the snake to eat some fruit, which causes the snake to grow. If the snake crosses the edge boundary or crosses itself, the game ends. It's a basic game most devices with good graphics will implement.  It's a sort of "Hello World" for user interaction.  
 
-Find starter code for a snake game here.  Take a few moments to review the code.  Notice how many times names are equates with integer values through the use of `#define` macros.  Run the code to make sure you know it works.
+Find starter code for a snake game here.  It's based on [an original Snake game by Nick Reynolds](https://github.com/thenickreynolds/pebblesnake) for the Pebble Classic smartwatch.  Take a few moments to review the code.  Run the code to make sure you know it works.  Answer these questions as you review the code.
 
-Change the code to use enums rather than macros in the following way:
+1. Notice all the lines that begin with #define.  These are preprocessor statements (see Chapter 13) that define textual substitutions. How are all these #define statements used?  
+2. Find the structs in the code: one for `Position` and one for `Snake`.  They are declared with a mix of typedef with an unnamed struct. Why do you think this declaration method was used?
+3. There are no enum declarations here.  Which #define statements would be suitable for an enum?
+4. In many of the functions, parameters that are `Position` types are declared as pointers.  Why would this be helpful (or necessary)?
 
-1. Establish a direction enum to depict the values `UP`, `RIGHT`, `DOWN` and `LEFT`. How should you define `DIRECTION_COUNT`?  Does the code have to change any further?
-2. Make an enum for `CLOCKWISE` and `COUNTER_CLOCKWISE` values.  Again, does the code need to change?
+Change the code in the following way.
 
-In addition, find the structs in the code and explain them to yourself.  
+1. Establish a direction enum to depict the values `UP`, `RIGHT`, `DOWN` and `LEFT`. You also have to change `DIRECTION_COUNT`?  How does that have to be declared?  Does the code have to change any further?
+2. Make an enum for `CLOCKWISE` and `COUNTER_CLOCKWISE` values.  Again, how much does the code need to change?
+3. You are to add an "autopilot mode" to the game.  When the "select" button is pressed, the game toggle between autopilot mode and regular mode.  Autopilot mode means that when the snake comes up to the edge of the screen, it automatically switches positions without an error. It also grows when it hits the edge until the snake is a certain length (determine this yourself), then it resets.  The up and down buttons should be ignored in autopilot mode.
 
-You are to add an "autopilot mode" to the game.  When the "select" button is pressed, the snake goes into autopilot mode.  This means that when it comes up to the edge of the screen, it automatically switches positions without an error. Make the new position random. It also grows when it hits the edge until the snake is a certain length (determine this yourself), then it resets.  Should the snake hit a fruit by accident, it grows twice as long.
+[An answer to this project can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-10-2-answer)
 
-An answer to this project can be found here.
+**Extra Challenge #1:** In autopilot mode, the snake should not turn in one direction only.  Make sure the snake turns randomly in either direction.  Decide the probability of turning clockwise or counter clockwise.
+
+**Extra Challenge #2:** In autopilot mode, the snake will eventually follow the edge of screen.  Help the snake by making it turn at the fruit position as well.  Make it turn toward the fruit.
+
+[An answer to these challenges can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-10-2-challenges-answer)
 
 #### Project 10.3 ####
 
-Using your knowledge of the time struct and your new snake skills, let's make a snake watchface.  Start with the code from Project 10.2.  Change your code to make the snake *always* work in autopilot mode.  Draw the time on the snake's tail.
+After Project 10.2, we have a snake that can go on autopilot.  Using your knowledge of the time struct and your new snake skills, let's make a snake watchface.  
+
+Start with the answer code from Project 10.2.  Change your code to make the snake *always* work in autopilot mode.  Remove any random direction turning; only turn in one direction.  However, make the snake turn at the fruit position.
+
+Draw the time on the snake's tail.  You will have to add code to `tick_game()` so that the time is drawn after the tail and follows the snake. Try to keep the numbers in the proper orientation!
+
+An answer to this project can be found here.
+
+**Extra Challenge:** Make the time digits part of the snake's body.  Use either the first squares or the last ones.
 
 #### Project 10.4 ####
 
-Recall Project 8.4: the bouncing rectangle.  It bounced and random jumped all over the Pebble screen.  [You can find the answer to this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-4-answer)
+Recall Project 8.4: the bouncing rectangle.  It bounced and randomly jumped all over the Pebble screen.  [You can find the answer to this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-4-answer)
 
 Locate the function `update_display`.  In this function, the fill color for the rectangle is set to `GColorWhite`.  You are to change this to gradually change the color of the rectangle through reds, greens, and blues.  Do this in the following way:
 
