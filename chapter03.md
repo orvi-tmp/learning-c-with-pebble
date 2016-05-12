@@ -32,7 +32,7 @@ First, note that there are rules for variable names.  Variables names must be co
 
 Second, note that C is case-sensitive when it comes to variable names.  This means that capital letters are considered different than lowercase letters.  `positionX` is not the same variable as `positionx`.   
 
-It is indeed possible to use a variable without first assigning it a value. However, remember that variables are simply abstractions for memory words.  The result of using a variable without initializing is an unpredictable value; you get whatever was left over in memory from the last time the memory word was used.  Most often, programmers just assume that variables are automatically initialized to zero when a program starts; it is actually best to assume that any left over data is just useless.
+It is indeed possible to use a variable without first assigning it a value. However, remember that variables are simply abstractions for memory words.  The result of using a variable without initializing is an unpredictable value; you get whatever was left over in memory from the last time the memory word was used.  Programmers often incorrectly just assume that variables are automatically initialized to zero when a program starts; it is actually best to assume that any left over data is just useless.
 
 > **Different Compiler Behavior**
 > 
@@ -102,7 +102,7 @@ The table below shows letter designations for data types and gives some examples
 <TR>
 <TD>Character</TD>
 <TD><code>char</code></TD>
-<TD>A representation of letters and other character data.  Pebble smartwatches use the Unicode representation for character data, allowing over 65,000 different characters.</TD>
+<TD>A representation of letters and other character data.</TD>
 <TD>'A'<br/>'5'<br/>'#'</TD>
 <TD>"A"<br/>"string"</TD>
 </TR>

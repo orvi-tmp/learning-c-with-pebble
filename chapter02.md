@@ -40,21 +40,21 @@ As we saw in Chapter 1, Pebble smartwatches are built with a version of an ARM p
    <hr/>
 </figure>
 
-First, you have to get an idea for a watch face or a watch app.  This idea-gathering is outside the scope of this book, so it's your job to get creative.
+First, you have to get an idea for a watchface or a watchapp.  This idea-gathering is outside the scope of this book, so it's your job to get creative.
 
 Expressing this idea as an algorithm is the second step, and is also outside the scope of this book.  There are many methods to devising an algorithm from a set of ideas.  
 
-The third step is to express your algorithm as a C or JavaScript program.  These are the two languages that can be used to write watch faces or apps for the Pebble.  You are reading this book because you want to the C approach and that's what we'll assume from here on.  C programs are written in text on a computer running MacOS, or Linux.  
+The third step is to express your algorithm as a C or JavaScript program.  These are the two languages that can be used to write watch faces or apps for the Pebble.  You are reading this book because you want to the C approach and that's what we'll assume from here on.
 
-Once you have a C program in a text file, the next step is to convert that C code to ARM machine language.  As we stated in the previous section, you do this with a compiler.  The Pebble software development kit supports developers by supplying compilers for MacOS or Linux.  These compilers will take a C program, verify its syntax and semantics, and generate a program in machine language in a format that can be installed on a Pebble watch.  This file is in PBW format: a collection of files that gives the machine language for a program, a set of checksums for security, and a file of maintenance information about the program (e.g., size, time it was created, etc).  
+Once you have a C program in a text file, the next step is to convert that C code to ARM machine language.  As we stated in the previous section, you do this with a compiler.  The Pebble software development kit supports developers by supplying compilers for Mac OS and Linux.  These compilers will take a C program, verify its syntax and semantics, and generate a program in machine language in a format that can be installed on a Pebble watch.  This file is in PBW format: a collection of files that gives the machine language for a program, a set of checksums for security, and a file of maintenance information about the program (e.g., size, time it was created, etc).  
 
 The PBW file must now be installed on a watch.  There are several tools that can do this, and each one does it through the phone app.  You can even transfer a PBW file to your phone and open it, at which point the phone app will take over and install the file.  
 
 ### Developing Our First Program ###
 
-Let's take an example.  Let's say that we want to develop a simple first program for a Pebble Time watch.  It's just going to type "Hello, Pebble!" on the watch screen.  You can read a tutorial on how to do this at [https://developer.getpebble.com/tutorials/beginner/hello-pebble/](https://developer.getpebble.com/tutorials/beginner/hello-pebble/).  
+Let's take an example.  Let's say that we want to develop a simple first program for a Pebble Time watch.  It's just going to show "Hello, Pebble!" on the watch screen.  You can read a tutorial on how to do this at [https://developer.getpebble.com/tutorials/beginner/hello-pebble/](https://developer.getpebble.com/tutorials/beginner/hello-pebble/).  
 
-Programs start with an idea.  Ours is a simple "Hello".  To get started coding this idea, we will need a C code program file.  A demonstrated in the tutorial page, we can accomplish feat by using the following code to initialize the watch:
+Programs start with an idea.  Ours is a simple "Hello".  To get started coding this idea, we will need a C code program file.  A demonstrated in the tutorial page, we can accomplish this by using the following code to initialize the watch:
 
     void init() {
         window = window_create();
@@ -94,9 +94,9 @@ When the compilation process is completed correctly, the process creates a PBW f
 
 ### Programming Environments ###
 
-The development process -- from idea to running watch app -- is a process that involves many tools.  From editors to compilers to PBW generators, the process has many steps with many software applications.  To make the process easier, we combine these tools into an *interactive development environment*.  
+The development process -- from idea to running watchapp -- is a process that involves many tools.  From editors to compilers to PBW generators, the process has many steps with many software applications.  To make the process easier, we combine these tools into an *integrated development environment*.  
 
-An interactive development environment, or IDE, focuses on the process of software development by combining software tool steps together into actions that a developer initiates through a user interface.  For example, if code compiles correctly, it could be assumed that the next step is to run that code.  So those actions could be combined into, say, a button on a graphic user interface.  That button could check to see if the code is saved into a file, compile the code, and, if the code compiles correctly, download the code to a watch for execution.  
+An integrated development environment, or IDE, focuses on the process of software development by combining software tool steps together into actions that a developer initiates through a user interface.  For example, if code compiles correctly, it could be assumed that the next step is to run that code.  So those actions could be combined into, say, a button on a graphic user interface.  That button could check to see if the code is saved into a file, compile the code, and, if the code compiles correctly, download the code to a watch for execution.  
 
 In addition to streamlining the development process, IDEs offer enhanced coding tools.  There can be tools that analyze code; there can be editors that error-check your code as you write it. 
 
@@ -129,7 +129,7 @@ These methods work when the IDE can directly execute the code and can directly a
 
 ### Using GitHub and CloudPebble for Projects in this Book ###
 
-This book uses a *project exercises* at the end of each chapter.  A project exercise is a complete watch app that will run on a Pebble smartwatch.  You are asked to read the code, then change the code.  You can check your work against an "answer" project that is also provided.  
+This book uses a *project exercises* at the end of each chapter.  A project exercise is a complete watchapp that will run on a Pebble smartwatch.  You are asked to read the code, then change the code.  You can check your work against an "answer" project that is also provided.  
 
 You will be working with project exercises through the CloudPebble IDE.  The code you will start from is stored on GitHub, a Web site that uses a *version control system* called "git".  You will be given a URL with each project that will get you to the CloudPebble IDE and automatically import the project code into CloudPebble.
 
