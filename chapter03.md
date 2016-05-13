@@ -102,16 +102,16 @@ The table below shows letter designations for data types and gives some examples
 <TR>
 <TD>Character</TD>
 <TD><code>char</code></TD>
-<TD>A representation of letters and other character data.</TD>
+<TD>A representation of letters and other character data.  Pebble smartwatches use UTF-8 strings, so a single character may not fit in a `char`.</TD>
 <TD>'A'<br/>'5'<br/>'#'</TD>
 <TD>"A"<br/>"string"</TD>
 </TR>
 
 <TR>
 <TD>Boolean</TD>
-<TD><code>int</code></TD>
+<TD><code>bool</code></TD>
 <TD>A representation of true and false values.  Boolean operators are logical operators.</TD>
-<TD>1<br/>0</TD>
+<TD>true<br/>false<br/>1</br>0</TD>
 <TD>"true"<br/>"false"<br/>T<BR/>FALSE</TD>
 </TR>
 
@@ -119,13 +119,13 @@ The table below shows letter designations for data types and gives some examples
 
 ### Other Basic Data Types ###
 
-The table in the previous sections adds two data types to ones we have discussed.  *Character* data types are declared with the `char` keyword and hold single characters/symbols as their value.  On a Pebble smartwatch, these values come from the [Unicode](http://www.unicode.org/charts) character set.  Unicode contains a Western style alphabet in the first 128 characters and a large collection of the other alphabets in the rest of the set.  Note that character data types include numbers as characters, so that `'5'` is not the same as `5`.  Character literals are represented using single quotes.  
+The table in the previous sections adds two data types to ones we have discussed.  *Character* data types are declared with the `char` keyword and hold single-byte characters/symbols as their value.  On a Pebble smartwatch, these values come from the [Unicode](http://www.unicode.org/charts) character set.  Unicode contains a Western style alphabet in the first 128 characters and a large collection of the other alphabets in the rest of the set. The UTF-8 encoding of Unicode, which Pebble uses, can use multiple bytes and therefore multiple `char`s. In fact, only the first 128 characters fit into a single char.  Note that character data types include numbers as characters, so that `'5'` is not the same as `5`.  Character literals are represented using single quotes.  
 
 > **Characters are not Strings**
 > 
-It is useful to emphasize that `char` data types only hold a single character, *not* a string of characters.  Strings are not built into C as they are in some other languages.  Strings are represented by arrays of characters -- sequences -- and will be discussed at length in Chapter 9.
+It is useful to emphasize that `char` data types only hold a single-byte character (like "h"), *not* a string of characters or a multi-byte character (like "é").  Strings are not built into C as they are in some other languages.  Strings are represented by arrays of characters -- sequences -- and will be discussed at length in Chapter 9.
 
-Sometimes character data cannot be represented very easily.  For example, how does C represent a TAB character?  A TAB is not visible, yet is useful in programs.  For these issues, C uses *escape sequences*.  An escape sequence begins with an *escape character* and include either a letter or a number sequence to reference the characters Unicode value.  The number sequence is useful to reference characters that do not have a symbol with which to refer to them.  
+Sometimes character data cannot be represented very easily.  For example, how does C represent a newline character?  A newline cannot appear in a character or string literal, but newlines are very useful.  For these issues, C uses *escape sequences*.  An escape sequence begins with an *escape character* and include either a letter or a number sequence to reference the characters Unicode value.  The number sequence is useful to reference characters that do not have a symbol with which to refer to them.  
 
 Let's look at an example.
 
@@ -133,33 +133,20 @@ Let's look at an example.
     char letter2 = 'a';
     char letter3 = '\092';
     char letter4 = letter + 32;
+    char letter5 = '\n';
     int difference = letter2 - letter3;
 
-The first three declarations are not unusual; we just defined character literals as having representations like these.  The declaration of `letter4` demonstrates type conversion.  Technically, the `+` operator is not defined for characters, so `letter` has to be converted to an integer before addition.  Then the type of the resulting expression (`int`) is converted back to `char` before assignment to `letter4`.  When converting a character to an integer, the Unicode value of the character is used.  This means that the last declaration declares `difference` to be an integer that has the value of `0`.   
+The first three declarations are not unusual; we just defined character literals as having representations like these.  The declaration of `letter4` demonstrates type conversion.  Technically, the `+` operator is not defined for characters, so `letter` has to be converted to an integer before addition.  Then the type of the resulting expression (`int`) is converted back to `char` before assignment to `letter4`.  When converting a character to an integer, the UTF-8 value of the character is used.  This means that the last declaration declares `difference` to be an integer that has the value of `0`.
 
-The last basic data type in C isn't really a data type.  C does not include the definition of a boolean type as most programming languages do.  A boolean data type would take on the values `true` or `false` and use logical operators, such as *and* and *or*.  C supports boolean operations, but does not have an explicit boolean type.  This means that comparisons can generate boolean values, but C does not have boolean literals.  
+Notice the literal table in the last section.  It lists `1` and `0` as boolean literals.  C considers 0 to be false and non-zero values to be true.
 
-Notice the literal table in the last section.  It lists `1` and `0` as boolean literals.  C considers 0 to be false and non-zero values to be true. This means that the integer data type also serves as the boolean data type for C.
+Let's look at an example:
 
-Consider this example:
+    bool retired = false;
+    bool still_working = true;
+    bool gets_a_pension = (retired && !still_working) || (age > 65 && hours < 20);
 
-	int true=1, false=0;
-    int x, y;
-
-    x = true;
-    y = (x == true);
-
-We can *simulate* boolean operations and values by using integer data types.  In this example, `x` is treated as a boolean, and is given the value `true`, which makes sense because `true` is also an integer.  However, `y` gets its value from a *comparison*, something that gives a true or false value.  And that comparison value is assigned to an integer.  
-
-If we were to print the values of `x` and `y`, both would have the value `1`, or `true`.  
-
-Let's look at another example, using the definitions of `true` and `false` from the previous example.
-
-    int retired = false;
-    int still_working = true;
-    int gets_a_pension = (retired && ! still_working) || (age > 65 && hours < 20);
-
-This demonstrates a *boolean expression*, which is computed from boolean values.  Boolean values come from variables or operations that give up boolean results.  So `retired` takes on the value `false` (really `0` as the literal value), but `gets_a_pension` computes its value from boolean operations and comparison operations.  Consider the table of boolean operators below
+This demonstrates a *boolean expression*, which is computed from boolean values.  Boolean values come from variables or operations that give up boolean results.  So `retired` takes on the value `false`, but `gets_a_pension` computes its value from boolean operations and comparison operations.  Consider the table of boolean operators below:
 
 <table>
 <TR>
@@ -171,23 +158,23 @@ This demonstrates a *boolean expression*, which is computed from boolean values.
 
 <TR>
 <TD>AND</TD>
-<TD>a <b>&&</b> b</TD>
+<TD>a <b>&amp;&amp;</b> b</TD>
 <TD>Result is true when <i>both operands</i> are true</TD>
-<TD>true && false<br/>(miles < traveled) && still_running</TD>
+<TD>true &amp;&amp; false<br/>(miles &lt; traveled) &amp;&amp; still_running</TD>
 </TR>
 
 <TR>
 <TD>OR</TD>
 <TD>a <b>||</b> b</TD>
 <TD>Result is true when <i>at least one</i> of the operands is true</TD>
-<TD>true || false<br/>(miles < traveled) || still_running</TD>
+<TD>true || false<br/>(miles &lt; traveled) || still_running</TD>
 </TR>
 
 <TR>
 <TD>NOT</TD>
-<TD><b>!</b> a </TD>
+<TD><b>!</b>a</TD>
 <TD>Result is true when the operand is false; result is false when the operand is true</TD>
-<TD>! true<br/>! (miles < traveled)</TD>
+<TD>!true<br/>!(miles &lt; traveled)</TD>
 </TR>
 
 </table>
@@ -203,7 +190,7 @@ Let's assume that `age` equals 70 and `hours` equals 25.  We can then compute th
    <hr/>
 </figure>
 
-The final result of the expression in Figure 3.1 is `false` (or `0`).
+The final result of the expression in Figure 3.1 is `false`.
 
 ### Type Conversion ###
 
