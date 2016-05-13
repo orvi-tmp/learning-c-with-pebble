@@ -155,7 +155,7 @@ If we were to print the values of `x` and `y`, both would have the value `1`, or
 
 Let's look at another example, using the definitions of `true` and `false` from the previous example.
 
-    int retired = false;
+    int retired = true;
     int still_working = true;
     int gets_a_pension = (retired && ! still_working) || (age > 65 && hours < 20);
 
