@@ -413,13 +413,13 @@ Change the code in the following way.
 2. Make an enum for `CLOCKWISE` and `COUNTER_CLOCKWISE` values.  Again, how much does the code need to change?
 3. You are to add an "autopilot mode" to the game.  When the "select" button is pressed, the game toggle between autopilot mode and regular mode.  Autopilot mode means that when the snake comes up to the edge of the screen, it automatically switches positions without an error. It also grows when it hits the edge until the snake is a certain length (determine this yourself), then it resets.  The up and down buttons should be ignored in autopilot mode.
 
-[An answer to this project can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-10-2-answer)
+[An answer to this project can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-10-2-answer)
 
 **Extra Challenge #1:** In autopilot mode, the snake should not turn in one direction only.  Make sure the snake turns randomly in either direction.  Decide the probability of turning clockwise or counter clockwise.
 
 **Extra Challenge #2:** In autopilot mode, the snake will eventually follow the edge of screen.  Help the snake by making it turn at the fruit position as well.  Make it turn toward the fruit.
 
-[An answer to these challenges can be found here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-10-2-challenges-answer)
+[An answer to these challenges can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-10-2-challenges-answer)
 
 #### Project 10.3 ####
 
