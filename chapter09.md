@@ -233,7 +233,21 @@ You will have a few issues here to work out.  How will you wrap your "sentence" 
 
 #### Project 9.3 ####
 
-MADLIBS with 3 files: one for subject, one for verb and one for object.
+A madlib is a word game where you choose random words and insert them in a sentance, filling in the blanks in the sentence to make funny new sentences.  This project gets you to create madlibs.
+
+[Get the starter code for this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-3)  Examine the code; it uses three files to read madlibs, nouns, and verbs.  Each madlib looks like this: "<NOUN> drove to the <NOUN2> and <VERB> it."  You get random madlibs, nouns, and verbs using the functions `random_madlib`, `random_noun`, and `random_verb`, respectively.
+
+You are to generate a random madlib, generate 2 nouns and a verb, then replace the occurences of "<NOUN>" with the first noun, "<NOUN2>" with the second noun, and "<VERB>" with the verb.  You are to then display the resulting madlib.  Write a function with the header
+
+    char *replace_words(char *sentence, char *original, char *replacement)
+    
+This function should replace occurences of `original` with `replacement` in `sentence` and return the `sentence` as the return value of the function.
+
+Once you have your madlib, you may display it on the Pebble screen using the function `display_madlib`.  
+
+This can be a little convoluted, so make sure you insert comments to explain your logic.  Also claim the code with your name and an explanation of what it does.
+
+[You can find an answer to this Project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-3-answer)
 
 #### Project 9.4 ####
 
