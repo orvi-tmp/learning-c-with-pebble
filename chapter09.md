@@ -233,13 +233,7 @@ You will have a few issues here to work out.  How will you wrap your "sentence" 
 
 #### Project 9.3 ####
 
-There are many weather sites on the Internet.  This project begins by fetching data from one of those sites.  It's your job to display relevant data on the Pebble screen.
-
-You can begin with this starter code.  Read through the code and notice that there are several functions that work together to get weather data.  The main function for this is `get_weather`, which returns Web page contents that have the current conditions.
-
-You are to use the string processing functions you have available to trim down the Web page data and to extract the strings relevant to the current weather conditions.  You will have to wade through a lot of HTML to do this.  Display these on the watch screen.  See previous code for ways to display strings on the Pebble screen.
-
-You can find an answer for this project here.
+MADLIBS with 3 files: one for subject, one for verb and one for object.
 
 #### Project 9.4 ####
 
