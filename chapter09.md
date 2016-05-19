@@ -194,13 +194,15 @@ While C puzzles are interesting and even fun, it is better programming practice 
 
 #### Project 9.1 #####
 
-The starter code for Project 9.1 is here.  Copy the project and run the code.  The starter code displays a cursor that is positioned underneath letters in a word.  The "select" button will move between letters: a press will move right and a long press will move left.  In the starter project, the letters are all "A".
+[The starter code for Project 9.1 is here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-9-1)  Copy the project and run the code.  The starter code displays a cursor that is positioned underneath letters in a word.  The "select" button will move between letters: a press will move right and a long press will move left.  In the starter project, the letters spell out "Hello World".
 
 You are to fill in code for `up_handler` and `down_handler`, code that handles presses of the "up" and "down" buttons, respectively.  Each up press should advance the letter the cursor is on to the next letter of the alphabet; each down press should move the letter to the previous letter in the alphabet. In either case, the string must be rebuilt and displayed again on the screen.  
 
 Note that you *could* simply redisplay each letter as it is changed.  But that is not good enough for this project.  Each string needs to be rebuilt using string functions and redisplayed on the Pebble screen.
 
 An answer to this project can be found here.
+
+Note that this project is coded with a monospace font, courtesy of 1001 Fonts.  You can get that font at http://www.1001fonts.com/source-code-pro-font.html. 
 
 #### Project 9.2 ####
 
