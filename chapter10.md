@@ -429,7 +429,7 @@ Start with the answer code from Project 10.2.  Change your code to make the snak
 
 Draw the time on the snake's tail.  You will have to add code to `tick_game()` so that the time is drawn after the tail and follows the snake. Try to keep the numbers in the proper orientation!
 
-An answer to this project can be found here.
+[An answer to this project can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-10-3-answer)
 
 **Extra Challenge:** Make the time digits part of the snake's body.  Use either the first squares or the last ones.
 
@@ -443,6 +443,6 @@ Locate the function `update_display`.  In this function, the fill color for the 
 2. Set up the code to reset the color to `GColorWhite` when the "select" button is pressed.
 3. Every time the `update_display` is called, change the color just a bit and use this new color in the `graphics_context_set_fill_color` function.
 
-[An answer to this project can be found here.](
+[An answer to this project can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-10-4-answer)
 
 **Extra Challenge:** Instead of computing colors here, can you use an enum and simply step through colors?  Could that enum be based on the Pebble `GColor` type?
