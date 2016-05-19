@@ -370,7 +370,7 @@ We have seen a lot of messy programming in C.  Now that we have explored structu
 
 Let's start by creating a watchface.  Recall Project 8.2: we generated random digits and drew them on the smartwatch screen.  Now let's replace the random digits with the time.
 
-Start with [the answer to Project 8.2, available here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-2-answer)  Work through the following changes to the code.
+Start with [the answer to Project 8.2, available here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-8-2-answer)  Work through the following changes to the code.
 
 1. In the function `canvas_update_proc`, remove the four `choice = rand()%10;` statements.
 2. Locate the `main_window_load` function and add the following call to subscribe to the "tick timer", making a call to `tick_handler` every minute:
@@ -392,7 +392,7 @@ Now, make the following changes to the code:
 1. Separate the tens digit and the ones digit for the hour and the minute.  You will need to reference the struct elements through the pointer `t`.  
 2. Using the same `draw_digit` calls as the starter code, draw these digits in the right place.  
 
-Now you have a working watchface.  [See the answer to this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-10-1-answer)
+Now you have a working watchface.  [See the answer to this project here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-10-1-answer)
 
 **Extra Challenge:** Add a seconds indicator.  Change `MINUTE_UNIT` to `SECOND_UNIT` in the call to `tick_timer_service_subscribe`.  Then in `canvas_update_proc` draw a block with colors that alternatively draws and erases every other second.
 
@@ -400,7 +400,7 @@ Now you have a working watchface.  [See the answer to this project here.](https:
 
 Snake is a game where a snake moves around the screen, directed by user input. The user moves the snake to eat some fruit, which causes the snake to grow. If the snake crosses the edge boundary or crosses itself, the game ends. It's a basic game most devices with good graphics will implement.  It's a sort of "Hello World" for user interaction.  
 
-Find starter code for a snake game here.  It's based on [an original Snake game by Nick Reynolds](https://github.com/thenickreynolds/pebblesnake) for the Pebble Classic smartwatch.  Take a few moments to review the code.  Run the code to make sure you know it works.  Answer these questions as you review the code.
+[Find starter code for a snake game here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-10-1).  It's based on [an original Snake game by Nick Reynolds](https://github.com/thenickreynolds/pebblesnake) for the Pebble Classic smartwatch.  Take a few moments to review the code.  Run the code to make sure you know it works.  Answer these questions as you review the code.
 
 1. Notice all the lines that begin with #define.  These are preprocessor statements (see Chapter 13) that define textual substitutions. How are all these #define statements used?  
 2. Find the structs in the code: one for `Position` and one for `Snake`.  They are declared with a mix of typedef with an unnamed struct. Why do you think this declaration method was used?
@@ -435,7 +435,7 @@ An answer to this project can be found here.
 
 #### Project 10.4 ####
 
-Recall Project 8.4: the bouncing rectangle.  It bounced and randomly jumped all over the Pebble screen.  [You can find the answer to this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-8-4-answer)
+Recall Project 8.4: the bouncing rectangle.  It bounced and randomly jumped all over the Pebble screen.  [You can find the answer to this project here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-8-4-answer)
 
 Locate the function `update_display`.  In this function, the fill color for the rectangle is set to `GColorWhite`.  You are to change this to gradually change the color of the rectangle through reds, greens, and blues.  Do this in the following way:
 
@@ -443,6 +443,6 @@ Locate the function `update_display`.  In this function, the fill color for the 
 2. Set up the code to reset the color to `GColorWhite` when the "select" button is pressed.
 3. Every time the `update_display` is called, change the color just a bit and use this new color in the `graphics_context_set_fill_color` function.
 
-An answer to this project can be found here.
+[An answer to this project can be found here.](
 
 **Extra Challenge:** Instead of computing colors here, can you use an enum and simply step through colors?  Could that enum be based on the Pebble `GColor` type?
