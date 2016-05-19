@@ -200,13 +200,13 @@ You are to fill in code for `up_handler` and `down_handler`, code that handles p
 
 Note that you *could* simply redisplay each letter as it is changed.  But that is not good enough for this project.  Each string needs to be rebuilt using string functions and redisplayed on the Pebble screen.
 
-An answer to this project can be found here.
+[An answer to this project can be found here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-9-1-answer)
 
 Note that this project is coded with a monospace font, courtesy of 1001 Fonts.  You can get that font at http://www.1001fonts.com/source-code-pro-font.html. 
 
 #### Project 9.2 ####
 
-This project creates a "word calculator".  The starter code, [which can be found here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-2), uses the buttons on a Pebble smartwatch to cycle numbers and operators.  The "select" button moves to the next position.  As the numbers in the calculation change, you are to display the words associated with all the numbers.  An example is given in figure below.
+This project creates a "word calculator".  The starter code, [which can be found here](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-9-2), uses the buttons on a Pebble smartwatch to cycle numbers and operators.  The "select" button moves to the next position.  As the numbers in the calculation change, you are to display the words associated with all the numbers.  An example is given in figure below.
 
 <figure>
    <hr/>
@@ -227,7 +227,7 @@ You are also to use this function to replace the numbers that a user puts on the
 
 You will have a few issues here to work out.  How will you wrap your "sentence" around the Pebble screen?  Which operators will you allow?  And what happens when the "sentence" is too long for the screen?
 
-[You can find an answer here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-2-answer)  Note that this answer uses `snprintf` statements to construct the string in `words2num`.  This is a template-driven solution rather than a copy-based solution, but it's just as valid and even a bit easier to understand.
+[You can find an answer here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-9-2-answer)  Note that this answer uses `snprintf` statements to construct the string in `words2num`.  This is a template-driven solution rather than a copy-based solution, but it's just as valid and even a bit easier to understand.
 
 **Extra Challenge:** Extend your words substitution to operators.  Replace operators, like "+", with words on the screen (e.g., "plus").
 
@@ -237,7 +237,7 @@ You will have a few issues here to work out.  How will you wrap your "sentence" 
 
 A madlib is a word game where you choose random words and insert them in a sentance, filling in the blanks in the sentence to make funny new sentences.  This project gets you to create madlibs.
 
-[Get the starter code for this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-3)  Examine the code; it uses three files to read madlibs, nouns, and verbs.  Each madlib looks like this: "<NOUN> drove to the <NOUN2> and <VERB> it."  You get random madlibs, nouns, and verbs using the functions `random_madlib`, `random_noun`, and `random_verb`, respectively.
+[Get the starter code for this project here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-9-3)  Examine the code; it uses three files to read madlibs, nouns, and verbs.  Each madlib looks like this: "<NOUN> drove to the <NOUN2> and <VERB> it."  You get random madlibs, nouns, and verbs using the functions `random_madlib`, `random_noun`, and `random_verb`, respectively.
 
 You are to generate a random madlib, generate 2 nouns and a verb, then replace the occurences of "<NOUN>" with the first noun, "<NOUN2>" with the second noun, and "<VERB>" with the verb.  You are to then display the resulting madlib.  Write a function with the header
 
@@ -249,11 +249,11 @@ Once you have your madlib, you may display it on the Pebble screen using the fun
 
 This can be a little convoluted, so make sure you insert comments to explain your logic.  Also claim the code with your name and an explanation of what it does.
 
-[You can find an answer to this Project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-3-answer)
+[You can find an answer to this Project here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-9-3-answer)
 
 #### Project 9.4 ####
 
-[Get the starter code for this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-4)   Read through the code, paying attention to the functions defined.
+[Get the starter code for this project here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-9-4)   Read through the code, paying attention to the functions defined.
 
 Among the functions in the starter code that run the watch app, there are three functions that tap into the sensors on the watch.  `get_compass` gets information from the compass sensor. `get_accelerometer` gets data from the accelerometer.   `get_light` gets light level data.   Each function returns a "buffer" that has been filled by a callback function, called when the respective sensor updates.  These callback functions hav code to get the data from its respective sensor.
 
@@ -264,4 +264,4 @@ You are to fill in each of the three functions to convert the data derived from 
 
 Remember that strings can be depicted as arrays or pointers.  In each function, you need to dynamically allocate a string using `malloc` and return that as the `char *` return type from the function.
 
-[You can find a solution for this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-9-4-answer)   Like 9.2, this solution was done using snprintf statements.
+[You can find a solution for this project here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-9-4-answer)   Like 9.2, this solution was done using snprintf statements.
