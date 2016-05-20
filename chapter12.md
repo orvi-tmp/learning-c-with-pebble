@@ -353,7 +353,4 @@ Like the previous project, there are several ways to implement this.  The best w
 
 You can find an answer at this link.
 
-#### Project 12.4 ####
-
-Something with steganography and image data 
 
