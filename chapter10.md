@@ -400,7 +400,7 @@ Now you have a working watchface.  [See the answer to this project here.](https:
 
 Snake is a game where a snake moves around the screen, directed by user input. The user moves the snake to eat some fruit, which causes the snake to grow. If the snake crosses the edge boundary or crosses itself, the game ends. It's a basic game most devices with good graphics will implement.  It's a sort of "Hello World" for user interaction.  
 
-[Find starter code for a snake game here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-10-1).  It's based on [an original Snake game by Nick Reynolds](https://github.com/thenickreynolds/pebblesnake) for the Pebble Classic smartwatch.  Take a few moments to review the code.  Run the code to make sure you know it works.  Answer these questions as you review the code.
+[Find starter code for a snake game here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-10-2).  It's based on [an original Snake game by Nick Reynolds](https://github.com/thenickreynolds/pebblesnake) for the Pebble Classic smartwatch.  Take a few moments to review the code.  Run the code to make sure you know it works.  Answer these questions as you review the code.
 
 1. Notice all the lines that begin with #define.  These are preprocessor statements (see Chapter 13) that define textual substitutions. How are all these #define statements used?  
 2. Find the structs in the code: one for `Position` and one for `Snake`.  They are declared with a mix of typedef with an unnamed struct. Why do you think this declaration method was used?
