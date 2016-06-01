@@ -251,6 +251,14 @@ This can be a little convoluted, so make sure you insert comments to explain you
 
 [You can find an answer to this Project here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-9-3-answer)
 
+** Extra Challenge #1: ** Write `replace_words` so that the function does replacement in place, without a second string.
+
+** Extra Challenge #2: ** Write `replace_words` so that it uses the C function `strchr`.  This function has the header
+
+    char *strchr(const char *s, char c)
+
+It returns a pointer to the first occurence of the character `c` in the string `s`.  Look for the first character of the `original` string and you will need to verify that the rest of the string is present.
+
 #### Project 9.4 ####
 
 [Get the starter code for this project here.](https://cloudpebble.net/ide/import/github/learning-c-with-pebble/project-9-4)   Read through the code, paying attention to the functions defined.
