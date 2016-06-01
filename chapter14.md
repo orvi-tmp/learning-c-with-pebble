@@ -6,7 +6,7 @@ As we have seen back in Chapter 1, there are several sensors packed into a smart
 
 As an added bonus, although it is not a sensor, we will also consider how to work with the vibrating motor.
 
-> *** A Double Bonus? The LED on the Pebble Steel **
+> ** An LED on the Pebble Steel: Another Bonus? **
 > 
 While this does not fall into the sensor category either, the Pebble Steel features a multi-coloured LED on the bezel to indicate charging status. When the Pebble Steel was released, this accessory came with no programming interface.  While the operating system could work with it, programmers could not access this LED.  
 >
@@ -402,8 +402,7 @@ We have discussed style and pattern of declarations before.  Pebble structures h
       bool is_plugged;
     } BatteryChargeState;
 
-Here, a typedef is used with an unnamed struct.  When structures are declared this way, further uses of `BatteryChargeState` can be done without the use of the `struct` keyword.  This makes declarations clearer and less wordy.
-
+   Here, a typedef is used with an unnamed struct.  When structures are declared this way, further uses of `BatteryChargeState` can be done without the use of the `struct` keyword.  This makes declarations clearer and less wordy.
 
 4. **Sometimes, writing your own functions and structures to "rephrase" the system structures will help you access the Pebble system.** 
 Abstraction is a tool we can use to make things clearer and more straight forward.  There are many data structures in a Pebble application and we can use our own designs to abstract away unused details.  An example here is the use of the ambient light sensor.  It's buried in the `HealthMinuteData` structure, but writing our own function to give the ambient light can ignore all the other health variables and focus on the `light` field.  This is a common: writing our own code to focus on the specific refinement of a data structure that we need.
