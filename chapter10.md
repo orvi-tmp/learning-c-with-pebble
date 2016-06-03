@@ -248,7 +248,7 @@ Once a value is assigned to `pixel.pxl`, we can reference `pixel.parts.blue` or 
 
 > **History of Unions**
 > 
-How and why did unions come to be implemented in C?  Given how close some features of C come to assembly and machine language, it's probably not surprise that something like unions ended up in C.  They can be used to easily dissect data formats and example how data is represented.
+How and why did unions come to be implemented in C?  Given how close some features of C come to assembly and machine language, it's probably not surprising that something like unions ended up in C.  They can be used to easily dissect data formats and to manipulate how data is represented.
 >
 Unions go as far back as the language COBOL.  COBOL was invented in 1959 and uses the `RENAMES` keyword to implement a union-type of declaration.  Algol 68 also influenced the creation of unions.  Despite being invented in 1971, C did not adopt unions until 1976, when it was introduced with *typedef* and some other interesting type definitions.  
 >
@@ -256,9 +256,9 @@ More history of the C language can be found in a paper by Dennis Ritchie, [which
 
 ### Using Enums ###
 
-When you program in C, you use integers frequently.  Integers are very useful for many things, but they are not very descriptive.  For example, you could use integers to represent directions on a compass, with "1" meaning "NORTH" and "2" meaning "EAST", etc, but even if you documented this with comments, you would be likely to forget this from time to time.  Connecting the value "1" to "NORTH" is just not obvious.
+When one programs in C, one uses integers frequently.  Integers are very useful for many things, but they are not very descriptive.  For example, you could use integers to represent directions on a compass, with "1" meaning "NORTH" and "2" meaning "EAST", etc, but even if you documented this with comments, you would be likely to forget this from time to time.  Connecting the value "1" to "NORTH" is just not obvious.
 
-There are ways to make this better.  One way is to use a *macro*.  Macros are textual elements that can be stand for other  textual elements and are expanded in C code by the C preprocessor (we will discuss the C preprocessor in Chapter XX).  To work with compass directions,  we could make the following definitions:
+There are ways to make this better.  One way is to use a *macro*.  Macros are textual elements that can be stand for other  textual elements and are expanded in C code by the C preprocessor (we will discuss all the details of the C preprocessor in Chapter 15).  To work with compass directions,  we could make the following definitions:
 
     #define NORTH 1
     #define EAST 2
@@ -301,7 +301,7 @@ So, in terms of a new data type, we have the values in an enum defined, and we h
 
 With this declaration, the constant `January` will be represented with the integer `10`, `February` with `20`, `March` with `100`, `April` with 200, `May` with `201`, `June` with `202`, `July` with `203`, etc.  When there is not a specific assignment, the compiler will assign a value that is 1 greater than the previous value.  Without any specifications, the first value in the constant list has the value 0.  
 
-There are other issues with enums.  TOO BIG (http://stackoverflow.com/questions/17125505/what-makes-a-better-constant-in-c-a-macro-or-an-enum)
+There are other issues with enums.  First, because enums are, in fact, integers, enums are signed.  When they must work with unsigned types, enums will not work.  Second, because enums are integers, the actual values assigned to enums are limited to integer values (not, for example, float or long types).
 
 > **Enums or Macros?**
 >
@@ -309,7 +309,7 @@ If enums are useful but not completely a new data type and macros are useful but
 >
 The most convincing reason to use enums over macros is readbility.  It makes more sense to declare a function to take a "Compass" data type for a parameter than an "int" for the same parameter.  "Compass" is simply more descriptive.  However, one can use a typedef (see next section) to make typename aliases.  So a macro with a typedef can be just as descriptive.
 >
-An enum is implemented as a signed int data type.  This means that there are several situations where enums cannot be used.  If you need an unsigned int, or a number larger than `sizeof(int)`, then enums will not work.  And, you cannot have enums stand for non-integer values.  Macros, on the other hand, when combined with a typedef, can be used in any situation.  
+An enum name can be used where type names are used.  This goes along with expressiveness.  Defining a parameter to a function as an "int" rather than a "Compass" will make it less expressive.  However, the previous comment aboutusing "typedef" statements applies here too.
 >
 So…there really is no wrong answer to the "which is better" question.  If you still seek an answer to this, staying with language features instead of macro expansion is probably better, if only for "purist" reasons.  
 
