@@ -1,17 +1,17 @@
 Chapter 10: Structured Data Types
 =======
-Chapter 7 introduced the idea of data collections by focusing on arrays.  As demonstrated in Chapter 9, arrays are collections of identical things, organized sequentially.  If we can build a collection of identical things, it makes sense that we could build a collection of things that are not the same.  These collections are structured, but different than arrays.
+Chapter 7 introduced the idea of data collections by focusing on arrays.  As demonstrated in Chapter 9, arrays are collections of identical things, organized sequentially.  If we can build a collection of identical things, it makes sense that we could build a collection of things that are not the same.  These collections are structured, but differently than arrays.
 
-This chapter explores structured collections of data that are different than arrays.  Structs and unions represent such collections. Enums represent a different type of collection: a collection of structured constants.  We will cover each of these three data types, give plenty of examples and uses, and discuss how they can be used for good code and not-so-good code.  
+This chapter explores structured collections of data that are different than arrays.  Structs and unions represent such collections. Enums represent a type of collection different from structs and unions: a collection of structured constants.  We will cover each of these three data types, give plenty of examples and uses, and discuss how they can be used for good code and not-so-good code.  
 
 ### The Basics of Structs ###
 
-Structs are collections of data items.  These data items can be completely different from each other, or they can be the same.  WIthin the struct, each item is named and is declared to have its own data type.  
+Structs are collections of data items.  These data items can be completely different from each other, or they can be the same.  Within the struct, each item is named and is declared to have its own data type.  
 
 Structs have the following syntax for declaration:
 
 <pre>
-struct <i>struct_name</i>{
+struct <i>struct_name</i> {
     <i>data_item_declarations</i>
 } 
 </pre>
@@ -33,7 +33,9 @@ The *struct_name* is optional.  If it is omitted, you can use this as an actual 
 
     struct app_props watchapp5, watchapp6;
 
-Here we have 6 variables declared by structs. The first is an *unnamed* struct, declaring `watchapp1` and `watchapp2`.  This struct  cannot be used again, because it cannot be referenced, but it declares the variables nicely.  The second struct is a *named* struct that adds a field `days_used`.  This type of struct can indeed be referenced later, by name, as is shown in the declaration of watchapp5` and `watchapp6`.  Naming a struct declaration is very useful, through out C code, as we will see.
+Here we have 6 variables declared by structs. The first is an *unnamed* struct, declaring `watchapp1` and `watchapp2`.  This struct  cannot be used again, because it cannot be referenced by name, but it declares the variables nicely.  The second struct is a *named* struct that adds a field `days_used`.  This type of struct can indeed be referenced by name later, as is shown in the declaration of `watchapp5` and `watchapp6`.  Naming a struct declaration is very useful, through out C code, as we will see.
+
+Note that, when we refer to a struct by name for declarative purposes, the keyword "struct" must preprend the the struct name.
 
 Referencing items in a struct is done by name using something called "dot notation".    Let's say we  need to reference an app as `watchapp1`:
 
@@ -70,7 +72,7 @@ Notice that the more structs are nested, the longer the references get.  Dot not
 
 #### Referencing Struct Elements Through Pointers ####
 
-Pointers can be used to dynamically allocate space for structs.  Here is another place (beside declaration) where named structs come in handy.  Referencing struct elements through pointers also use a different syntax than dot notation.
+Pointers can be used to dynamically allocate space for structs.  Here is another place (beside declaration) where named structs are useful.  Referencing struct elements through pointers also uses a different syntax than dot notation.
 
 To allocate structs with pointers, we have to declare the pointer correctly.  If we are going to use the above app example, we might declare a pointer this way:
 
