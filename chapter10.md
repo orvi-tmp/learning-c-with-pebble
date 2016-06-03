@@ -93,18 +93,15 @@ Referencing struct data items through a pointer uses a new syntax.  To reference
 
 The pointer notation works as well as the dot notation.  Each allows access to the data items of the struct. 
 
-> **Orthogonal Notation that Works**
+> **Orthogonal Notation**
 > 
 Given the penchant for C to allow crazy notations, you can combine the ideas of the "&" operator and pointer notation for structs.  You can to this, using the declarations of `watchapp4` above:
 
     (&watchapp4)->cost = 1.00;
-
 >
 Note the use of the parentheses to make sure the pointer notation is associated with the result of the "&" operator.
 >
-This is example of *orthogonal* design.  Orthogonal design is design of language features that are independent and only cross at useful points.  So the design of "&" operator, pointer variables and pointer notation of structs are orthogonal to each other.  They work independently of each other, but can be useful when they cross, as above.  
->
-There are many language features that are *not* orthogonal. MORE HERE.  
+This is example of *orthogonal* design.  Orthogonal design is design of language features that are independent and can be used together when they cross at useful points.  So the design of "&" operator, pointer variables and pointer notation of structs are orthogonal to each other.  They work independently of each other, but can be useful when they cross, as above.  
 
 #### Initializing Structs ####
 
@@ -114,13 +111,13 @@ The syntax for initialization is similiar to that used for arrays.  We can use b
 
     struct app_props myapp = {"zapme", 2.5, 1470229200, 10};
 
-Each item in the struct gets a value here.  Note that we can assign strings in this way like we have done before, without the need for `strcpy`.  
+Each item in the struct gets a value here, organized left-to-right, top-to-bottom.  Note that we can assign strings in this way like we have done before, without the need for `strcpy`.  
 
 Nested structures also work with initializing syntax.  Consider the `new_app_props` declaration above.  We could initialize a declaration this way:
 
     struct new_app_props myapp2 = { {"Miguel", "Rodriguez"}, {"zapme", 2.5, 1470229200, 10} };
 
-This syntax assumes that *every* element of a struct is to be initialized.  Partial initialization is possible.  To initialize only a segment of a struct, you should reference the data items directly with dot notation or you can initialize nested elements completely.  Consider this example:
+This syntax assumes that *every* element of a struct is to be initialized.  Partial initialization is also possible.  To initialize only a segment of a struct, you should reference the data items directly with dot notation or you can initialize nested elements completely.  Consider this example:
 
     struct new_app_props myapp3 = { {"Ester", "Williams"} };
 
