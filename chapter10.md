@@ -133,13 +133,13 @@ In this example, we used dot notation to reference parts of the struct.  Since w
 
 Using structs is a convenient way to package data together.  However, structs can be very inconvenient when they get to be large collections.  Using structs as parameters to function must be done with some care, especially when passing large structs.
 
-When specifying structs as parameters to function, it's important to remember that the type name of a struct parameter includes the word "struct" and the struct name.  For example:
+As we mentioned before, when specifying structs as parameters to function, it's important to remember that the type name of a struct parameter includes the word "struct" and the struct name.  For example:
 
     void listprops (struct app_props props) { ... }
 
 This declaration needs a struct as an actual parameter, which gets copied to the formal struct parameter `props`. 
 
-Note that parameters in C are passed either by copy or by reference.  So when we note that the actual struct parameter is *copied* to the formal struct parameter, an actual copy takes place.  In the case of our example, the size of a `struct app_props` data type is *only* 40 bytes (as counted by `sizeof`), but even 40 bytes can take up more precious time that we want to devote to other parts of an app's execution.  
+Remember that parameters in C are passed either by copy or by reference.  So when we note that the actual struct parameter is *copied* to the formal struct parameter, an actual copy takes place.  In the case of our example, the size of a `struct app_props` data type is *only* 40 bytes (as counted by `sizeof`), but even 40 bytes can take up more precious time that we want to devote to other parts of an app's execution.  
 
 To avoid copying structs to function parameters, it is best to use pass-by-reference when passing struct parameters.  We can retool the definition of `listprops` above to enforce passing by reference:
 
@@ -151,11 +151,11 @@ Now, references can be quickly passed from actual parameter to formal parameter.
 
 Structs are often compared to classes from object-oriented languages.  Many programmers have had experience in object-oriented languages and have used classes and objects.  Structs are a kind of precursor to classes.
 
-Structs are simliar to classes in several ways.  Both are ways to encapsulate different kinds of data into one structure.  Both constructs allow dynamic allocation of instances.
+Structs are simliar to classes in several ways.  Both are ways to encapsulate different kinds of data into one structure.  Both constructs allow dynamic allocation of instances.  Dot notation is used in both structures.
 
 However, there are some fundamental differences between structs and classes.  Structs do not contain methods as classes do, which means they cannot contain constructors or destructors.  In most languages that use classes, objects are declared separately and can only be used when instantiated.  In C, variables can be declared as structs and used without instantiation.  
 
-In addition, class assignment in most object-oriented languages is done using references or pointers.  Passing classes as parameters is also pass-by-reference.  Structs, on the other hand, are assigned by copying the contents of one variable to another.  Passing structs as parameters will also copy from the source to the destination, unless the parameters are explicitly declared as pointers.
+In addition, object assignment in most object-oriented languages is done using references or pointers.  Passing classes as parameters is also pass-by-reference.  Structs, on the other hand, are assigned by copying the contents of one variable to another.  Passing structs as parameters will also copy from the source to the destination, unless the parameters are explicitly declared as pointers.
 
 ### The Basics of Unions ###
 
@@ -176,7 +176,7 @@ Integers are 4 bytes long and characters are 1 byte.  So, if we stored them in t
 
 IMAGE
 
-If we assigned `integer` to have the value 65, and we overlaid the two variables, it would look like this in binary:
+If we assigned `integer` to have the value 65, and we overlaid the two variables, it would look like this on a Pebble smartwatch (in binary):
 
 IMAGE
 
@@ -198,7 +198,7 @@ Using the above example, we can work with the union using dot notation as we hav
 
 The output of this printf statement is the letter "A" *even though we made no assignment to that field of the union*.  Because the parts occupy the same memory space, assigning a value to `ex1.integer` automatically makes an assignment to `ex.character`.
 
-Unions occupy space for the largest data item contained within them.  For example, if an array stored in a single variable is the largest single declaration, all other fields will be stored in the space allocated for that array.  Consider this code: 
+The space that is allocated for unions is space for the largest data item contained within them.  For example, if an array stored in a single variable is the largest single declaration, all other fields will be stored in the space allocated for that array.  Consider this code: 
 
     union example2 {
         int bigarray[50];
@@ -220,9 +220,7 @@ This code will  print the following output (let's only consider the first severa
 
 OUTPUT
 
-Unions have a limited but important usefulness.  They are very useful to extract information from packed data.  For example, consider the format of a pixel in an image.  In 32 bits, a pixel packs 4 values, depicting red, green and blue colors, and a transparency (alpha) value:
-
-   IMAGE
+Unions have a limited but important usefulness.  They are very useful to extract information from packed data.  For example, consider the format of a pixel in an image.  In 32 bits, a pixel packs 4 values, depicting red, green and blue colors, and a transparency (alpha) value.
 
 In chapter 12, we will discuss the many ways we can manipulate bits, but remembering shifting and boolean operations, we can extract the information in a pixel like this:
 
