@@ -354,11 +354,11 @@ Another reason for using typedef definitions is to ensure compatibility as softw
 
 ### Avoiding Structured Messes ###
 
-We have seen a lot of messy programming in C.  Now that we have explored structured types, we can get even structured messes.  Here are some tips that will help avoid messy programming with structured data types.
+We have seen a lot of messy programming in C.  Now that we have explored structured types, we can get messes that are not more structured.  Here are some tips that will help avoid messy programming with structured data types.
 
-1. Avoid anonymous declarations.  Good solid naming conventions are essential to clear code.  Use tagged structs to assist in typing and in reading code.
+1. Avoid anonymous declarations.  Good solid naming conventions are essential for clear code.  Use tagged structs to assist in typing and in reading code.
 2. Initialize all parts of structs.  We have said this before, but now the problem has multiplied.  We now have variables with lots of parts, collected into a struct package.  Make sure they all are initialized before you use them.  This *especially* applies to dynamically allocated structures.  It's easy to forget to initialize them, because they are not in a declaration statement.
-3. While you can use partial references to structures, use complete references whenever possible. This especially applies to initializing larger structures.  It's easy to lose sight of the parts that are being initialized, so use full references to remind you.
+3. While you can use partial references to structures, use completely qualified references whenever possible. This especially applies to initializing larger structures.  It's easy to lose sight of the parts that are being initialized, so use full references to remind you.
 3. Use unions *very* sparingly.  Unions have their place, but those use cases are few.  As always, be obvious and clear when manipulating data. 
 
 ### Project Exercises ###
