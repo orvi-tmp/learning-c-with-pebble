@@ -39,13 +39,13 @@ Translating "true" to `1` and "false" to `0`, we can rewrite our boolean / logic
 
 <TR>
 <TD>AND</TD>
-<TD>a <b>&&</b> b</TD>
+<TD>a <b>&</b> b</TD>
 <TD>Result is true when <i>both operands</i> are true</TD>
 </TR>
 
 <TR>
 <TD>OR</TD>
-<TD>a <b>||</b> b</TD>
+<TD>a <b>|</b> b</TD>
 <TD>Result is true when <i>at least one</i> of the operands is true</TD>
 </TR>
 
@@ -95,7 +95,7 @@ The `^` operator makes `pattern6` in the example above has the value `101100`.
 > 
 Negative numbers need to be represented in an integer just like positive numbers.  2's complement is an encoding method that represents negative numbers such that integer arithmetic works like it should without special considerations.
 >
-2's complement representation of a negative number work like this: if a number is negative, complement all bits in the number and add the value 1.  For example, `20` has an 8-bit binary representation of `00010100`, so `-20` has an 8-bit representation of `11101100`.  
+2's complement representation of a negative number work like this: if a number is negative, complement all bits in the number and add the value `1`.  For example, `20` has an 8-bit binary representation of `00010100`, so `-20` has an 8-bit representation of `11101100`.  
 >
 This method of representing negative numbers has some implications of number ranges that can be represented.  Unsigned integers that are *n* bits long can represent numbers from 0 to 2<sup><i>n</i></sup>-1.  2's complement negative representation splits that range into two parts, negative and positive, and therefore the maximum positive integer that can be represented is half of that for unsigned integers:  -2<sup><i>n-1</i></sup> to 2<sup><i>n-1</i></sup>-1. So a 32-bit computer can represent integers from -2,147,483,648 to 2,147,483,647. 
 
