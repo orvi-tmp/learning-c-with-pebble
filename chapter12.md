@@ -115,10 +115,9 @@ Bits can be shifted right or left for a specific number of positions.  The opera
 
 In this example, `pat3` now has the value `160`.  When the value of `pat1`, which is `1010` in binary, gets shifted 4 bits left, the result is `1010000`, which is a decimal 160.  `pat4` is assigned the value `5`, which is `101100` shifted right 3 bits, resulting in the binary `101`. 
 
-Consider this example:
+Consider another example:
 
     short int pat5 = 0b1111111100010000;
-
     pat5 = pat5 << 8;
 
 This example demonstrates that *left* shifting is *logical* shifting.  The bits shifted off to the left are discarded.  The value of `pat5` in this example ends up to be `0001000000000000` when discarding the 8 leftmost bits.  
@@ -135,7 +134,8 @@ We can implement circular shifting in C using the function below:
 
 For example, if we wanted to use a circular shift for the example above, we would call `leftrotate(pat5, 8)`.  It would return
 
-    (0b1111111100010000 << 8) | (0b1111111100010000 >> (16 - 8)) = 0001000000000000 | 0000000011111111 = 0001000011111111
+    (0b1111111100010000 << 8) | (0b1111111100010000 >> (16 - 8)) 
+               = 0001000000000000 | 0000000011111111 = 0001000011111111
 
 We could write a similar function for rotating right. 
 
