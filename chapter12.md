@@ -351,7 +351,7 @@ to use the second algorithm.
 
 #### Project 12.3 ####
 
-Find the starter code for this project here.
+[Find the starter code for this project here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-12-3)
 
 For this project, you are going to tie Pebble screen color changes to button presses.  The "up" button should manipulate red; the "select" button should manipulate green; the "down" button should manipulate blue.  Each button will cycle through all values for it's assigned color; there are only 4 values for each one.  
 
@@ -359,6 +359,6 @@ Start the screen background with a `GColorBlack` color.  Change the background b
 
 Like the previous project, there are several ways to implement this.  The best way, however, is to maintain a color value for each color and build the background color from the three base color values and a fixed transparency.
 
-You can find an answer at this link.
+[You can find an answer at this link.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-12-3-answer)
 
 
