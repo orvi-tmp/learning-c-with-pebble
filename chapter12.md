@@ -327,19 +327,27 @@ Unions with bitfields are extremely valuable to document the format of data and 
 
 Recall that we did an example in this chapter involving Ceasar ciphers: rotating letters through the alphbet.  We described a possible format for letters in an "encryption": the rotation number in the leftmost 8 bits and the actual letter in the rightmost 8 bits.  We actually don't need 8 bits to represent rotation, 5 bits will be able to represent 0 through 25 values of rotation.  
 
-You are to read a file of numbers that are specified using this "Ceasar Cipher Format" (CCF) notation: 5 bits of rotation followed by 8 bits of character representation.  You are to translate the message in file and display it on the Pebble screen.
+You are to read a file of numbers that are specified using this "Ceasar Cipher Format" (CCF) notation: 5 bits of rotation followed by 8 bits of character representation.  You are to translate the message in file and display it on the Pebble screen. 
 
-You can find starter code here.  The starter code reads the file of encoded letters (they form a message)  and provides you with a function called `next_encoded_letter`.  Look for this function.  It will give you the next encoded letter from the file in CCF.  You are decode this and build a string to display.  Define a union and use the definition to decode the message.
+[You can find starter code here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-12-1)  The starter code reads the file of numbers,  which are encoded letters (they form a message).  The code implements a function called `get_decoded_line` that gets a sentence from the file and decodes it.  This function calls `decode_next_letter` for each letter in the message.  Look for this function.  It will give you the next encoded CCF letter from the file and decodes it.  You are fill this definition in.  Note the parameters.  The position is passed as a pointer to an integer so it can change (why?).
 
-You can find an answer here.
+[You can find an answer here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-12-1-answer)
 
 #### Project 12.2 ####
 
-For this project, you will take the starter code (available here) and add code to fill in the screen of the Pebble in color gradations from `GColorBlack` (0b11000000) to `GColorWhite` (0b11111111).  Vertically or horizontally, you should be able to go through two gradation sequences.  
+For this project, you will take the starter code ([available here](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-12-2)) and add code to fill in the screen of the Pebble in color gradations from `GColorBlack` (0b11000000) to `GColorWhite` (0b11111111).  Vertically or horizontally, you should be able to go through two gradation sequences.  
 
 There are several ways to work through the colors here.  From simple addition to manipulation of colors through unions, you should be able to implement different methods.  Use at least two to have the same gradation effect.
 
-You can find an answer using several gradation implementations here.  
+[You can find an answer using several gradation implementations here.](https://cloudpebble.net/ide/import/github/programming-pebble-in-c/project-12-2-answer)  The code is currently set up to use the first defined code.  Change the definition 
+
+    #define USE_METHOD_ONE
+    
+to 
+
+    #undef USE_METHOD_ONE
+    
+to use the second algorithm.
 
 #### Project 12.3 ####
 
