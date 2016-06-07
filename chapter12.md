@@ -147,7 +147,7 @@ Multiplication and division are very complicated and time-consuming when compare
 
 ### Higher Level Operations with Bits ###
 
-While it is useful to be able to use basic bitwise arithmetic, we can build these bitwise operators into higher level operations.  These include *extraction*, *inverting*, *clearing*, and *setting* spans of bits inside a number.  Each of these operations requires a binary operator and a mask, or pattern, of bits.
+While it is useful to be able to use basic bitwise arithmetic, we can build these bitwise operators into higher level, more abstract, operations.  These include *extraction*, *inverting*, *clearing*, and *setting* spans of bits inside a number.  Each of these operations requires a binary operator and a mask, or pattern, of bits.
 
 Extraction is the operation of creating a new bit sequence comprised of the bits taken from certain bit positions in the operand and 0 values for the other positions.  This requires an and operation and a mask with 1 values in the positions we want to extract.  For example, consider the code below:
 
