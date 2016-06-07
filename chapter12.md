@@ -183,9 +183,9 @@ This example makes sure that the middle 8 bits are set, resulting in `setting` h
 
 ### Bit Fields ###
 
-We are discussing bit manipulation, so we should mention the topic of bitfields.  Bitfields are limited in their usefulness, but deserve to be looked at.
+A discussion of bit manipulation should include a mention the topic of bitfields.  Bitfields are limited in their usefulness, but deserve a look.
 
-A bitfield is part of a struct or union declaration that restricts the variable being declared to a specific number of bits.  Consider this example:
+A bitfield is part of a struct or union declaration that restricts the storage space for the variable being declared to a specific number of bits.  Consider this example:
 
     struct {
         int bfield1 :8;
@@ -199,9 +199,9 @@ A bitfield is part of a struct or union declaration that restricts the variable 
     fields.bfield2 = fields.bfield1 - 20;
     fields.bfield3 = 5;
 
-Bitfields are specified with a colon and the number of bits the variable is supposed to be allocated.  In the above example, `fields.bfield1` is declared to be 8 bits wide.  The variable is signed and so may take on values `-128` to `127`. In this example, `fields.bfield2` is given 4 bits and is signed.  It is assigned the value `20`, but that value is truncated to the rightmost 4 bits, giving the value `4` (the value `0b10100` is truncated to `0b0100`).  The last statement in the example would actually be flagged as an error by the compiler; a variable that has only 2 bits allocated to it cannot take on the value `5`.  
+Bitfields are specified with a colon and the number of bits the variable is supposed to be allocated.  In the above example, `fields.bfield1` is declared to be 8 bits wide.  The variable is signed and so may take on values `-128` to `127` (remember 2's complement). In this example, `fields.bfield2` is given 4 bits and is signed.  It is assigned the value `20`, but that value is truncated to the rightmost 4 bits, giving the value `4` (the value `0b10100` is truncated to `0b0100`).  The last statement in the example would actually be flagged as an error by the compiler; the compiler can see that a variable that has only 2 bits allocated to it cannot take on the value `5`.  
 
-Note the type declaration in the example without a variable name.  The declaration between `bfield2` and `bfield3` can take up space and skip over bits with being assigned a value.  It's a kind of padding specification.
+Note the declaration in the example that has a type name without a variable name.  The declaration between `bfield2` and `bfield3` can take up space and skip over bits with being assigned a value.  It's a kind of padding specification.
 
 Bitfields and padding declarations are more useful when they are used with unions.  Consider this example: 
 
@@ -222,9 +222,9 @@ The integer value `14079` can be represented in binary as `0b0011011011111111`. 
 
 ### The Utility of Unions and Binary Data ###
 
-The previous section pointed out one place where unions are useful: binary data and bitfields.  Assembling bit sequences that are made up of segments of other binary data can be tedious a cryptic with binary operations, but much easier with unions.
+The previous section pointed out one place where unions are useful: binary data and bitfields.  Assembling bit sequences that are made up of segments of other binary data can be tedious and cryptic with binary operations, but much easier with unions.
 
-Let's consider an example.  Let's say that we invent a "encryption" for a letter by rotating that letter through the alphabet (this was invented long ago; it's called a Ceasar cipher). 'A' might be rotated by 5 to become 'F'; 'd' might be rotated by 10 to become 'n'.  We might transfer data encrypted this way by packing the code with the rotation like this:
+Let's consider an example.  Let's say that we invent a "encryption" for a letter by rotating that letter through the alphabet (this was invented long ago; it's called a Ceasar cipher). 'A' might be rotated by 5 to become 'F'; 'd' might be rotated by 10 to become 'n'; 'y' might be rotated by 5 around to the beginning of the alphabet at 'c'.  We might transfer data encrypted this way by packing the code with the rotation like this:
 
 IMAGE
 
@@ -235,7 +235,7 @@ We might pack this using C code in the following way:
 Specifying this with a union would be clearer:
 
     union code_format {
-        short unsigned rotation :8;
+        short unsigned rotation :5;
         short unsigned character :8;
     };
 
