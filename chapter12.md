@@ -253,9 +253,9 @@ Coding with color definitions shows this off in a big way, as we see in the next
 
 Let's look at how bit manipulation can be used with color.
 
-The usual standard for color representation is a combination of red, green, and blue values, each taking 8 bits. These values are put together with a measure of transparency, called "alpha", also 8 bits.  This results in 32 bits, with 256 values possible for each red, green, blue, and alpha values, which results in millions of possible colors.
+The usual standard for color representation is a combination of red, green, and blue values, each taking 8 bits. These values are put together with a measure of transparency, called an "alpha" measure, which is also 8 bits.  This results in 32 bits, with 256 values possible for each red, green, blue, and alpha values, which results in millions of possible colors.
 
-However, the Pebble smartwatch screen has 64 different possible colors, not millions.  This means that we only need 6 bits to represent the color: 2 bits for each of red. green, and blue values.  With 2 bits of transparency, we only need 8 bits for screen colors, not 32.  Here is the definition of `GColor8`, the 8-bit color representation:
+However, the Pebble smartwatch screen has 64 different possible colors, not millions.  This means that we only need 6 bits to represent the color: 2 bits for each of red, green, and blue values.  With 2 bits of transparency, we only need 8 bits for screen colors, not 32.  Here is the definition of `GColor8`, the 8-bit color representation:
 
     typedef union GColor8 {
       uint8_t argb;
@@ -280,7 +280,7 @@ But we still have standard, 32-bit RGB color specifications.  So the Pebble SDK 
       .b = (uint8_t)(blue) >> 6, \
     })
 
-(Ignore the '\' character for now; this is actually a macro definition and we will discuss macros in a future chapter n the C preprocessor.  Also remember that `uint_8` is an 8-bit unsigned integer type.) 
+(Ignore the '\' character for now; this definition is actually a macro definition and we will discuss macros in a future chapter on the C preprocessor.  Also remember that `uint_8` is an 8-bit unsigned integer type.) 
 
 This example shows that 32-bit to 8-bit conversion is done by dividing each 8-bit color value by 64 (shifting right 6 bits) and assembling the resulting bit pattern through the union.  The Pebble SDK also defines an RGB value without an alpha part to be a color specification with the alpha designation completely opaque, as below:
 
@@ -299,6 +299,10 @@ This, in turn, is equivalent to
     GColor jaeger_green = (GColor8){ .a = 0b11111111 >> 6, .r = 0b00000000 >> 6, 
                                      .g = 0b10101010 >> 6, .b = 0b01010101 >> 6 };
                                   
+This turns into 
+
+    GColor jaeger_green = (GColor8){ .a = 0b11, .r = 0b00, .g = 0b10, .b = 0b01 };
+
 And this is equivalent to 
 
     GColor jaeger_green = (GColor8){ .argb = 201 };
