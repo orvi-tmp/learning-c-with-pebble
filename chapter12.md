@@ -1,14 +1,14 @@
 Chapter 12: Bit Manipulation
 =======
-At its heart, a computer is all about data.  And computers represent all data as binary bits.  C has several powerful features that allow us to manipulate data at the bit level.  This chapter will discuss how to work with bits.
+At its heart, a computer is all about data.  And computers represent all data as binary bits.  C has several powerful features that allow us to manipulate data at the bit level.  This chapter will discuss how to work with binary data and the C features that manipulate that data.
 
 ### All Data Are Binary ###
 
 Before we get started with with bits and binary operations, we should note that *all data are binary*.  
 
-This may seem like a very simple statement, it needs mentioning.  It is often tempting to think of "converting" data to binary in a program before we use it.  For example, if we declare a variable to be an integer or a character, it is easy to make the mistake that we must somehow convert that variable to binary before we manipulate it.
+While this may seem like a very simple statement, it needs mentioning.  It is often tempting to think of "converting" data to binary in a program before we use it.  For example, if we declare a variable to be an integer or a character, it is easy to make the mistake that we must somehow convert that variable to binary before we manipulate it.
 
-The truth is that all numbers, all structured data, all collections, are binary.  Binary is the *only* way to represent data in a computer's memory.
+The truth is that all numbers, all structured data, all collections, are binary.  Binary is the *only* way to represent data in a computer's volatile or non-volatile storage.
 
 This means that bitwise binary operators that we will discuss in this chapter are applicable to all pieces of data, no matter how they are declared or used.
 
@@ -20,7 +20,7 @@ Now that we have stated this, we should also state that it does not make sense t
     datumf = 12.6;
     datumi = (int) datumf;
 
-Now, it indeed true that `datumf` is stored in memory as binary and in IEEE 754 format for floating point numbers.  But because the C programming language uses higher level abstraction to represent data, the exact binary sequence that represents `datumf` is not directly available in the above code.  All that we can do with assignment is to cast `datumf` to an integer, which is defined to truncate the value at the decimal point.  We cannot, for example, extract just the mantissa or just the exponent through bitwise opearations.  (We actually can do this through unions, which we will show in a section below).
+Now, it indeed true that `datumf` is stored in memory as binary and in IEEE 754 format for floating point numbers.  But because the C programming language uses higher level abstraction to represent data, the exact binary sequence that represents `datumf` is not directly available in the above code.  All that we can do with assignment is to cast `datumf` to an integer, which is defined to truncate the value at the decimal point.  We cannot, for example, extract just the mantissa or just the exponent through bitwise operations.  (We actually can do this through unions, which we will show in a section below).
 
 This means that data that can be represented as integers or that can be cleanly and completely cast to integers can be manipulated with bitwise operations.  All others cannot.  However, as we will see, we can usually manipulate *any* data object using unions.
 
