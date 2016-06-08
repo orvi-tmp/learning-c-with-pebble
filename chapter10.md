@@ -97,9 +97,9 @@ The pointer notation works as well as the dot notation.  Each allows access to t
 > 
 Given the penchant for C to allow crazy notations, you can combine the ideas of the "&" operator and pointer notation for structs.  You can to this, using the declarations of `watchapp4` above:
 
-    (&watchapp4)->cost = 1.00;
->
-Note the use of the parentheses to make sure the pointer notation is associated with the result of the "&" operator.
+>       (&watchapp4)->cost = 1.00;
+     
+ >Note the use of the parentheses to make sure the pointer notation is associated with the result of the "&" operator.
 >
 This is example of *orthogonal* design.  Orthogonal design is design of language features that are independent and can be used together when they cross at useful points.  So the design of "&" operator, pointer variables and pointer notation of structs are orthogonal to each other.  They work independently of each other, but can be useful when they cross, as above.  
 
