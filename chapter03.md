@@ -203,7 +203,7 @@ There are many times when the values in one data type could be used with another
 
 In the first line, an integer is assigned to an integer variable.  In the second line, a floating point number is assigned to a floating point variable.  In the third line, however, an integer value is assigned to a floating point variable.  Technically, this does not work: the two sides are different types.  However, the integer type is *type compatible* with the floating point type and C automatically converts `23` to `23.0` and the assignment is made without problems.
 
-The fourth line of the example is interesting.  We have to determine the data type of the right hand computation in order to see if it can be assigned to the double floating point on the left.  In C, the data type of expressions is determined by the data type that has the most values represented.  So, in the example, the right hand side of the assignment takes on a floating point data type after converting `2` and the value of `radius`(`23`) to floating point.  Then the expression is computed, giving a floating point result.  Finally, the floating point result is converted to double and the assignment is made.
+The fourth line of the example is interesting.  We have to determine the data type of the right hand computation in order to see if it can be assigned to the double floating point on the left. In the example, the right hand side of the assignment takes on a floating point data type after converting `2` and the value of `radius`(`23`) to floating point.  Then the expression is computed, giving a floating point result.  Finally, the floating point result is converted to double and the assignment is made.
 
 The point here is that conversions are necessary to follow the typing rules of C and, if it can happen, this conversion happens automatically.  The data typing rules of C enforce a kind of data typing called *static typing*.  Static typing dictates that the types of variables are derived once (at declaration) and do not change throughout the execution of a program.  
 
@@ -211,7 +211,7 @@ The point here is that conversions are necessary to follow the typing rules of C
 >
 There are other data type rules.  The opposite of static typing is *dynamic typing*.  In dynamic typing, variables change their data type depending on the values assigned to them.  Variables need no declaration because they have no initial data type.  If the example above were dynamically typed, the last line does not convert the result to double before assignment, the variable takes on a float data type to match the right hand expression's data type.  
 >
-Javascript, another language that can be used to program Pebble smartwatches, is an example of a dynamically typed language. In Javascript, variables are declared, but they are simply called "var" to indicate they are variables.  The data type of a variable is assigned when a value is assigned.
+Javascript is an example of a dynamically typed language. In Javascript, variables are declared, but they are simply called "var" to indicate they are variables.  The data type of a variable is assigned when a value is assigned.
 
 In C, variables are also *strongly typed*.  This means that once variables are bound to a data type, they stay bound to that type.  Which means that they cannot not change types, but require other types to be converted to their data type before they are assigned.    
 
@@ -252,7 +252,7 @@ A list of modifers is below.
 <TR>
 <td><code>short</code></b></td>
 <td>Halves the capacity of the data type, mostly in terms of possible values</td>
-<td><code>short int</code><br/><code>short short</code></td>
+<td><code>short int</code></td>
 </TR>
 
 <TR>
@@ -275,7 +275,7 @@ A list of modifers is below.
 
 <TR>
 <td><code>static</code></b></td>
-<td>The declared variable is allocated before code is run.</td>
+<td>The declared variable is allocated before code is run, and cannot be seen outside the current file.</td>
 <td><code>static int x_velocity;</code><br/><code>static float mortgage;</code></td>
 </TR>
 
@@ -319,7 +319,7 @@ When we consider an expression, the *order of operations* is important.  It is t
 
     x = 6 + 15 / 3 * 7 - 20;
 
-A left-to-right evaluation of the expression would yield a value of `22`.  However, C has a different order of evaluation.  The rules that specify the order of evaluation are called *precedence rules*.  A short set of precedence rules are given in the table below (a complete table is given in Appendix A).
+A left-to-right evaluation of the expression would yield a value of `22`.  However, as in standard arithmetic, C has a different order of evaluation.  The rules that specify the order of evaluation are called *precedence rules*.  A short set of precedence rules are given in the table below (a complete table is given in Appendix A).
 
 <table>
 <TR>
@@ -416,7 +416,7 @@ After the first initialization, each following line increments `x` by 1.
 	y = 360;
 	y = y - 1;
 	y -= 1;
-    y --;
+    y--;
 
 Again, after the first initialization, each following line decrements `y` by 1.
 
@@ -428,27 +428,12 @@ Just to make things more complicated, C specifies that these two operators can a
 Let's look at an example.
 
     int x = 10;
-    int z = ++x + 25 / x++ - --x - x--;
+    int y = x++;
+    int z = ++x;
 
-What is the resulting value of `z`?  The computation goes as in Figure 3.3:
 
-<figure>
-   <hr/>
-   <img src='Figure3-3.png'>
-   <figcaption>
-      <b>Figure 3.3:</b> Computation Order for the Shortcut Example<br/>
-   </figcaption>
-   <hr/>
-</figure>
-
-1. increment `x`, evaluate `x` to 11
-2. evaluate `x` to 11, increment `x` to 12
-3. perform integer division, giving 2
-4. perform the addition: `11 + 2` giving 13
-5. decrement `x`, evaluate to 10
-6. perform the subtraction: `13 - 10` giving 3
-7. evaluate `x` to 10, decrement `x`
-8. evaluate the final subraction: `3 - 10`, giving -7
+First we assign `x` the value 10. Next, we increment `x` (so it is now 11), but _return the original value_ from that expression, so `y` is also 10. Finally, we increment `x` (so it's now 12) and return
+the incremented value from the expression, so `z` is also 12.
 
 The table below shows all the compound shortcuts in C.
 
@@ -597,9 +582,9 @@ In this section -- for this and future chapters -- we will use projects that are
 
 <figure>
    <hr/>
-   <img src='figure3-4.png'>
+   <img src='Figure3-3.png'>
    <figcaption>
-      <b>Figure 3.4:</b> Screenshot of Project 3.1 Running<br/>
+      <b>Figure 3.3:</b> Screenshot of Project 3.1 Running<br/>
    </figcaption>
    <hr/>
 </figure>
@@ -610,7 +595,7 @@ You can ignore a lot of the code in Project 3.1; much of it is required to make 
     static int x_velocity, y_velocity;
     const int ball_radius = 10;
 
-Now look at line 49.  These variables are used to draw the ball and used to determine it's speed on the display.  
+Now look at line 49.  These variables are used to draw the ball and used to determine its speed on the display.
 
 Try these exercises using the code from Project 3.1.
 
