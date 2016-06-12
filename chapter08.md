@@ -38,7 +38,7 @@ Instead, the `*` symbol is associated with the variable name in the declaration.
 >
     int *ptr1, width, height, *mem;
 >
-Note that not everything in the list is a pointer.  This is possible only if we associate the `*` with the variable name. 
+Note that not everything in the list is a pointer.  This is possible only if we associate the `*` with the variable name. Even if you do write `int* ptr1, mem`, only `ptr1` will be a pointer.
 
 #### Variables and Addresses ####
 
@@ -90,9 +90,9 @@ In this example, the variable `distance` is set to `250` and incremented by `10`
 
 While you can work with declared variables using the "&" operator, you can also create memory space while a program is executing and allow a pointer to reference it.  This memory space does not even need a name associated with it.
 
-You create space in memory using the `malloc` function.  To create space, you need to know the *type* of space you want to create and the *size* in bytes of that space.  Fortunately, you don't have to know the size of everything in C; you can use a function to compute that.
+You create space in memory using the `malloc` function.  To create space, you need to know the *type* of space you want to create and the *size* in bytes of that space.  Fortunately, you don't have to know the size of everything in C; you can use an operator to compute that.
 
-The `sizeof` function will return the number of bytes its type parameter uses.  For example, 
+The `sizeof` operator will return the number of bytes its type parameter uses.  For example, 
 
     sizeof(int)
 
@@ -102,7 +102,7 @@ Once we know the number of bytes we want to allocate, calling `malloc` with the 
 
     int *p = malloc(sizeof(int));
 
-Here, we have allocated enough memory to store a single integer and returned the address of that space to be assigned to the pointer `p`.  The `malloc` function returns an integer pointer by default.  Now, the *only* way to work with that space is through the pointer.  But if we use dereferencing correctly, this space can be used as if we have a variable, *because we do!* We do indeed have a variable; it just does not have a name associated with it.  
+Here, we have allocated enough memory to store a single integer and returned the address of that space to be assigned to the pointer `p`.  Now, the *only* way to work with that space is through the pointer.  But if we use dereferencing correctly, this space can be used as if we have a variable, *because we do!* We do indeed have a variable; it just does not have a name associated with it.  
 
 Here's another example:
 
@@ -140,7 +140,7 @@ There's a few notes we need to make about pointer arithmetic.
 
 Let's walk through one more example.
 
-    long *bigints = (long *) malloc(100 * sizeof(long));
+    long *bigints = malloc(100 * sizeof(long));
     for (int i=0; i<100; i++, bigints++) *bigints = 0;
     bigints -= 100; 
 
@@ -291,7 +291,7 @@ There are situations where untyped pointers are appropriate.  Untyped pointers a
 
 In this code, assume that `computeAverage` computes the average of the integers in the array and returns that value as a float (we saw this example in Chapter 7).  First, note that the pointer `p` takes an address of an integer variable, then takes the address of a float variable, and that a compiler would think this is correct.  Second, in the call to `printf`, we had to inform the compiler that `p` was currently pointing to a float variable, and then we could dereference it.  
 
-Untyped pointers are also useful as formal parameters to functions.  Using a void type for a pointer in a function specification allows flexibility in the actual parameter.  We will discuss this further in the next section.
+Untyped pointers are also useful as formal parameters to functions.  Using a void type for a pointer in a function specification allows flexibility in the actual parameter.  Untyped pointers can also be useful as return values -- for instance, `malloc` returns an untyped pointer.  We will discuss this further in the next section.
 
 ### Pointers as Function Parameters ###
 
@@ -355,7 +355,7 @@ Dynamically creating memory with `malloc` is a great way to only take up the mem
 
 To continue this frugality, memory space that is allocated by your program must also be deallocated by your program.  To deallocate memory that was allocated with `malloc`, use the `free` function call.  Here's an example of allocating and immediately freeing up memory:
 
-    long *racing = (long *)malloc(40 * sizeof(long));
+    long *racing = malloc(40 * sizeof(long));
 
     free(racing);
 

@@ -1,12 +1,10 @@
 Chapter 7: Arrays
 =======
-At this point in this book, we have discussed data as scalar data types.  Each data item we have discussed is an abstraction of a single word in memory.  Whether we need an integer, a floating point number or character, these data items take up one memory word.
-
-There are many applications that require data to be structured.  Data items are grouped with other similar data items to form a *collection* or *aggregate* of items.  C supports two such collections: arrays and structs.  We will handle arrays in this chapter and structs in Chapter 9.   
+At this point in this book, we have discussed data as scalar data types. There are many applications that require data to be structured.  Data items are grouped with other similar data items to form a *collection* or *aggregate* of items.  C supports two such collections: arrays and structs.  We will handle arrays in this chapter and structs in Chapter 9.   
 
 ### Array Basics ###
 
-Arrays are collections of data where each data item is identical and arranged in a sequence so that they can be referenced with integers.  Arrays in C start at  0 and, once declared, are fixed in length.  
+Arrays are collections of data where each data item is identical and arranged in a sequence so that they can be referenced with integers.  Arrays in C start at 0 and, once declared, are fixed in length.  
 
 Arrays in C are declared like this:
 
@@ -43,7 +41,7 @@ The biggest danger with arrays is that an array reference might select an item f
 
 > **Complications With Out of Bounds References**
 > 
-You might expect that when an error occurs when running a program, the runtime system would likely stop with an error message.  However, even though it's an error to reference arrays outside their boundaries, C will always allow this *without* an error message.  
+You might expect that when an error occurs when running a program, the runtime system would likely stop with an error message.  However, even though it's an error to reference arrays outside their boundaries, C will often allow this *without* an error message.  
 > 
 Technically, the standard for the C language specifies out of bounds references as "undefined behavior," which means compilers can handle these any way they want.  The reality is that an out of bounds reference will access memory outside of the memory allocated for the array.  It will either access other variables in the program or it will access memory from protected areas, like memory dedicated to other running programs.  In the former case, such a reference constitutes a bug, changing memory in unintended ways.  In the latter case, the program will likely crash. 
 >
@@ -53,11 +51,11 @@ Let's look at an array example that's a little more complex.
 
     float numbers[20];
     int temp;
-    int i,j;
+    int i, j;
 
     for (i=0; i<20; i++) numbers[i] = rand();
 
-     for (i=0; i<19; i++)	
+    for (i=0; i<19; i++) {
         for (j=0; j<19; j++) {
             if (numbers[j] > numbers[j+1]) {
                 temp = numbers[j];
@@ -170,7 +168,7 @@ Inserting elements into an array is a common operation.  When inserting somethin
     for (int i=insertion_point; i<array_length-1; i++)
         arr[i+1] = arr[i];
     arr[insertion_point] = new_element;
-    array_length ++;
+    array_length++;
 
 This assumes that `array_length` is maintained by other code and is at least equal to 4.
 
@@ -179,7 +177,7 @@ Like insertion, deletion is also a common operation.  In a deletion, the element
     deletion_point = 3;
     for (int i=deletion_point; i<array_length-1; i++)
         arr[i] = arr[i+1];
-    array_length --;
+    array_length--;
 
 The last element at the `array_length+1` point is now considered to have an invalid value.
 

@@ -12,7 +12,7 @@ The Böhm/Jacopini theorem can be found in "Flow diagram, Turing machines, and l
 
 Conditional execution is based on boolean decision making: should code block #1 or code block #2 be executed?  This decision making is binary, based on true or false values.  Therefore, in order to discuss conditional execution, we have to first define what conditions are in C.
 
-As we discuss conditions, it is important to remember what we discussed about booleans in Chapter 3.  There is no boolean data type in C; C considers an integer value of 0 to be "false" and every other integer value to be "true".  This means that 
+As we discuss conditions, it is important to remember what we discussed about booleans in Chapter 3. C considers an integer value of 0 to evaluate `false` and every other integer value to evaluate as `true`.  This means that 
 
     if (x != 0) {...}
 
@@ -49,7 +49,7 @@ There are six ways to compare values in C, listed in the table below.
 <tr>
 <td>Less than</td>
 <td><code> &lt; </code></td>
-<td>x < y is true when x has a lesser value than y and is false otherwise</td>
+<td>x &lt; y is true when x has a lesser value than y and is false otherwise</td>
 </tr>
 
 <tr>
@@ -117,7 +117,7 @@ In Chapter 3, we had a diagram of the order of evaluation of the boolean express
 
 <figure>
    <hr/>
-   <img src='http://www.cs.hope.edu/~jipping/pebblebook/Figure3-1.png'>
+   <img src='Figure3-3.png'>
    <figcaption>
       <b>Figure 4.1/3.1:</b> Computation Order for the Boolean Expression Example<br/>
    </figcaption>

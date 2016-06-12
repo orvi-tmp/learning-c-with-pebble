@@ -12,13 +12,13 @@ We have seen functions already and have appreciated the abstraction they provide
 
 Let's consider a function reference we have seen and walk through how it works.  Consider this:
 
-    strftime(time_string, sizeof(time_string), "%T", tick_time);
+    strftime(time_string, sizeof(time_string), "%d", time(NULL));
 
-There are two function references in this statement: `sizeof(time_string)`, which gives the size, in bytes, of the string held in `time_string`, and the entire `strftime` reference, which will take the time variable `tick_time` and create a string that describes the time and assigns it to `time_string`.  
+This statement references the `strftime` function, which will take the time variable `tick_time` and create a string that describes the time and assigns it to `time_string`.
 
-Even though we depend on abstraction here, there is a C code definition somewhere for both of these functions (we will describe where these definitions can be found in a later chapter).  When we reference a function by name, say, by using `sizeof(time_string)`, the execution of the current code stops and execution is transferred to the definition of the function `sizeof`.  This is referred to as *calling* a function.  When the function's code has been executed, execution is transferred back to the code that called the function.  This is referred to as *returning to the caller*.  
+Even though we depend on abstraction here, there is a C code definition somewhere for this function (we will describe where these definitions can be found in a later chapter).  When we reference a function by name, say, by using `strftime`, the execution of the current code stops and execution is transferred to the definition of the function `strftime`.  This is referred to as *calling* a function.  When the function's code has been executed, execution is transferred back to the code that called the function.  This is referred to as *returning to the caller*.  
 
-When some functions return, they carry with them a value that can be used as if a variable were referenced.  When the call to `sizeof(time_string)` returns, it brings with it an integer value that is the size of the `time_string` data structure. When a function returns, it brings a value of a specific data type, described in the code that creates the function.
+When some functions return, they carry with them a value that can be used as if a variable were referenced.  When the call to `time(NULL)` returns, it brings with it an integer value that is the current time, in seconds since midnight on January 1st 1970. When a function returns, it brings a value of a specific data type, described in the code that creates the function.
 
 When some functions return, they bring nothing with them.  They simply have executed some code, then returned.  When the call to `strftime` returns, the function has built a time description into `time_string`, but brings no value back with the return.  These functions are said to return *void* values.
 
@@ -38,7 +38,7 @@ Like variables, parameters have data types.  In the case of functions, however, 
 
 the compiler would complain of an error with parameter data types, because the string "two" cannot be cast to a double data type.
 
-The parameter list also has an *sequence order*.  Parameters are matched left to right with the parameters specified for the function.  This means that our call to `strftime` above *must* have parameters in the order given: string, integer, string, time type.  This is the order that the function expects and any other order will cause an error -- either from the compiler or at run time.
+The parameter list also has an *sequence order*.  Parameters are matched left to right with the parameters specified for the function.  This means that our call to `strftime` above *must* have parameters in the order given: string, integer, string, integer.  This is the order that the function expects and any other order will cause an error -- either from the compiler or at run time.
 
 >**Compile Time or Run Time**
 >
@@ -185,7 +185,7 @@ Pass by value and pass by reference modes are common in programming languages.  
 >
 *Pass by value-result*: Also known as "copy-in, copy out", this method is used in only a few older languages.  Parameters as assigned to formal parameters, then the values of the formal parameters are assigned back to the actual parameters when the functions return. When this mode is used, only variables may be used in a function call; literal values cannot be used.
 >
-*Pass by Name*: This is an interesting parameter passing mode used by early programming languages (e.g., Algol).  When pass by name is used, the effect is like the *name* is passed and the calculation is deferred until the value is needed. Like pass by value-result, variables must be used in a call.  For example, if we called the function `sum2` above using call by name, MORE HERE
+*Pass by Name*: This is an interesting parameter passing mode used by early programming languages (e.g., Algol).  When pass by name is used, the effect is like the *name* is passed and the calculation is deferred until the value is needed. Like pass by value-result, variables must be used in a call.
 
 #### Returning Values ####
 
@@ -246,8 +246,6 @@ This is a correct way to return the absolute value of an integer parameter.  So 
     }
 
 The mistake here is that the last return statement will never be reached.  The if statement will result in some value being returned and execution will never reach that last statement.  
-
-This is an easy mistake to make.  Fortunately, compilers will flag that last statement as an error and will usually force you to remove that statement.   
 
 ### Functions as Parameters ###
 
@@ -370,17 +368,6 @@ These adhere exactly to the typing that is define above.  We can mix types up li
 
 This works because the integer return value of `mult` can be cast to a float data type.  
 
-Consider this:
-
-    float floatmult(int a, int b) {
-        return (float)a*(float)b;
-    }
-
-Now if we call this with float data types or assign the value to an int variable, we will get errors.  Each of the following calls will cause an error:
-
-    int x = floatmult(10,20);
-    float f = floatmult(10.0, 20.0);
-
 ### Recursion ###
 
 A function that is defined in terms of itself -- one that calls itself somehow -- is called a *recursive* function.  Recursion is a useful tool for defining solutions to problems and to implementing those solutions.  
@@ -412,7 +399,7 @@ Another classic example of recursion is the computation of Fibonacci sequences. 
          first = second;
          second = next;
          printf("%d\n",next);
-         number --;
+         number--;
      } while (number > 1);
 
 In the code above, we can see two base cases.  The first number in the sequence is 0 and second is 1.  The remaining terms are equal to the sum of the two previous terms.  That's the next case.  We can write this as follows:
